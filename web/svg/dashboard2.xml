@@ -1,0 +1,469 @@
+<?xml version="1.0"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xl="http://www.w3.org/1999/xlink" version="1.1" viewBox="-10 2 848 449"
+     width="582pt" height="476pt">
+    <metadata xmlns:dc="http://purl.org/dc/elements/1.1/">
+        <dc:date>2014-01-28 02:47Z</dc:date>
+        <!-- Produced by OmniGraffle Professional 5.4.4 -->
+        <!-- Author: Hechangzheng(czhe@longoldstar.com) -->
+    </metadata>
+    <defs>
+        <filter id="Shadow" filterUnits="userSpaceOnUse">
+            <feGaussianBlur in="SourceAlpha" result="blur" stdDeviation="3.488"/>
+            <feOffset in="blur" result="offset" dx="0" dy="4"/>
+            <feFlood flood-color="black" flood-opacity=".75" result="flood"/>
+            <feComposite in="flood" in2="offset" operator="in"/>
+        </filter>
+        <filter id="Shadow_2" filterUnits="userSpaceOnUse">
+            <feGaussianBlur in="SourceAlpha" result="blur" stdDeviation=".16027227"/>
+            <feOffset in="blur" result="offset" dx="0" dy="6"/>
+            <feFlood flood-color="black" flood-opacity=".75" result="flood"/>
+            <feComposite in="flood" in2="offset" operator="in"/>
+        </filter>
+        <linearGradient x1="0" x2="1" id="Gradient" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="white"/>
+            <stop offset="1" stop-color="#aaa"/>
+        </linearGradient>
+        <linearGradient id="Obj_Gradient" xl:href="#Gradient"
+                        gradientTransform="translate(105.5 50.210336) rotate(90) scale(181.5546)"/>
+        <font-face font-family="Heiti SC" font-size="12" panose-1="2 0 0 0 0 0 0 0 0 0" units-per-em="1000"
+                   underline-position="0" underline-thickness="59.037876" slope="0" x-height="591" cap-height="778"
+                   ascent="860.0006" descent="-139.99939" font-weight="300">
+            <font-face-src>
+                <font-face-name name="STHeitiSC-Light"/>
+            </font-face-src>
+        </font-face>
+        <marker orient="auto" overflow="visible" markerUnits="strokeWidth" id="Ball_Marker" viewBox="-1 -4 8 8"
+                markerWidth="8" markerHeight="8" color="black">
+            <g>
+                <circle cx="2.9999986" cy="0" r="2.9999974" fill="none" stroke="currentColor" stroke-width="1"/>
+            </g>
+        </marker>
+        <marker orient="auto" overflow="visible" markerUnits="strokeWidth" id="Ball_Marker_2" viewBox="-7 -4 8 8"
+                markerWidth="8" markerHeight="8" color="black">
+            <g>
+                <circle cx="-2.9999986" cy="0" r="2.9999974" fill="none" stroke="currentColor" stroke-width="1"/>
+            </g>
+        </marker>
+        <font-face font-family="Heiti SC" font-size="13" panose-1="2 0 0 0 0 0 0 0 0 0" units-per-em="1000"
+                   underline-position="0" underline-thickness="54.496502" slope="0" x-height="591"
+                   cap-height="778.00006" ascent="860.00067" descent="-139.99939" font-weight="300">
+            <font-face-src>
+                <font-face-name name="STHeitiSC-Light"/>
+            </font-face-src>
+        </font-face>
+        <marker orient="auto" overflow="visible" markerUnits="strokeWidth" id="FilledBox_Marker" viewBox="-1 -4 8 8"
+                markerWidth="8" markerHeight="8" color="black">
+            <g>
+                <rect x="0" y="-3" width="6" height="6" fill="currentColor" stroke="currentColor" stroke-width="1"/>
+            </g>
+        </marker>
+        <marker orient="auto" overflow="visible" markerUnits="strokeWidth" id="FilledBox_Marker_2" viewBox="-7 -4 8 8"
+                markerWidth="8" markerHeight="8" color="black">
+            <g>
+                <rect x="-6" y="-3" width="6" height="6" fill="currentColor" stroke="currentColor" stroke-width="1"/>
+            </g>
+        </marker>
+        <font-face font-family="Heiti SC" font-size="13" units-per-em="1000" underline-position="0"
+                   underline-thickness="54.496502" slope="0" x-height="531" cap-height="718.00006" ascent="860.00067"
+                   descent="-139.99939" font-weight="bold">
+            <font-face-src>
+                <font-face-name name="STHeitiSC-Medium"/>
+            </font-face-src>
+        </font-face>
+        <marker orient="auto" overflow="visible" markerUnits="strokeWidth" id="FilledArrow_Marker" viewBox="-1 -4 10 8"
+                markerWidth="10" markerHeight="8" color="black">
+            <g>
+                <path d="M 8 0 L 0 -3 L 0 3 Z" fill="currentColor" stroke="currentColor" stroke-width="1"/>
+            </g>
+        </marker>
+        <linearGradient id="Obj_Gradient_2" xl:href="#Gradient"
+                        gradientTransform="translate(388.8924 244.38319) rotate(90) scale(174.85289)"/>
+        <radialGradient cx="0" cy="0" r="1" id="Gradient_2" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="white"/>
+            <stop offset="1" stop-color="#aaa"/>
+        </radialGradient>
+        <radialGradient id="Obj_Gradient_3" xl:href="#Gradient_2"
+                        gradientTransform="translate(388.89238 271.4223) scale(55.48328)"/>
+        <radialGradient id="Obj_Gradient_4" xl:href="#Gradient_2"
+                        gradientTransform="translate(388.89238 331.80963) scale(55.48328)"/>
+        <radialGradient id="Obj_Gradient_5" xl:href="#Gradient_2"
+                        gradientTransform="translate(388.89238 392.19697) scale(55.48328)"/>
+        <font-face font-family="Helvetica" font-size="12" units-per-em="1000" underline-position="-75.683594"
+                   underline-thickness="49.316406" slope="0" x-height="522.94922" cap-height="717.28516"
+                   ascent="770.01953" descent="-229.98047" font-weight="500">
+            <font-face-src>
+                <font-face-name name="Helvetica"/>
+            </font-face-src>
+        </font-face>
+        <linearGradient id="Obj_Gradient_6" xl:href="#Gradient"
+                        gradientTransform="translate(609.17913 228.83432) rotate(90) scale(190.40175)"/>
+        <radialGradient id="Obj_Gradient_7" xl:href="#Gradient_2"
+                        gradientTransform="translate(623.0584 253.71693) scale(55.48328)"/>
+        <radialGradient id="Obj_Gradient_8" xl:href="#Gradient_2"
+                        gradientTransform="translate(623.0584 296.0782) scale(55.48328)"/>
+        <font-face font-family="Heiti SC" font-size="12" units-per-em="1000" underline-position="0"
+                   underline-thickness="59.037876" slope="0" x-height="531" cap-height="718" ascent="860.0006"
+                   descent="-139.99939" font-weight="bold">
+            <font-face-src>
+                <font-face-name name="STHeitiSC-Medium"/>
+            </font-face-src>
+        </font-face>
+        <filter id="Shadow_3" filterUnits="userSpaceOnUse">
+            <feGaussianBlur in="SourceAlpha" result="blur" stdDeviation="2.2616882"/>
+            <feOffset in="blur" result="offset" dx="0" dy="4"/>
+            <feFlood flood-color="#ccc" result="flood"/>
+            <feComposite in="flood" in2="offset" operator="in" result="color"/>
+            <feMerge>
+                <feMergeNode in="color"/>
+                <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+        </filter>
+        <font-face font-family="Helvetica Neue" font-size="13" panose-1="2 0 10 6 0 0 0 2 0 4" units-per-em="1000"
+                   underline-position="-100.00001" underline-thickness="50.000004" slope="0" x-height="553"
+                   cap-height="726.00006" ascent="972.0002" descent="-227.00502" font-weight="bold"
+                   font-stretch="condensed">
+            <font-face-src>
+                <font-face-name name="HelveticaNeue-CondensedBlack"/>
+            </font-face-src>
+        </font-face>
+        <font-face font-family="Lucida Grande" font-size="13" panose-1="2 11 6 0 4 5 2 2 2 4" units-per-em="1000"
+                   underline-position="-97.65626" underline-thickness="48.82813" slope="0" x-height="530.27344"
+                   cap-height="722.6563" ascent="966.79694" descent="-210.93752" font-weight="500">
+            <font-face-src>
+                <font-face-name name="LucidaGrande"/>
+            </font-face-src>
+        </font-face>
+    </defs>
+    <g stroke="none" stroke-opacity="1" stroke-dasharray="none" fill="none" fill-opacity="1">
+        <title>Canvas 1</title>
+        <g>
+            <title>湿法冶炼-生产工艺流程</title>
+            <g>
+                <use xl:href="#id217_Graphic" filter="url(#Shadow)"/>
+                <use xl:href="#id42_Graphic" filter="url(#Shadow)"/>
+                <use xl:href="#id168_Graphic" filter="url(#Shadow_2)"/>
+                <use xl:href="#id4_Graphic" filter="url(#Shadow)"/>
+                <use xl:href="#id24_Graphic" filter="url(#Shadow)"/>
+                <use xl:href="#id186_Graphic" filter="url(#Shadow)"/>
+                <use xl:href="#id187_Graphic" filter="url(#Shadow)"/>
+                <use xl:href="#id193_Graphic" filter="url(#Shadow)"/>
+                <use xl:href="#id197_Graphic" filter="url(#Shadow)"/>
+                <use xl:href="#id198_Graphic" filter="url(#Shadow)"/>
+                <use xl:href="#id199_Graphic" filter="url(#Shadow)"/>
+            </g>
+            <g id="id217_Graphic">
+                <path d="M 19 50.210336 L 192 50.210336 C 196.97056 50.210336 201 54.239773 201 59.210336 L 201 222.76493 C 201 227.7355 196.97056 231.76493 192 231.76493 L 19 231.76493 C 14.029437 231.76493 10 227.7355 10 222.76493 L 10 59.210336 C 10 54.239773 14.029437 50.210336 19 50.210336 Z"
+                      fill="url(#Obj_Gradient)" ng-click="heapSegmentClick()"/>
+                <path d="M 19 50.210336 L 192 50.210336 C 196.97056 50.210336 201 54.239773 201 59.210336 L 201 222.76493 C 201 227.7355 196.97056 231.76493 192 231.76493 L 19 231.76493 C 14.029437 231.76493 10 227.7355 10 222.76493 L 10 59.210336 C 10 54.239773 14.029437 50.210336 19 50.210336 Z"
+                      stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+                <text transform="translate(15 44.987635)" fill="black">
+                    <tspan font-family="Heiti SC" font-size="12" font-weight="300" x="66.5" y="190" textLength="48">
+                        堆浸系统
+                    </tspan>
+                </text>
+            </g>
+            <g id="id42_Graphic">
+                <path d="M 32 155.23708 L 188.35827 155.23708 L 157.08661 95.02116 L 63.271654 95.02116 Z"
+                      fill="#8e8e8e"/>
+                <path d="M 32 155.23708 L 188.35827 155.23708 L 157.08661 95.02116 L 63.271654 95.02116 Z"
+                      stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+            </g>
+            <line x1="64.96063" y1="95.02116" x2="156.19948" y2="95.02116" marker-end="url(#Ball_Marker)"
+                  marker-start="url(#Ball_Marker_2)" stroke="black" stroke-linecap="round" stroke-linejoin="round"
+                  stroke-width="1"/>
+            <text transform="translate(42.018373 25.872267)" fill="black">
+                <tspan font-family="Heiti SC" font-size="13" font-weight="300" x="0" y="11" textLength="39">硐坑水</tspan>
+            </text>
+            <text transform="translate(147.059055 23.4393)" fill="black">
+                <tspan font-family="Heiti SC" font-size="13" font-weight="300" x="0" y="11" textLength="39">喷淋液</tspan>
+            </text>
+            <g id="id168_Graphic">
+                <path d="M 200.46836 156.64312 L 214.8189 157.06181 L 241.27953 203.28817 L 298.20997 203.28817 L 326.27428 155.23708 L 368.77165 155.23708 L 391.2231 204.50465 L 432.1168 204.50465 L 458.57743 155.23708 L 510.69685 155.23708 L 529.94094 205.72114 L 588.47507 205.1129 L 615.73753 155.23708 L 636.5 155.23708"
+                      marker-end="url(#FilledBox_Marker)" marker-start="url(#FilledBox_Marker_2)" stroke="black"
+                      stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+            </g>
+            <path d="M 222.02005 169.64213 L 229.25197 169.22664 L 318.2559 169.22664 L 318.0205 169.36902"
+                  stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+            <path d="M 374.54934 167.91566 L 451.3609 169.22664 L 455.37008 171.65961" stroke="black"
+                  stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+            <path d="M 515.54392 167.95266 L 611.72835 168.01016 L 611.72835 168.01016" stroke="black"
+                  stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+            <text transform="translate(255.30709 210.77773)" fill="black">
+                <tspan font-family="Heiti SC" font-size="13" font-weight="bold" x="0" y="11" textLength="39">富液池</tspan>
+            </text>
+            <text transform="translate(399.6378 210.77773)" fill="black">
+                <tspan font-family="Heiti SC" font-size="13" font-weight="bold" x="0" y="11" textLength="39">中间池</tspan>
+            </text>
+            <text transform="translate(543.9685 210.77773)" fill="black">
+                <tspan font-family="Heiti SC" font-size="13" font-weight="bold" x="0" y="11" textLength="39">贫液池</tspan>
+            </text>
+            <path d="M 172.72244 125.12912 L 551.59055 124.21676 L 576.4475 124.21676" stroke="black"
+                  stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+            <line x1="266.13683" y1="124.904165" x2="265.4362" y2="159.32869" marker-end="url(#FilledArrow_Marker)"
+                  stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+            <line x1="409.6644" y1="124.55853" x2="409.7948" y2="158.61793" marker-end="url(#FilledArrow_Marker)"
+                  stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+            <path d="M 582.8622 163.14422 L 583.66404 40.88765 L 123.40945 37.846442 L 123.40945 85.12116"
+                  marker-end="url(#FilledArrow_Marker)" stroke="black" stroke-linecap="round" stroke-linejoin="round"
+                  stroke-width="1"/>
+            <path d="M 34 40.68859 L 82 41.589893 L 82.814747 85.12289" marker-end="url(#FilledArrow_Marker)"
+                  stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+            <g id="id4_Graphic">
+                <path d="M 310.3924 244.38319 L 467.3924 244.38319 C 472.36296 244.38319 476.3924 248.41263 476.3924 253.38319 L 476.3924 410.23608 C 476.3924 415.20664 472.36296 419.23608 467.3924 419.23608 L 310.3924 419.23608 C 305.42183 419.23608 301.3924 415.20664 301.3924 410.23608 L 301.3924 253.38319 C 301.3924 248.41263 305.42183 244.38319 310.3924 244.38319 Z"
+                      fill="url(#Obj_Gradient_2)" ng-click="extSegmentClick()"/>
+                <path d="M 310.3924 244.38319 L 467.3924 244.38319 C 472.36296 244.38319 476.3924 248.41263 476.3924 253.38319 L 476.3924 410.23608 C 476.3924 415.20664 472.36296 419.23608 467.3924 419.23608 L 310.3924 419.23608 C 305.42183 419.23608 301.3924 415.20664 301.3924 410.23608 L 301.3924 253.38319 C 301.3924 248.41263 305.42183 244.38319 310.3924 244.38319 Z"
+                      stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+                <text transform="translate(306.3924 234.80963)" fill="black">
+                    <tspan font-family="Heiti SC" font-size="12" font-weight="300" x="46.5" y="192" textLength="72">
+                        萃取电积系统
+                    </tspan>
+                </text>
+            </g>
+            <g id="id24_Graphic">
+                <path d="M 335.83398 261.68822 L 342.32337 255.19883 L 435.4614 255.19883 L 441.95078 261.68822 L 441.95078 281.15637 L 435.4614 287.64576 L 342.32337 287.64576 L 335.83398 281.15637 Z"
+                      fill="url(#Obj_Gradient_3)"/>
+                <path d="M 335.83398 261.68822 L 342.32337 255.19883 L 435.4614 255.19883 L 441.95078 261.68822 L 441.95078 281.15637 L 435.4614 287.64576 L 342.32337 287.64576 L 335.83398 281.15637 Z"
+                      stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+                <text transform="translate(351.44566 265.4223)" fill="black">
+                    <tspan font-family="Heiti SC" font-size="12" font-weight="300" x="13.446719" y="10" textLength="48">
+                        萃取工段
+                    </tspan>
+                </text>
+            </g>
+            <g id="id186_Graphic">
+                <path d="M 335.83398 322.07555 L 342.32337 315.58617 L 435.4614 315.58617 L 441.95078 322.07555 L 441.95078 341.54371 L 435.4614 348.0331 L 342.32337 348.0331 L 335.83398 341.54371 Z"
+                      fill="url(#Obj_Gradient_4)"/>
+                <path d="M 335.83398 322.07555 L 342.32337 315.58617 L 435.4614 315.58617 L 441.95078 322.07555 L 441.95078 341.54371 L 435.4614 348.0331 L 342.32337 348.0331 L 335.83398 341.54371 Z"
+                      stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+                <text transform="translate(351.44566 325.80963)" fill="black">
+                    <tspan font-family="Heiti SC" font-size="12" font-weight="300" x="13.446719" y="10" textLength="48">
+                        反萃工段
+                    </tspan>
+                </text>
+            </g>
+            <g id="id187_Graphic">
+                <path d="M 335.83398 382.4629 L 342.32337 375.9735 L 435.4614 375.9735 L 441.95078 382.4629 L 441.95078 401.93105 L 435.4614 408.42043 L 342.32337 408.42043 L 335.83398 401.93105 Z"
+                      fill="url(#Obj_Gradient_5)"/>
+                <path d="M 335.83398 382.4629 L 342.32337 375.9735 L 435.4614 375.9735 L 441.95078 382.4629 L 441.95078 401.93105 L 435.4614 408.42043 L 342.32337 408.42043 L 335.83398 401.93105 Z"
+                      stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+                <text transform="translate(351.44566 386.19697)" fill="black">
+                    <tspan font-family="Heiti SC" font-size="12" font-weight="300" x="13.446719" y="10" textLength="48">
+                        电解工段
+                    </tspan>
+                </text>
+            </g>
+            <path d="M 267.83093 203.28817 L 269 271.4223 L 325.43398 271.4223" marker-end="url(#FilledArrow_Marker)"
+                  stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+            <line x1="388.8924" y1="288.14576" x2="388.8924" y2="305.18617" marker-end="url(#FilledArrow_Marker)"
+                  stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+            <line x1="388.89238" y1="348.5331" x2="388.89238" y2="365.5735" marker-end="url(#FilledArrow_Marker)"
+                  stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+            <g id="id193_Graphic">
+                <path d="M 70 375.13188 L 78 367.13188 L 230 367.13188 L 238 375.13188 L 238 409.61594 L 230 417.61594 L 78 417.61594 L 70 409.61594 Z"
+                      fill="white" ng-click="electrowinDetail()"/>
+                <path d="M 70 375.13188 L 78 367.13188 L 230 367.13188 L 238 375.13188 L 238 409.61594 L 230 417.61594 L 78 417.61594 L 70 409.61594 Z"
+                      ng-click="electrowinDetail()" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+                <text transform="translate(91.8 378.37391)" fill="black" ng-click="electrowinDetail()">
+                    <tspan font-family="Heiti SC" font-size="12" font-weight="300" fill="black" x="0" y="11"
+                           textLength="36">当日：
+                    </tspan>
+                    <tspan font-family="Helvetica" font-size="12" font-weight="500" fill="black" x="36" y="11"
+                           style="fill:red">{{dashboardObj.electrowin.djsjCuQty | number:2}} kg
+                    </tspan>
+                    <tspan font-family="Heiti SC" font-size="12" font-weight="300" fill="black" x="0" y="25"
+                           textLength="36"> 年度：
+                    </tspan>
+                    <tspan font-family="Helvetica" font-size="12" font-weight="500" fill="black" x="36" y="25"
+                           style="fill:red">{{dashboardObj.electrowinCuYear | number:2}}kg
+                    </tspan>
+                </text>
+            </g>
+            <line x1="335.33398" y1="392.23731" x2="248.4" y2="392.3028" marker-end="url(#FilledArrow_Marker)"
+                  stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+            <text transform="translate(100 350.71755)" fill="black">
+                <tspan font-family="Heiti SC" font-size="13" font-weight="bold" x="0" y="11" textLength="39">阴极铜</tspan>
+            </text>
+            <g id="id197_Graphic">
+                <path d="M 540 228.83432 L 678.35827 228.83432 C 683.32883 228.83432 687.35827 232.86376 687.35827 237.83432 L 687.35827 410.23607 C 687.35827 415.20663 683.32883 419.23607 678.35827 419.23607 L 540 419.23607 C 535.02944 419.23607 531 415.20663 531 410.23607 L 531 237.83432 C 531 232.86376 535.02944 228.83432 540 228.83432 Z"
+                      fill="url(#Obj_Gradient_6)"/>
+                <path d="M 540 228.83432 L 678.35827 228.83432 C 683.32883 228.83432 687.35827 232.86376 687.35827 237.83432 L 687.35827 410.23607 C 687.35827 415.20663 683.32883 419.23607 678.35827 419.23607 L 540 419.23607 C 535.02944 419.23607 531 415.20663 531 410.23607 L 531 237.83432 C 531 232.86376 535.02944 228.83432 540 228.83432 Z"
+                      stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+                <text transform="translate(536 304.0352)" fill="black">
+                    <tspan font-family="Heiti SC" font-size="12" font-weight="300" x="37.179134" y="38" textLength="72">
+                        环保中和系统
+                    </tspan>
+                </text>
+            </g>
+            <g id="id198_Graphic">
+                <path d="M 570 243.98285 L 576.4894 237.49347 L 669.6274 237.49347 L 676.1168 243.98285 L 676.1168 263.45101 L 669.6274 269.9404 L 576.4894 269.9404 L 570 263.45101 Z"
+                      fill="url(#Obj_Gradient_7)"/>
+                <path d="M 570 243.98285 L 576.4894 237.49347 L 669.6274 237.49347 L 676.1168 243.98285 L 676.1168 263.45101 L 669.6274 269.9404 L 576.4894 269.9404 L 570 263.45101 Z"
+                      stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+                <text transform="translate(585.61168 247.71693)" fill="black">
+                    <tspan font-family="Heiti SC" font-size="12" font-weight="300" x="7.446719" y="10" textLength="60">
+                        石灰石中和
+                    </tspan>
+                </text>
+            </g>
+            <g id="id199_Graphic">
+                <path d="M 570 286.34412 L 576.4894 279.85474 L 669.6274 279.85474 L 676.1168 286.34412 L 676.1168 305.81228 L 669.6274 312.30166 L 576.4894 312.30166 L 570 305.81228 Z"
+                      fill="url(#Obj_Gradient_8)"/>
+                <path d="M 570 286.34412 L 576.4894 279.85474 L 669.6274 279.85474 L 676.1168 286.34412 L 676.1168 305.81228 L 669.6274 312.30166 L 576.4894 312.30166 L 570 305.81228 Z"
+                      stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+                <text transform="translate(585.61168 290.0782)" fill="black">
+                    <tspan font-family="Heiti SC" font-size="12" font-weight="300" x="13.446719" y="10" textLength="48">
+                        石灰中和
+                    </tspan>
+                </text>
+            </g>
+            <path d="M 569.50005 254.44469 L 514 255.19883 L 515 296.6588 L 516 296.6588 L 569.5 296.36865"
+                  stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+            <line x1="442.45075" y1="270.85909" x2="504.46003" y2="270.20701" marker-end="url(#FilledArrow_Marker)"
+                  stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+            <path d="M 676.61676 254.37318 L 744 255.19883 L 744 104.68114 L 597 104.68114 L 596.15066 155.205"
+                  marker-end="url(#FilledArrow_Marker)" stroke="black" stroke-linecap="round" stroke-linejoin="round"
+                  stroke-width="1"/>
+            <path d="M 676.61676 296.72377 L 746 297.5601 L 746 380.49436" marker-end="url(#FilledArrow_Marker)"
+                  stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+            <line x1="623.0584" y1="270.4404" x2="623.0584" y2="279.35474" stroke="black" stroke-linecap="round"
+                  stroke-linejoin="round" stroke-width="1"/>
+            <text transform="translate(584.0584 388.047)" fill="black">
+                <tspan font-family="Heiti SC" font-size="13" font-weight="300" x="0" y="11" textLength="78">废渣外排存储
+                </tspan>
+            </text>
+            <line x1="623.0584" y1="312.80166" x2="623.0584" y2="376.53526" marker-end="url(#FilledArrow_Marker)"
+                  stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+            <text transform="translate(722 403.0042)" fill="black">
+                <tspan font-family="Heiti SC" font-size="13" font-weight="300" x="0" y="11" textLength="52">外排存储</tspan>
+            </text>
+            <path d="M 111.62901 185.79846 L 207.80544 185.79846 C 220.05683 185.79846 230 189.43251 230 193.91019 C 230 198.38787 220.05683 202.02192 207.80544 202.02192 L 111.62901 202.02192 L 82.036265 193.91019 Z"
+                  fill="#959595"/>
+            <path d="M 605.629 182.19048 L 701.80544 182.19048 C 714.05683 182.19048 724 185.82454 724 190.30221 C 724 194.77989 714.05683 198.41394 701.80544 198.41394 L 605.629 198.41394 L 576.03626 190.30221 Z"
+                  fill="#959595" ng-click="solPoolDetail()"/>
+            <text transform="translate(595.83264 184.30221)" fill="white" ng-click="solPoolDetail()">
+                <tspan font-family="Heiti SC" font-size="12" font-weight="bold" fill="white" x="5.95" y="10"
+                       style="fill:red">铜浓度：{{dashboardObj.poolParam.pyCund | number:2 }} 'g/L'
+                </tspan>
+            </text>
+            <path d="M 449.75829 182.50843 L 503.0583 182.50843 C 509.8479 182.50843 515.3583 186.14249 515.3583 190.62016 C 515.3583 195.09784 509.8479 198.7319 503.0583 198.7319 L 449.75829 198.7319 L 433.35829 190.62016 Z"
+                  fill="#959595" ng-click="solPoolDetail()"/>
+            <text transform="translate(446.55829 184.62016)" fill="white" ng-click="solPoolDetail()">
+                <tspan font-family="Heiti SC" font-size="12" font-weight="bold" fill="white" x="5.95" y="10"
+                       style="fill:red">{{dashboardObj.poolParam.zjCund | number:2}} 'g/L'
+                </tspan>
+            </text>
+            <path d="M 307.08032 181.92231 L 360.38032 181.92231 C 367.16992 181.92231 372.68032 185.55637 372.68032 190.03405 C 372.68032 194.51172 367.16992 198.14578 360.38032 198.14578 L 307.08032 198.14578 L 290.68032 190.03405 Z"
+                  fill="#959595" ng-click="solPoolDetail()"/>
+            <text transform="translate(303.88032 184.03405)" fill="white" ng-click="solPoolDetail()">
+                <tspan font-family="Heiti SC" font-size="12" font-weight="bold" fill="white" x="5.95" y="10"
+                       style="fill:red">{{dashboardObj.poolParam.fyCund | number:2}} 'g/L'
+                </tspan>
+            </text>
+            <g filter="url(#Shadow_3)">
+                <path d="M 137.00001 289.02751 L 290.87074 289.02751 C 293.63216 289.02751 295.87074 291.26609 295.87074 294.02751 L 295.87074 341.0667 C 295.87074 343.76884 293.72387 345.9821 291.02297 346.06438 L 282.63401 346.31991 C 281.12114 346.366 279.93207 347.62978 279.97816 349.14265 C 280.01144 350.23522 280.69079 351.20354 281.70683 351.60663 L 283.02841 352.13093 C 283.49192 352.31482 283.7186 352.83964 283.53471 353.30315 C 283.36662 353.72685 282.90908 353.9588 282.46797 353.84396 L 255.72052 346.88022 C 255.31977 346.77589 254.90761 346.72174 254.49351 346.71903 L 136.96726 345.94924 C 134.218675 345.93124 132.00001 343.698 132.00001 340.94935 L 132.00001 294.02751 C 132.00001 291.26609 134.23858 289.02751 137.00001 289.02751 Z"
+                      stroke="#6cc7ff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" fill="transparent"
+                        ng-click="extractDetail()"/>
+            </g>
+            <text transform="translate(140.741455 291.02752)" fill="black" ng-click="extractDetail()">
+                <tspan font-family="Heiti SC" font-size="13" font-weight="bold" x="0" y="13" textLength="52">开机时间
+                </tspan>
+                <tspan font-family="Helvetica Neue" font-size="13" font-weight="bold" font-stretch="condensed" x="52"
+                       y="13" textLength="3.3800001">:
+                </tspan>
+                <tspan font-family="Helvetica Neue" font-size="13" font-weight="bold" font-stretch="condensed"
+                       x="54.899" y="13" style="fill:red">{{dashboardObj.extractObj().p1OpenHours}}-{{dashboardObj.extractObj().p2OpenHours}} 小时
+                </tspan>
+            </text>
+            <text transform="translate(141.92599 307.57028)" fill="black" ng-click="extractDetail()">
+                <tspan font-family="Heiti SC" font-size="13" font-weight="bold" x="0" y="13" textLength="39">萃取率</tspan>
+                <tspan font-family="Helvetica Neue" font-size="13" font-weight="bold" font-stretch="condensed" x="39"
+                       y="13" textLength="3.3800001">:
+                </tspan>
+                <tspan font-family="Helvetica Neue" font-size="13" font-weight="bold" font-stretch="condensed"
+                       x="41.899" y="13" style="fill:red">{{dashboardObj.extractObj().p1ExtractRatio|number:2}}%-{{dashboardObj.extractObj().p2ExtractRatio|number:2}}%
+                </tspan>
+            </text>
+            <text transform="translate(141.84943 322.57028)" fill="black" ng-click="extractDetail()">
+                <tspan font-family="Heiti SC" font-size="13" font-weight="bold" x="0" y="13" textLength="65">萃取传递铜
+                </tspan>
+                <tspan font-family="Helvetica Neue" font-size="13" font-weight="bold" font-stretch="condensed" x="65"
+                       y="13" textLength="3.3800001">:
+                </tspan>
+                <tspan font-family="Helvetica Neue" font-size="13" font-weight="bold" font-stretch="condensed"
+                       x="67.899" y="13" style="fill:red">{{dashboardObj.extractObj().p1Cu | number:2}}-{{dashboardObj.extractObj().p2Cu|number:2}} kg
+                </tspan>
+            </text>
+            <g filter="url(#Shadow_3)">
+                <path fill="transparent" ng-click="leachoutDetail($event)" d="M 211 15.472151 L 344.87073 15.472151 C 347.63215 15.472151 349.87073 17.710727 349.87073 20.472151 L 349.87073 96.03655 C 349.87073 98.797976 347.63215 101.03655 344.87073 101.03655 L 256.3261 101.03655 C 255.83013 101.03655 255.33691 101.11035 254.86265 101.255516 L 213.28786 113.981337 C 212.45321 114.23682 211.56949 113.76731 211.314 112.932663 C 211.08096 112.17132 211.45065 111.3555 212.17674 111.028784 L 221.81075 106.693846 C 223.34135 106.005134 224.02383 104.206026 223.33512 102.675426 C 222.83963 101.57424 221.7392 100.87088 220.53173 100.88359 L 211.05263 100.98337 C 208.29136 101.012433 206.02934 98.797544 206.00028 96.03627 C 206.00009 96.01873 206 96.00119 206 95.983644 L 206 20.472151 C 206 17.710727 208.23858 15.472151 211 15.472151 Z"
+                      stroke="#6cc7ff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+            </g>
+            <text transform="translate(214.43536 17.972151)" fill="black" ng-click="leachoutDetail($event)">
+                <tspan font-family="Heiti SC" font-size="13" font-weight="bold" x="0" y="11" style="fill:red">浸出溶液量:
+                    {{dashboardObj.computedLeachingOutObj().sumLiquidQty | number:2}}
+                </tspan>
+            </text>
+            <text transform="translate(214.43536 32.97215)" fill="black" ng-click="leachoutDetail($event)">
+                <tspan font-family="Heiti SC" font-size="13" font-weight="bold" x="0" y="11" style="fill:red">PH值:
+                    {{dashboardObj.computedLeachingOutObj().avgPH | number:2}}
+                </tspan>
+            </text>
+            <text transform="translate(214.43536 48.056425)" fill="black" ng-click="leachoutDetail($event)">
+                <tspan font-family="Heiti SC" font-size="13" font-weight="bold" x="0" y="11" style="fill:red">电位:
+                    {{dashboardObj.computedLeachingOutObj().avgEH | number:2}}
+                </tspan>
+            </text>
+            <text transform="translate(212.36221 63.056426)" fill="black" ng-click="leachoutDetail($event)">
+                <tspan font-family="Heiti SC" font-size="13" font-weight="bold" x="0" y="11" style="fill:red">铜浓度:
+                    {{dashboardObj.computedLeachingOutObj().avgCund | number:2}}
+                </tspan>
+            </text>
+            <text transform="translate(212.36221 78.1407)" fill="black" ng-click="leachoutDetail($event)">
+                <tspan font-family="Heiti SC" font-size="13" font-weight="bold" x="0" y="11" style="fill:red">铁浓度:
+                    {{dashboardObj.computedLeachingOutObj().avgFend | number:2}}
+                </tspan>
+            </text>
+            <text transform="translate(212.36221 93.1407)" fill="black" ng-click="leachoutDetail($event)">
+                <tspan font-family="Heiti SC" font-size="13" font-weight="bold" x="0" y="11" style="fill:red">酸浓度:
+                    {{dashboardObj.computedLeachingOutObj().avgSnd | number:2}}
+                </tspan>
+            </text>
+            <g filter="url(#Shadow_3)">
+                <path d="M 699.6203 284.0149 L 815.6193 283.96335 C 818.3807 283.96212 820.62027 286.1997 820.6215 288.96113 C 820.6215 288.96187 820.6215 288.9626 820.6215 288.96335 L 820.6215 354.37706 C 820.6215 357.13848 818.38293 359.37706 815.6215 359.37706 C 815.60135 359.37706 815.5812 359.37694 815.56104 359.3767 L 742.6725 358.4952 C 742.20616 358.48957 741.7429 358.41871 741.2962 358.2847 L 734.03117 356.1052 C 732.71514 355.71038 731.29463 355.87453 730.10332 356.55908 L 719.7068 362.53311 C 719.6506 362.5654 719.59505 362.59878 719.54016 362.63323 L 696.81225 376.89609 C 695.9533 377.43512 694.82 377.17578 694.28095 376.31682 C 693.8026 375.55453 693.9472 374.55788 694.6225 373.963 L 705.23962 364.6102 C 706.494 363.5052 706.6151 361.59255 705.5101 360.33817 C 704.9086 359.65536 704.0318 359.27938 703.1225 359.31436 L 699.8147 359.4416 C 697.0553 359.54774 694.73234 357.39686 694.6262 354.63747 C 694.62373 354.57344 694.6225 354.50937 694.6225 354.4453 L 694.6225 289.0149 C 694.6225 286.25434 696.85972 284.01612 699.6203 284.0149 Z"
+                      stroke="#6cc7ff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" fill="transparent"
+                        ng-click="neutroDetail()"/>
+            </g>
+            <text transform="translate(698.0732 286.46335)" fill="black" ng-click="neutroDetail()">
+                <tspan font-family="Heiti SC" font-size="13" font-weight="bold" x="0" y="11" style="fill:red">
+                    萃余液中和量：{{dashboardObj.neutrolization.cllCyyQty | number:2}} m3
+                </tspan>
+            </text>
+            <text transform="translate(698.0732 301.46335)" fill="black" ng-click="neutroDetail()">
+                <tspan font-family="Heiti SC" font-size="13" font-weight="bold" x="0" y="11" style="fill:red">
+                    防洪池2期中和: {{dashboardObj.neutrolization.cllFhc2Qty | number:2}} m3
+                </tspan>
+            </text>
+            <text transform="translate(698.0732 316.54762)" fill="black" ng-click="neutroDetail()">
+                <tspan font-family="Heiti SC" font-size="13" font-weight="bold" x="0" y="11" style="fill:red">
+                    中和溶液: {{(dashboardObj.neutrolization.cllCyyQty + dashboardObj.neutrolization.cllFhc2Qty) | number:2}} m3
+                </tspan>
+            </text>
+            <text transform="translate(696.00005 331.54762)" fill="black" ng-click="neutroDetail()">
+                <tspan font-family="Heiti SC" font-size="13" font-weight="bold" x="0" y="11" style="fill:red">石灰石:
+                    {{(dashboardObj.neutrolization.shyjxh1 + dashboardObj.neutrolization.shyjxh2 + dashboardObj.neutrolization.shyjxh3)|number:2}} T
+                </tspan>
+            </text>
+            <text transform="translate(696.00005 346.6319)" fill="black" ng-click="neutroDetail()">
+                <tspan font-family="Heiti SC" font-size="13" font-weight="bold" x="0" y="11" style="fill:red">
+                    外排总量: {{(dashboardObj.neutrolization.wphbylQty + dashboardObj.neutrolization.wpxyylQty + dashboardObj.neutrolization.wp3zbsqyQty)|number:2}} m3
+                </tspan>
+            </text>
+            <text transform="translate(122 184.52434)" fill="black" ng-click="neutroDetail()">
+                <tspan font-family="Heiti SC" font-size="13" font-weight="300" x="0" y="13" textLength="39">浸出铜</tspan>
+                <tspan font-family="Lucida Grande" font-size="13" font-weight="500" x="39" y="13"
+                       style="fill:red">:{{dashboardObj.computedLeachingOutObj().sumCuQty | number:2}}
+                </tspan>
+            </text>
+        </g>
+    </g>
+</svg>

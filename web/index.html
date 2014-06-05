@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html ng-app="icd" id="ng-app">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge;chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="www.skyatlas.net">
+
+    <title>疾病和有关健康问题的国际统计分类</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="./css/bootstrap.css" rel="stylesheet">
+    <!--<link rel="stylesheet" href="./framework/bootstrap-3.0.0/dist/css/bootstrap.css"/>-->
+
+
+    <link rel="stylesheet" href="./css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="./css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="./framework/jquery-ui-1.10.3.custom/css/smoothness/jquery-ui-1.10.3.custom.min.css"/>
+
+    <link rel="stylesheet" href="./styles.css"/>
+
+    <!-- Custom styles for this template -->
+    <link href="jumbotron.css" rel="stylesheet">
+
+    <!-- angular treeview css -->
+    <link rel="stylesheet" type="text/css" href="./framework/angular.treeview-master/css/angular.treeview.css"/>
+
+    <!-- Font Awesome -->
+    <link href="./css/font-awesome.css" rel="stylesheet">
+
+    <!-- FileUpload CSS -->
+    <link rel="stylesheet" href="./css/jquery.fileupload-ui.css"/>
+    <link rel="stylesheet" href="./css/jquery.fileupload.css"/>
+
+    <style>
+        #growl {
+            position: absolute;
+            bottom: 10px;
+            righ: 20px;
+            overflow: hidden;
+        }
+
+        .msg-block {
+            margin-top:5px;
+        }
+        .msg-error {
+            color:#F00;
+            font-size:14px;
+        }
+
+        #growl .msg {
+            width: 200px;
+            min-height: 30px;
+            padding: 10px;
+            margin-bottom: 10px;
+
+            border: 1px solid   #171717;
+            color: #E4E4E4;
+            text-shadow: 0 -1px 1px #0A131A;
+            font-weight: bold;
+            font-size: 15px;
+
+            background: #141517;
+            background:  -webkit-gradient(
+                linear, left top, left bottom,
+                from(rgba(255, 255, 255, 0.3)),
+                color-stop(0.8, rgba(255,255,255,0))),
+            rgba(0,0,0,0.8);
+
+            -webkit-box-shadow: inset 0 1px 1px #8E8E8E;
+            -moz-box-shadow: inset 0 1px 1px 1px        #8E8E8E;
+            box-shadow: inset 0 1px 1px #8E8E8E;
+
+            -webkit-border-radius: 7px;
+            -moz-border-radius: 7px;
+            border-radius: 7px;
+        }
+
+        .modal {
+            display: block;
+        }
+
+        .slide-animate-container {
+            position:relative;
+            background:white;
+            border:1px solid black;
+            height:40px;
+            overflow:hidden;
+        }
+
+        .slide-animate {
+            padding:10px;
+        }
+
+        .slide-animate.ng-enter, .slide-animate.ng-leave {
+            -webkit-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+            transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+
+            position:absolute;
+            top:0;
+            left:0;
+            right:0;
+            bottom:0;
+            display:block;
+            padding:10px;
+        }
+
+        .slide-animate.ng-enter {
+            top:-50px;
+        }
+        .slide-animate.ng-enter.ng-enter-active {
+            top:0;
+        }
+
+        .slide-animate.ng-leave {
+            top:0;
+        }
+        .slide-animate.ng-leave.ng-leave-active {
+            top:50px;
+        }
+        .half-height-wrapper {
+            position:relative;
+            width:100%;
+            height:600px;
+            overflow:scroll;
+        }
+        .ng-cloak {
+            display: none;
+        }
+        #mydiv {
+            position:absolute;
+            top:0;
+            left:0;
+            width:100%;
+            height:100%;
+            z-index:1000;
+            background-color:grey;
+            opacity: .8;
+        }
+
+        .ajax-loader {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin-left: -32px; /* -1 * image width / 2 */
+            margin-top: -32px;  /* -1 * image height / 2 */
+            display: block;
+        }
+
+    </style>
+    <!--[if lte IE 10]>
+
+    <script type="text/javascript" src="./framework/bootstrap-3.0.0/assets/js/html5shiv.js"></script>
+    <script type="text/javascript" src="./framework/bootstrap-3.0.0/assets/js/respond.min.js"></script>
+
+    <![endif]-->
+</head>
+
+<body>
+<div id="mydiv">
+    <img src="svg/ajax-loader.gif" class="ajax-loader"/>
+</div>
+<div class="navbar navbar-inverse navbar-fixed-top" ng-controller="HeadController">
+    <div class="container">
+
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+
+            <span class="icon-bar"></span>
+            <span class="icon-bar" ng-show="headShowSwitch.login"></span>
+            <span class="icon-bar" ng-show="headShowSwitch.login"></span>
+            <span class="icon-bar" ng-show="headShowSwitch.login"></span>
+            <span class="icon-bar" ng-show="headShowSwitch.login"></span>
+            <span class="icon-bar" ng-show="headShowSwitch.login"></span>
+            <span class="icon-bar" ng-show="headShowSwitch.login"></span>
+            <span class="icon-bar" ng-show="headShowSwitch.login"></span>
+        </button>
+        <a class="navbar-brand" href="#">ICD-10</a>
+        <!-- ng-show="headShowSwitch.login" -->
+        <div class="nav-collapse collapse">
+            <ul class="nav navbar-nav" ng-click="menuClick($event)">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#about" ng-show="headShowSwitch.login"  ui-sref="edit">功能1</a></li>
+                <li><a href="#contact" ng-show="headShowSwitch.login"  ui-sref="process">功能2</a></li>
+                <li><a href="#contact" ng-show="headShowSwitch.login"  ui-sref="balance">功能3</a></li>
+                <li><a href="#contact" ng-show="headShowSwitch.login"  ui-sref="history">功能4</a></li>
+                <li><a href="#contact" ng-show="headShowSwitch.login"  ui-sref="report">功能5</a></li>
+                <li><a href="#contact" ng-show="headShowSwitch.login"  ui-sref="tools">常用工具</a></li>
+                <li class="dropdown" ng-show="headShowSwitch.login" >
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">常用链接 <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li ng-repeat="link in allLinks">
+                            <a target="_blank" href="http://{{ link.url }}">{{ link.title }}</a>
+                        </li>
+                        <!--<li><a href="#">Action</a></li>-->
+                        <!--<li><a href="#">Another action</a></li>-->
+                        <!--<li><a href="#">Something else here</a></li>-->
+                        <!--<li class="divider"></li>-->
+                        <!--<li class="dropdown-header">Nav header</li>-->
+                        <!--<li><a href="#">Separated link</a></li>-->
+                        <!--<li><a href="#">One more separated link</a></li>-->
+                    </ul>
+                </li>
+            </ul>
+            <form class="navbar-form form-inline pull-right" ng-show="!headShowSwitch.login">
+                <input type="text" placeholder="用户名称" ng-model="userInfo.userName" class="form-control">
+                <input type="password" placeholder="用户密码" ng-model="userInfo.password" class="form-control">
+                <button type="submit" class="btn" ng-click="loginAction()">Sign in</button>
+            </form>
+            <div class="navbar-text pull-right" ng-show="headShowSwitch.login">
+                Welcome <span ng-bind="userInfo.userName"></span> ...
+                <button type="submit" class="btn-danger" ng-click="logoutAction()">logout</button>
+            </div>
+        </div><!--/.nav-collapse -->
+    </div>
+</div>
+
+<div class="container" ui-view>
+
+
+
+</div> <!-- /container -->
+
+<script src="./framework/jquery-2.0.3.js"></script>
+
+<script src="./framework/jquery-ui-1.10.3.custom/js/jquery-ui-1.10.3.custom.min.js"></script>
+
+<script src="./framework/blueimp/jquery.ui.widget.js"></script>
+<script src="./framework/blueimp/jquery.iframe-transport.js"></script>
+<script src="./framework/blueimp/jquery.fileupload.js"></script>
+
+<script src="./js/bootstrap.min.js"></script>
+
+
+
+<!-- State Machine -->
+<script src="./js/state-machine.js"></script>
+
+<!-- angularjs lib -->
+<script src="./framework/angular-1.2.6/angular.js"></script>
+<!--<script type="text/javascript" src="./framework/angular-1.2.6/angular-animate.min.js"></script>-->
+
+<script src="./framework/angular-1.2.6/angular-sanitize.min.js"></script>
+
+<!-- angular-ui date -->
+<script src="./js/date.js"></script>
+
+<!-- angular-ui router -->
+<script src="./framework/ui-router-master/release/angular-ui-router.min.js"></script>
+
+<!-- angular-ui bootstrap -->
+<script src="./framework/bootstrap-gh-pages-new/ui-bootstrap-tpls-0.6.0.js"></script>
+
+<!-- angular drag drop -->
+<script src="./js/angular-dragdrop.min.js"></script>
+
+<!-- angular ng resource -->
+<script type="text/javascript" src="./framework/angular-1.2.6/angular-resource.min.js"></script>
+
+<!-- angular treeview -->
+<script type="text/javascript" src="./framework/angular.treeview-master/angular.treeview.js"></script>
+
+<!-- amcharts -->
+<script src="./js/amcharts/amcharts.js"></script>
+<script src="./js/amcharts/gauge.js"></script>
+<script src="./js/amcharts/funnel.js"></script>
+<script src="./js/amcharts/pie.js"></script>
+<script src="./js/amcharts/radar.js"></script>
+<script src="./js/amcharts/serial.js"></script>
+<script src="./js/amcharts/xy.js"></script>
+
+<!--  underscore.js -->
+<script src="./js/underscore.js"></script>
+
+<!-- 自定义 Class -->
+<script src="./model.js"></script>
+
+
+
+<!-- module -->
+<script type="text/javascript">
+// 定义信息提示，类似growl
+(function($){
+    var container = $("<div />");
+    container.attr({id:"growl"});
+
+    $(function(){
+        $("body").append(container)
+    });
+})(jQuery);
+
+$.growl = function(body) {
+    if (body && body.length > 0) {
+        var msg = $("<div />").addClass("msg");
+        msg.html(body);
+
+        $('#growl').append(msg);
+
+        msg.show("drop", {
+            direction: "down",
+            distance: 50
+        }, 300).delay(3000).
+                fadeOut(300, function() {
+                    $(this).remove();
+                });
+        return msg;
+    }
+
+}   ;
+
+var icdModule = angular.module('icd',["ui.router",'ui.bootstrap','icd-service',
+    'ui.date','ngDragDrop','ngResource','angularTreeview']);
+
+// 初始化操作
+// 1. 在 rootScope 中存储 head 控制 Model, 登陆用户信息
+// 2. 初始化amcharts
+icdModule.run(function($rootScope, $state){
+    var headShowSwitch = {};
+    headShowSwitch.login = false;
+
+    var userInfo = {};
+    //userInfo.userName = "";
+
+    $rootScope.headShowSwitch = headShowSwitch;
+    $rootScope.userInfo = userInfo;
+
+    $rootScope['testProp'] = 'test value';
+
+    $rootScope.$on('event:loginRequired',function(event){
+        console.log(' event event:loginRequired received.');
+        $rootScope.headShowSwitch.login = false;
+        $state.go('home');
+
+    });
+
+    $rootScope.$on('JSONNOTIFYEVENT',function(event, code,message){
+        console.log('JSONNOTIFYEVENT event received. ->'+code+'\t：'+message);
+        if (code === -1555) {
+            $.growl('登陆失败，'+message);
+
+            $state.go('home');
+            $rootScope.headShowSwitch.login = false;
+
+        }
+
+        // Notification Message show...
+        $.growl(message);
+        console.log(' JSONNOTIFYEVENT deal End.');
+    });
+
+    // amcharts initialization...
+    $rootScope.amchartsReady = false;
+    AmCharts.ready(function(){
+        $rootScope.amchartsReady = true;
+    });
+
+
+
+});
+
+// 配置router
+icdModule.config(function($stateProvider, $urlRouterProvider){
+    $urlRouterProvider.otherwise("/home");
+
+    $stateProvider.state('home',{
+        url: "/home",
+        templateUrl: "home.html"
+    })
+            .state('tools',{
+                url: "/tools",
+                templateUrl: "tools.html",
+                controller: 'ToolsController'
+            })
+            .state('tools.autoCompareManual',{
+                url: "/tools/autoCompareManual",
+                templateUrl: "tool-autoCompareManual.html",
+                controller: 'ToolAutoCompareCtrl',
+                parent: 'tools'
+            })
+            .state('tools.autoCode',{
+                url:    "/tools/autoCode/",
+                templateUrl:    "tool-autoCode.html",
+                parent: 'tools',
+                controller: 'ToolAutoCodeCtrl'
+            })
+
+            .state('edit',{
+                url: "/edit",
+                templateUrl: "edit.html",
+                controller: 'EditController'
+            })
+            .state('edit.hlp',{
+                url:    "/edit/hlp",
+                templateUrl:    "edit-hlp.html",
+                parent: 'edit',
+                controller: 'EditHlpController'
+            })
+            .state('edit.sxew',{
+                url:    "edit/sxew",
+                templateUrl:    "edit-sxew.html",
+                parent: "edit",
+                controller: "EditSxewController"
+            })
+            .state('edit.neutrolization',{
+                url:    "edit/neutrolization",
+                templateUrl:    "edit-neutrolization.html",
+                parent: "edit",
+                controller: "EditNeutroController"
+            })
+            .state('edit.other',{
+                url:    "edit/other",
+                templateUrl:    "edit-other.html",
+                parent: "edit",
+                controller: "EditOtherController"
+            })
+            .state('process',{
+                url: "/process",
+                templateUrl: "dashboard.html",
+                controller: 'DashController'
+            })
+            .state('process.main',{
+                url: "process/main",
+                templateUrl: 'dash-main.html',
+                parent: 'process'
+            }).
+            state('process.heap',{
+                url: "process/heap",
+                templateUrl: 'dash-heap.html',
+                parent: 'process',
+                controller: 'DashHeapController'
+            }).
+            state('process.extextrowin',{     // 萃取电积 dashboard
+                url: "process/extextrowin",
+                templateUrl: 'dash-extelextrowin.html',
+                parent: 'process',
+                controller: 'DashExtCtrl'
+            }).
+            state('process.neutro', {   // 环保中和 dashboard
+                url: "process/neutro",
+                templateUrl:'dash-neutro.html',
+                parent:'process',
+                controller:'DashNeutroCtrl'
+            }).
+            state('history',{               // 历史数据查询
+                url: '/history',
+                templateUrl: 'history.html',
+                controller: 'HistoryController'
+            }).
+            state('history.heap',{
+                url: "history/heap",
+                templateUrl: 'hist-heap.html',
+                parent: 'history',
+                controller: 'HistoryHeapCtrl'
+            }).
+            state('history.extextrowin',{
+                url: 'history/extextrowin',
+                templateUrl: 'hist-extextr.html',
+                parent: 'history',
+                controller: 'HistExtCtrl'
+            }).
+            state('history.neutro',{
+                url: 'history/neutro',
+                templateUrl: 'hist-neutro.html',
+                parent:'history',
+                controller:'HistNeutroCtrl'
+            }).
+            state('report',{
+                url:'/report',
+                templateUrl: 'report.html',
+                controller: 'ReportCtrl'
+            }).
+            state('balance',{
+                url: '/balance',
+                templateUrl: 'balance.html',
+                controller: 'BalanceCtrl'
+            });
+
+});
+
+</script>
+<!-- Service -->
+<script src="./js/service.js"></script>
+
+<!-- Controller -->
+<script src="./js/controller.js"></script>
+
+
+</body>
+</html>

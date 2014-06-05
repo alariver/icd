@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:p="http://www.springframework.org/schema/p"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/mvc"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+    <!--该配置为自动扫描配置的包下所有使用@Controller注解的类 -->
+    
+   
+    
+    <context:component-scan base-package="net.skyatlas.icd.webapi"></context:component-scan>
+    
+    <mvc:annotation-driven/>
+    
+    <mvc:default-servlet-handler />
+    <!--
+    Most controllers will use the ControllerClassNameHandlerMapping above, but
+    for the index controller we are using ParameterizableViewController, so we must
+    define an explicit mapping for it.
+    -->
+    <bean id="urlMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+        <property name="mappings">
+            <props>
+                <prop key="index.htm">indexController</prop>
+            </props>
+        </property>
+    </bean>
+
+    <bean id="viewResolver"
+          class="org.springframework.web.servlet.view.InternalResourceViewResolver"
+          p:prefix="/WEB-INF/jsp/"
+          p:suffix=".jsp" />
+
+    <!--
+    The index controller.
+    -->
+    <bean name="indexController"
+          class="org.springframework.web.servlet.mvc.ParameterizableViewController"
+          p:viewName="index" />
+
+    <bean id="dataSource"
+      class="org.springframework.jdbc.datasource.DriverManagerDataSource"
+      p:driverClassName="com.mysql.jdbc.Driver"
+      p:url="jdbc:mysql://localhost:3306/icd?useUnicode=true&amp;characterEncoding=utf-8"
+      p:username="root"
+      p:password="abcd1234" />
+    
+    <bean id="icdDisDao" class="net.skyatlas.icd.dao.daoImpl.IcdDiseaseDaoImpl">
+        <property name="dataSource" ref="dataSource"></property>
+    </bean>
+    
+    <bean id="userDao" class="net.skyatlas.icd.dao.daoImpl.UserDaoImpl">
+        <property name="dataSource" ref="dataSource"></property>
+    </bean>
+    
+    <bean id="grid" class="net.skyatlas.icd.util.MemoryGrid" init-method="init" scope="singleton">
+        <property name="dao" ref="icdDisDao"/>
+    </bean>
+    
+</beans>

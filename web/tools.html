@@ -1,0 +1,22 @@
+<div class="container">
+    <div class="row">
+        <hr>
+    </div>
+    <div class="row">
+        <div class="col-lg-2">     <!-- Left Region -->
+            <div>
+                <table class="table table-hover">
+                    <tr ng-class="{success: tool.active}" ng-repeat="tool in toolsList" ng-click="toolSelect(tool)">
+                        <td>{{ tool.title }}</td>
+                    </tr>
+                </table>
+            </div>
+
+        </div>
+        <div class="col-lg-10">
+            <div class="container" ui-view>
+
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,39 @@
+<div class="body-content">
+
+
+    <!-- Example row of columns -->
+    <div class="row">
+        <ol class="breadcrumb">
+            <li><a href="#">工具</a></li>
+            <li><a href="#">自动编码</a></li>
+            <li class="active">根据输入的诊断，提供编码参考</li>
+        </ol>
+    </div>
+    <div class="row">
+        <div class="form-group">
+            <label for="diagName" class="col-lg-4">诊断:</label>
+            <div class="col-lg-8">
+                <input type="text" class="form-control" id="diagName" name="diagName"
+                       ng-model="diagName" ng-blur="doautocode()"/>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="panel-heading label-success">自动编码系统给出的参考路径：</div>
+
+        <div ng-repeat="path in autoCodePaths" class="container-fluid">
+            <div
+                    data-angular-treeview="true"
+                    data-tree-id="hechzh{{ $index }}"
+                    data-tree-model="path.nodeList"
+                    data-node-id="id"
+                    data-node-label="shortDesc"
+                    data-node-children="children"
+                    >
+
+            </div>
+            <hr>
+        </div>
+    </div>
+</div>

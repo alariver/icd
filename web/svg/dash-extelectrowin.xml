@@ -1,0 +1,907 @@
+<?xml version="1.0"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xl="http://www.w3.org/1999/xlink" version="1.1" viewBox="3 -9 970 678"
+     width="582pt" height="476pt">
+    <metadata xmlns:dc="http://purl.org/dc/elements/1.1/">
+        <dc:date>2014-02-09 12:07Z</dc:date>
+        <!-- Produced by OmniGraffle Professional 5.4.4 -->
+        <!-- Author:  Hechangzheng @longoldstar.com -->
+    </metadata>
+    <defs>
+        <filter id="Shadow" filterUnits="userSpaceOnUse">
+            <feGaussianBlur in="SourceAlpha" result="blur" stdDeviation="3.488"/>
+            <feOffset in="blur" result="offset" dx="0" dy="4"/>
+            <feFlood flood-color="black" flood-opacity=".75" result="flood"/>
+            <feComposite in="flood" in2="offset" operator="in"/>
+        </filter>
+        <font-face font-family="Helvetica" font-size="12" units-per-em="1000" underline-position="-75.683594"
+                   underline-thickness="49.316406" slope="0" x-height="522.94922" cap-height="717.28516"
+                   ascent="770.01953" descent="-229.98047" font-weight="500">
+            <font-face-src>
+                <font-face-name name="Helvetica"/>
+            </font-face-src>
+        </font-face>
+        <font-face font-family="Heiti SC" font-size="12" panose-1="2 0 0 0 0 0 0 0 0 0" units-per-em="1000"
+                   underline-position="0" underline-thickness="59.037876" slope="0" x-height="591" cap-height="778"
+                   ascent="860.0006" descent="-139.99939" font-weight="300">
+            <font-face-src>
+                <font-face-name name="STHeitiSC-Light"/>
+            </font-face-src>
+        </font-face>
+        <font-face font-family="Heiti SC" font-size="12" units-per-em="1000" underline-position="0"
+                   underline-thickness="59.037876" slope="0" x-height="531" cap-height="718" ascent="860.0006"
+                   descent="-139.99939" font-weight="bold">
+            <font-face-src>
+                <font-face-name name="STHeitiSC-Medium"/>
+            </font-face-src>
+        </font-face>
+        <font-face font-family="Helvetica" font-size="12" units-per-em="1000" underline-position="-75.683594"
+                   underline-thickness="49.316406" slope="0" x-height="532.22656" cap-height="719.72656"
+                   ascent="770.01953" descent="-229.98047" font-weight="bold">
+            <font-face-src>
+                <font-face-name name="Helvetica-Bold"/>
+            </font-face-src>
+        </font-face>
+        <marker orient="auto" overflow="visible" markerUnits="strokeWidth" id="FilledArrow_Marker" viewBox="-1 -3 7 6"
+                markerWidth="7" markerHeight="6" color="black">
+            <g>
+                <path d="M 4.8000002 0 L 0 -1.8000001 L 0 1.8000001 Z" fill="currentColor" stroke="currentColor"
+                      stroke-width="1"/>
+            </g>
+        </marker>
+        <marker orient="auto" overflow="visible" markerUnits="strokeWidth" id="FilledArrow_Marker_2" viewBox="-1 -3 6 6"
+                markerWidth="6" markerHeight="6" color="#8e8e8e">
+            <g>
+                <path d="M 3.7333333 0 L 0 -1.4 L 0 1.4 Z" fill="currentColor" stroke="currentColor" stroke-width="1"/>
+            </g>
+        </marker>
+        <marker orient="auto" overflow="visible" markerUnits="strokeWidth" id="FilledArrow_Marker_3" viewBox="-1 -3 6 6"
+                markerWidth="6" markerHeight="6" color="#2b5dce">
+            <g>
+                <path d="M 3.7333333 0 L 0 -1.4 L 0 1.4 Z" fill="currentColor" stroke="currentColor" stroke-width="1"/>
+            </g>
+        </marker>
+        <marker orient="auto" overflow="visible" markerUnits="strokeWidth" id="FilledArrow_Marker_4" viewBox="-1 -3 6 6"
+                markerWidth="6" markerHeight="6" color="Highlight">
+            <g>
+                <path d="M 3.7333333 0 L 0 -1.4 L 0 1.4 Z" fill="currentColor" stroke="currentColor" stroke-width="1"/>
+            </g>
+        </marker>
+        <font-face font-family="Heiti SC" font-size="13" panose-1="2 0 0 0 0 0 0 0 0 0" units-per-em="1000"
+                   underline-position="0" underline-thickness="54.496502" slope="0" x-height="591"
+                   cap-height="778.00006" ascent="860.00067" descent="-139.99939" font-weight="300">
+            <font-face-src>
+                <font-face-name name="STHeitiSC-Light"/>
+            </font-face-src>
+        </font-face>
+        <font-face font-family="Lucida Grande" font-size="13" panose-1="2 11 6 0 4 5 2 2 2 4" units-per-em="1000"
+                   underline-position="-97.65626" underline-thickness="48.82813" slope="0" x-height="530.27344"
+                   cap-height="722.6563" ascent="966.79694" descent="-210.93752" font-weight="500">
+            <font-face-src>
+                <font-face-name name="LucidaGrande"/>
+            </font-face-src>
+        </font-face>
+        <font-face font-family="Heiti SC" font-size="13" units-per-em="1000" underline-position="0"
+                   underline-thickness="54.496502" slope="0" x-height="531" cap-height="718.00006" ascent="860.00067"
+                   descent="-139.99939" font-weight="bold">
+            <font-face-src>
+                <font-face-name name="STHeitiSC-Medium"/>
+            </font-face-src>
+        </font-face>
+        <font-face font-family="Futura" font-size="13" panose-1="2 11 8 6 2 2 4 3 2 4" units-per-em="1000"
+                   underline-position="-117.18751" underline-thickness="117.18751" slope="0" x-height="533.6914"
+                   cap-height="760.74225" ascent="1003.418" descent="-270.01953" font-weight="bold"
+                   font-stretch="condensed">
+            <font-face-src>
+                <font-face-name name="Futura-CondensedExtraBold"/>
+            </font-face-src>
+        </font-face>
+    </defs>
+    <g stroke="none" stroke-opacity="1" stroke-dasharray="none" fill="none" fill-opacity="1">
+        <title>Canvas 1</title>
+        <g>
+            <title>萃取电积</title>
+            <g>
+                <use xl:href="#id4_Graphic" filter="url(#Shadow)"/>
+                <use xl:href="#id6_Graphic" filter="url(#Shadow)"/>
+                <use xl:href="#id8_Graphic" filter="url(#Shadow)"/>
+                <use xl:href="#id9_Graphic" filter="url(#Shadow)"/>
+                <use xl:href="#id11_Graphic" filter="url(#Shadow)"/>
+                <use xl:href="#id12_Graphic" filter="url(#Shadow)"/>
+                <use xl:href="#id13_Graphic" filter="url(#Shadow)"/>
+                <use xl:href="#id14_Graphic" filter="url(#Shadow)"/>
+                <use xl:href="#id15_Graphic" filter="url(#Shadow)"/>
+                <use xl:href="#id17_Graphic" filter="url(#Shadow)"/>
+                <use xl:href="#id18_Graphic" filter="url(#Shadow)"/>
+                <use xl:href="#id19_Graphic" filter="url(#Shadow)"/>
+                <use xl:href="#id21_Graphic" filter="url(#Shadow)"/>
+                <use xl:href="#id23_Graphic" filter="url(#Shadow)"/>
+                <use xl:href="#id25_Graphic" filter="url(#Shadow)"/>
+                <use xl:href="#id34_Graphic" filter="url(#Shadow)"/>
+                <use xl:href="#id36_Graphic" filter="url(#Shadow)"/>
+                <use xl:href="#id44_Graphic" filter="url(#Shadow)"/>
+                <use xl:href="#id46_Graphic" filter="url(#Shadow)"/>
+                <use xl:href="#id54_Graphic" filter="url(#Shadow)"/>
+            </g>
+            <g id="id4_Graphic">
+                <rect x="126.5" y="37" width="135" height="59" fill="white"/>
+                <rect x="126.5" y="37" width="135" height="59" stroke="black" stroke-linecap="round"
+                      stroke-linejoin="round" stroke-width="1"/>
+                <text transform="translate(131.5 32.5)" fill="black">
+                    <tspan font-family="Helvetica" font-size="12" font-weight="500" x="48.830078" y="23"
+                           textLength="15.339844">Cu
+                    </tspan>
+                    <tspan font-family="Heiti SC" font-size="12" font-weight="300" x="64.16992" y="23" textLength="12">
+                        ：
+                    </tspan>
+                    <tspan font-family="Helvetica" font-size="12" font-weight="500" x="45.833008" y="37"
+                           textLength="21.333984">TFe
+                    </tspan>
+                    <tspan font-family="Heiti SC" font-size="12" font-weight="300" x="67.166992" y="37" textLength="12">
+                        ：
+                    </tspan>
+                    <tspan font-family="Helvetica" font-size="12" font-weight="500" x="48.16504" y="51"
+                           textLength="16.669922">PH
+                    </tspan>
+                    <tspan font-family="Heiti SC" font-size="12" font-weight="300" x="64.83496" y="51" textLength="12">
+                        ：
+                    </tspan>
+                </text>
+            </g>
+            <text transform="translate(120 18)" fill="black">
+                <tspan font-family="Heiti SC" font-size="12" font-weight="bold" x=".16308594" y="11" textLength="36">
+                    萃余液
+                </tspan>
+                <tspan font-family="Helvetica" font-size="12" font-weight="bold" x="36.163086" y="11"
+                       textLength="6.673828">2
+                </tspan>
+            </text>
+            <g id="id6_Graphic">
+                <rect x="303" y="24" width="179" height="110" fill="white"/>
+                <rect x="303" y="24" width="179" height="110" stroke="black" stroke-linecap="round"
+                      stroke-linejoin="round" stroke-width="1"/>
+            </g>
+            <text transform="translate(306 5)" fill="black">
+                <tspan font-family="Helvetica" font-size="12" font-weight="bold" x=".33105469" y="11"
+                       textLength="23.33789">PLS
+                </tspan>
+                <tspan font-family="Heiti SC" font-size="12" font-weight="bold" x="23.668945" y="11" textLength="24">
+                    料液
+                </tspan>
+            </text>
+            <g id="id8_Graphic">
+                <rect x="99" y="177.25" width="155" height="160" fill="white"/>
+                <rect x="99" y="177.25" width="155" height="160" stroke="black" stroke-linecap="round"
+                      stroke-linejoin="round" stroke-width="1"/>
+            </g>
+            <g id="id9_Graphic">
+                <rect x="259" y="177.75" width="155" height="160" fill="white"/>
+                <rect x="259" y="177.75" width="155" height="160" stroke="black" stroke-linecap="round"
+                      stroke-linejoin="round" stroke-width="1"/>
+            </g>
+            <g id="id11_Graphic">
+                <rect x="469" y="178.25" width="104" height="160" fill="white"/>
+                <rect x="469" y="178.25" width="104" height="160" stroke="black" stroke-linecap="round"
+                      stroke-linejoin="round" stroke-width="1"/>
+            </g>
+            <g id="id12_Graphic">
+                <rect x="578" y="178.25" width="104" height="160" fill="white"/>
+                <rect x="578" y="178.25" width="104" height="160" stroke="black" stroke-linecap="round"
+                      stroke-linejoin="round" stroke-width="1"/>
+            </g>
+            <g id="id13_Graphic">
+                <rect x="738" y="179.25" width="104" height="160" fill="white"/>
+                <rect x="738" y="179.25" width="104" height="160" stroke="black" stroke-linecap="round"
+                      stroke-linejoin="round" stroke-width="1"/>
+            </g>
+            <g id="id14_Graphic">
+                <rect x="847" y="179.25" width="104" height="160" fill="white"/>
+                <rect x="847" y="179.25" width="104" height="160" stroke="black" stroke-linecap="round"
+                      stroke-linejoin="round" stroke-width="1"/>
+            </g>
+            <g id="id15_Graphic">
+                <rect x="563" y="64" width="192" height="80" fill="white"/>
+                <rect x="563" y="64" width="192" height="80" stroke="black" stroke-linecap="round"
+                      stroke-linejoin="round" stroke-width="1"/>
+            </g>
+            <text transform="translate(568 45.5)" fill="black">
+                <tspan font-family="Heiti SC" font-size="12" font-weight="bold" x=".16308594" y="11" textLength="36">
+                    萃余液
+                </tspan>
+                <tspan font-family="Helvetica" font-size="12" font-weight="bold" x="36.163086" y="11"
+                       textLength="6.673828">1
+                </tspan>
+            </text>
+            <g id="id17_Graphic">
+                <rect x="103" y="534.50122" width="174" height="110" fill="white"/>
+                <rect x="103" y="534.50122" width="174" height="110" stroke="black" stroke-linecap="round"
+                      stroke-linejoin="round" stroke-width="1"/>
+            </g>
+            <g id="id18_Graphic">
+                <rect x="319" y="353.625" width="174" height="110" fill="white"/>
+                <rect x="319" y="353.625" width="174" height="110" stroke="black" stroke-linecap="round"
+                      stroke-linejoin="round" stroke-width="1"/>
+            </g>
+            <g id="id19_Graphic">
+                <rect x="477" y="504.5" width="125" height="120" fill="white"/>
+                <rect x="477" y="504.5" width="125" height="120" stroke="black" stroke-linecap="round"
+                      stroke-linejoin="round" stroke-width="1"/>
+            </g>
+            <g id="id21_Graphic">
+                <rect x="657.5" y="503" width="125" height="120" fill="white"/>
+                <rect x="657.5" y="503" width="125" height="120" stroke="black" stroke-linecap="round"
+                      stroke-linejoin="round" stroke-width="1"/>
+            </g>
+            <g id="id23_Graphic">
+                <rect x="54" y="373.5006" width="114" height="65" fill="white"/>
+                <rect x="54" y="373.5006" width="114" height="65" stroke="black" stroke-linecap="round"
+                      stroke-linejoin="round" stroke-width="1"/>
+            </g>
+            <text transform="translate(17 359.0006)" fill="black">
+                <tspan font-family="Heiti SC" font-size="12" font-weight="bold" x="0" y="10" textLength="84">负载有机相一期
+                </tspan>
+            </text>
+            <g id="id25_Graphic">
+                <rect x="790.5" y="375.5" width="114" height="65" fill="white"/>
+                <rect x="790.5" y="375.5" width="114" height="65" stroke="black" stroke-linecap="round"
+                      stroke-linejoin="round" stroke-width="1"/>
+            </g>
+            <text transform="translate(768.5 364)" fill="black">
+                <tspan font-family="Heiti SC" font-size="12" font-weight="bold" x="0" y="10" textLength="84">再生有机相一期
+                </tspan>
+            </text>
+            <text transform="translate(100 159.75)" fill="black">
+                <tspan font-family="Heiti SC" font-size="12" font-weight="300" x="0" y="10" textLength="24">一期</tspan>
+            </text>
+            <text transform="translate(474 156.375)" fill="black">
+                <tspan font-family="Heiti SC" font-size="12" font-weight="300" x="0" y="10" textLength="24">一期</tspan>
+            </text>
+            <text transform="translate(743 163.75)" fill="black">
+                <tspan font-family="Heiti SC" font-size="12" font-weight="300" x="0" y="10" textLength="24">一期</tspan>
+            </text>
+            <text transform="translate(264 160.25)" fill="black">
+                <tspan font-family="Heiti SC" font-size="12" font-weight="300" x="0" y="10" textLength="24">二期</tspan>
+            </text>
+            <text transform="translate(583 156.375)" fill="black">
+                <tspan font-family="Heiti SC" font-size="12" font-weight="300" x="0" y="10" textLength="24">二期</tspan>
+            </text>
+            <text transform="translate(852 163.75)" fill="black">
+                <tspan font-family="Heiti SC" font-size="12" font-weight="300" x="0" y="10" textLength="24">二期</tspan>
+            </text>
+            <g id="id34_Graphic">
+                <rect x="278.87185" y="534.62622" width="174" height="110" fill="white"/>
+                <rect x="278.87185" y="534.62622" width="174" height="110" stroke="black" stroke-linecap="round"
+                      stroke-linejoin="round" stroke-width="1"/>
+            </g>
+            <g id="id36_Graphic">
+                <rect x="498" y="352.625" width="174" height="110" fill="white"/>
+                <rect x="498" y="352.625" width="174" height="110" stroke="black" stroke-linecap="round"
+                      stroke-linejoin="round" stroke-width="1"/>
+            </g>
+            <g id="id44_Graphic">
+                <rect x="54" y="441.0006" width="114" height="65" fill="white"/>
+                <rect x="54" y="441.0006" width="114" height="65" stroke="black" stroke-linecap="round"
+                      stroke-linejoin="round" stroke-width="1"/>
+            </g>
+            <text transform="translate(160 444.0006)" fill="black">
+                <tspan font-family="Heiti SC" font-size="12" font-weight="bold" x="0" y="10" textLength="24">二期</tspan>
+            </text>
+            <g id="id46_Graphic">
+                <rect x="790.5" y="442.4994" width="114" height="65" fill="white"/>
+                <rect x="790.5" y="442.4994" width="114" height="65" stroke="black" stroke-linecap="round"
+                      stroke-linejoin="round" stroke-width="1"/>
+            </g>
+            <text transform="translate(765.5 452.9994)" fill="black">
+                <tspan font-family="Heiti SC" font-size="12" font-weight="bold" x="0" y="10" textLength="24">二期</tspan>
+            </text>
+            <line x1="183.88513" y1="176.75209" x2="190.06936" y2="109.34396" marker-end="url(#FilledArrow_Marker)"
+                  stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+            <path d="M 375.11975 134.47713 L 375.11975 150.37713 L 375.11975 154.87713 L 361.71242 154.87713 L 361.71242 161.37287 L 361.71242 164.37287"
+                  marker-end="url(#FilledArrow_Marker)" stroke="black" stroke-linecap="round" stroke-linejoin="round"
+                  stroke-width="2"/>
+            <path d="M 432.2195 134.40637 L 432.2195 150.30637 L 432.2195 185.30667 L 452.80868 185.30667 L 455.80868 185.30667"
+                  marker-end="url(#FilledArrow_Marker)" stroke="black" stroke-linecap="round" stroke-linejoin="round"
+                  stroke-width="2"/>
+            <path d="M 682.5 258.57812 L 698.4 258.57812 L 721.6 258.92188 L 724.6 258.92188"
+                  marker-end="url(#FilledArrow_Marker)" stroke="black" stroke-linecap="round" stroke-linejoin="round"
+                  stroke-width="2"/>
+            <g id="id54_Graphic">
+                <rect x="760.5" y="64" width="192" height="80" fill="white"/>
+                <rect x="760.5" y="64" width="192" height="80" stroke="black" stroke-linecap="round"
+                      stroke-linejoin="round" stroke-width="1"/>
+            </g>
+            <text transform="translate(653 50.125)" fill="black">
+                <tspan font-family="Heiti SC" font-size="12" font-weight="bold" x="0" y="10" textLength="24">一期</tspan>
+            </text>
+            <text transform="translate(768.5 50.125)" fill="black">
+                <tspan font-family="Heiti SC" font-size="12" font-weight="bold" x="0" y="10" textLength="24">二期</tspan>
+            </text>
+            <path d="M 737.67755 197.24191 L 721.77755 197.24191 L 693.07446 197.24191 L 693.07446 160.28214 L 693.07446 157.28214"
+                  marker-end="url(#FilledArrow_Marker)" stroke="black" stroke-linecap="round" stroke-linejoin="round"
+                  stroke-width="2"/>
+            <path d="M 876.9678 178.76774 L 876.9678 162.86774 L 876.9678 161.36774 L 867.5821 161.36774 L 867.5821 160.38226 L 867.5821 157.38226"
+                  marker-end="url(#FilledArrow_Marker)" stroke="black" stroke-linecap="round" stroke-linejoin="round"
+                  stroke-width="2"/>
+            <path d="M 468.5 258.10772 L 448.6 258.10772 L 434.4 257.96138 L 430.4 257.96138"
+                  marker-end="url(#FilledArrow_Marker_2)" stroke="#8e8e8e" stroke-linecap="round"
+                  stroke-linejoin="round" stroke-width="3"/>
+            <path d="M 737.54657 283.6274 L 717.64658 283.6274 L 712 283.6274 L 712 295.5 L 706 295.5 L 706 282.07875 L 702.35523 282.07875 L 698.35523 282.07875"
+                  marker-end="url(#FilledArrow_Marker_2)" stroke="#8e8e8e" stroke-linecap="round"
+                  stroke-linejoin="round" stroke-width="3"/>
+            <path d="M 378.17363 534.13808 L 378.17363 514.23808 L 378.17363 499.23808 L 393.69822 499.23808 L 393.69822 484.01315 L 393.69822 480.01315"
+                  marker-end="url(#FilledArrow_Marker_2)" stroke="#8e8e8e" stroke-linecap="round"
+                  stroke-linejoin="round" stroke-width="3"/>
+            <path d="M 672.5 407.75 L 692.4 407.75 L 770.1 407.91786 L 774.1 407.91786"
+                  marker-end="url(#FilledArrow_Marker_2)" stroke="#8e8e8e" stroke-linecap="round"
+                  stroke-linejoin="round" stroke-width="3"/>
+            <path d="M 453.57502 464.00427 L 453.57502 483.90427 L 488.03704 484.21946 L 488.03704 488.21946"
+                  marker-end="url(#FilledArrow_Marker_3)" stroke="#2b5dce" stroke-linecap="round"
+                  stroke-linejoin="round" stroke-width="3"/>
+            <path d="M 667.60618 502.62235 L 667.60618 482.72235 L 633.22493 482.90206 L 633.22493 478.90206"
+                  marker-end="url(#FilledArrow_Marker_4)" stroke="Highlight" stroke-linecap="round"
+                  stroke-linejoin="round" stroke-width="3"/>
+            <text transform="translate(312 30.625)" fill="black">
+                <tspan font-family="Heiti SC" font-size="13" font-weight="300" x="0" y="13" textLength="39">流量：</tspan>
+                <tspan font-family="Lucida Grande" font-size="13" font-weight="500" x="39" y="13"
+                       textLength="12.5683594"><!--{{-->
+                </tspan>
+                <tspan font-family="Heiti SC" font-size="13" font-weight="300" x="51.56836" y="13" style="fill: red;">
+                    {{ (dashboardObj.ext1().cqyyLL + dashboardObj.ext2().cqyyLL) | number:2 }} m3/h<!--cqyyLL(1+2)-->
+                </tspan>
+                <tspan font-family="Lucida Grande" font-size="13" font-weight="500" x="126.66936" y="13"
+                       textLength="8.455078"><!--}}-->
+                </tspan>
+            </text>
+            <text transform="translate(312 46.625)" fill="black">
+                <tspan font-family="Heiti SC" font-size="13" font-weight="300" x="0" y="13" textLength="57.473">Cu浓度：
+                </tspan>
+                <tspan font-family="Lucida Grande" font-size="13" font-weight="500" x="57.473" y="13"
+                       textLength="12.5683594"><!-- {{ -->
+                </tspan>
+                <tspan font-family="Heiti SC" font-size="13" font-weight="300" x="70.04136" y="13" style="fill: red;"
+                       >{{ dashboardObj.ext1().cqyyCund * (dashboardObj.ext1().openHours * dashboardObj.ext1().cqyyLL)/((dashboardObj.ext1().openHours * dashboardObj.ext1().cqyyLL)+(dashboardObj.ext2().openHours * dashboardObj.ext2().cqyyLL)) + dashboardObj.ext2().cqyyCund * (dashboardObj.ext2().openHours * dashboardObj.ext2().cqyyLL)/((dashboardObj.ext1().openHours * dashboardObj.ext1().cqyyLL)+(dashboardObj.ext2().openHours * dashboardObj.ext2().cqyyLL)) | number:2 }} g/L
+                </tspan>
+                <tspan font-family="Lucida Grande" font-size="13" font-weight="500" x="149.74436" y="13"
+                       textLength="8.455078"><!-- }} -->
+                </tspan>
+            </text>
+            <text transform="translate(312 60.625)" fill="black">
+                <tspan font-family="Heiti SC" font-size="13" font-weight="300" x="0" y="13" textLength="52">铁浓度：</tspan>
+                <tspan font-family="Lucida Grande" font-size="13" font-weight="500" x="52" y="13"
+                       textLength="12.5683594"><!--{{-->
+                </tspan>
+                <tspan font-family="Heiti SC" font-size="13" font-weight="300" x="64.56836" y="13"
+                       style="fill: red;" >{{ dashboardObj.ext1().cqyyTfend * (dashboardObj.ext1().openHours * dashboardObj.ext1().cqyyLL)/((dashboardObj.ext1().openHours * dashboardObj.ext1().cqyyLL)+(dashboardObj.ext2().openHours * dashboardObj.ext2().cqyyLL)) + dashboardObj.ext2().cqyyTfend * (dashboardObj.ext2().openHours * dashboardObj.ext2().cqyyLL)/((dashboardObj.ext1().openHours * dashboardObj.ext1().cqyyLL)+(dashboardObj.ext2().openHours * dashboardObj.ext2().cqyyLL)) | number:2 }} g/L
+                </tspan>
+                <tspan font-family="Lucida Grande" font-size="13" font-weight="500" x="143.86836" y="13"
+                       textLength="8.455078"><!--}}-->
+                </tspan>
+            </text>
+            <text transform="translate(312 76)" fill="black">
+                <tspan font-family="Heiti SC" font-size="13" font-weight="300" x="0" y="13" textLength="29.575">PH：
+                </tspan>
+                <tspan font-family="Lucida Grande" font-size="13" font-weight="500" x="29.575" y="13"
+                       textLength="12.5683594"><!--{{-->
+                </tspan>
+                <tspan font-family="Heiti SC" font-size="13" font-weight="300" x="42.14336" y="13" style="fill: red;">
+                    {{ dashboardObj.ext1().cqyyPh * (dashboardObj.ext1().openHours * dashboardObj.ext1().cqyyLL)/((dashboardObj.ext1().openHours * dashboardObj.ext1().cqyyLL)+(dashboardObj.ext2().openHours * dashboardObj.ext2().cqyyLL)) + dashboardObj.ext2().cqyyPh * (dashboardObj.ext2().openHours * dashboardObj.ext2().cqyyLL)/((dashboardObj.ext1().openHours * dashboardObj.ext1().cqyyLL)+(dashboardObj.ext2().openHours * dashboardObj.ext2().cqyyLL)) | number:2 }}
+                </tspan>
+                <tspan font-family="Lucida Grande" font-size="13" font-weight="500" x="102.16436" y="13"
+                       textLength="8.455078"><!--}}-->
+                </tspan>
+            </text>
+            <text transform="translate(312 89.375)" fill="black">
+                <tspan font-family="Heiti SC" font-size="13" font-weight="300" x="0" y="13" textLength="39">酸度：</tspan>
+                <tspan font-family="Lucida Grande" font-size="13" font-weight="500" x="39" y="13"
+                       textLength="12.5683594"><!--{{-->
+                </tspan>
+                <tspan font-family="Heiti SC" font-size="13" font-weight="300" x="51.56836" y="13" style="fill: red;">
+                    {{ dashboardObj.ext1().cqyySd * (dashboardObj.ext1().openHours * dashboardObj.ext1().cqyyLL)/((dashboardObj.ext1().openHours * dashboardObj.ext1().cqyyLL)+(dashboardObj.ext2().openHours * dashboardObj.ext2().cqyyLL)) + dashboardObj.ext2().cqyySd * (dashboardObj.ext2().openHours * dashboardObj.ext2().cqyyLL)/((dashboardObj.ext1().openHours * dashboardObj.ext1().cqyyLL)+(dashboardObj.ext2().openHours * dashboardObj.ext2().cqyyLL)) | number:2 }} g/L
+                </tspan>
+                <tspan font-family="Lucida Grande" font-size="13" font-weight="500" x="111.34236" y="13"
+                       textLength="8.455078"><!--}}-->
+                </tspan>
+            </text>
+            <text transform="translate(312 105.375)" fill="black">
+                <tspan font-family="Heiti SC" font-size="13" font-weight="300" x="0" y="13" textLength="39">浊度：</tspan>
+                <tspan font-family="Lucida Grande" font-size="13" font-weight="500" x="39" y="13"
+                       textLength="12.5683594"><!--{{-->
+                </tspan>
+                <tspan font-family="Heiti SC" font-size="13" font-weight="300" x="51.56836" y="13" style="fill: red;">
+                    {{ dashboardObj.ext1().cqyyZd * (dashboardObj.ext1().openHours * dashboardObj.ext1().cqyyLL)/((dashboardObj.ext1().openHours * dashboardObj.ext1().cqyyLL)+(dashboardObj.ext2().openHours * dashboardObj.ext2().cqyyLL)) + dashboardObj.ext2().cqyyZd * (dashboardObj.ext2().openHours * dashboardObj.ext2().cqyyLL)/((dashboardObj.ext1().openHours * dashboardObj.ext1().cqyyLL)+(dashboardObj.ext2().openHours * dashboardObj.ext2().cqyyLL)) | number:2 }} NTU
+                </tspan>
+                <tspan font-family="Lucida Grande" font-size="13" font-weight="500" x="111.10836" y="13"
+                       textLength="8.455078"><!--}}-->
+                </tspan>
+            </text>
+            <text transform="translate(574.5 77.375)" fill="black">
+                <tspan font-family="Lucida Grande" font-size="13" font-weight="500" x="0" y="13" textLength="17.0625">
+                    Cu
+                </tspan>
+                <tspan font-family="Heiti SC" font-size="13" font-weight="300" x="17.0625" y="13" textLength="39">浓度：
+                </tspan>
+                <tspan font-family="Lucida Grande" font-size="13" font-weight="500" x="56.0625" y="13"
+                       style="fill:red">{{dashboardObj.ext1().cyyc2Cund | number:2 }} g/L
+                </tspan>
+                <tspan font-family="Heiti SC" font-size="13" font-weight="300" x="132.95166" y="13" textLength="16.796">
+                    <!--(1)-->
+                </tspan>
+                <tspan font-family="Lucida Grande" font-size="13" font-weight="500" x="149.74766" y="13"
+                       textLength="8.455078"><!--}}-->
+                </tspan>
+            </text>
+            <text transform="translate(574.5 95.375)" fill="black">
+                <tspan font-family="Lucida Grande" font-size="13" font-weight="500" x="0" y="13" textLength="22.432617">
+                    TFe
+                </tspan>
+                <tspan font-family="Heiti SC" font-size="13" font-weight="300" x="22.432617" y="13" textLength="39">
+                    浓度：
+                </tspan>
+                <tspan font-family="Lucida Grande" font-size="13" font-weight="500" x="61.432617" y="13"
+                       style="fill:red">{{dashboardObj.ext1().cqyy2Tfend | number:2 }} g/L
+                </tspan>
+                <tspan font-family="Heiti SC" font-size="13" font-weight="300" x="143.02539" y="13" textLength="16.796">
+                    <!--(1)-->
+                </tspan>
+                <tspan font-family="Lucida Grande" font-size="13" font-weight="500" x="159.82139" y="13"
+                       textLength="8.455078"><!--}}-->
+                </tspan>
+            </text>
+            <text transform="translate(574.5 111.875)" fill="black">
+                <tspan font-family="Lucida Grande" font-size="13" font-weight="500" x="0" y="13" textLength="16.73877">
+                    PH
+                </tspan>
+                <tspan font-family="Heiti SC" font-size="13" font-weight="300" x="16.73877" y="13" textLength="13">：
+                </tspan>
+                <tspan font-family="Lucida Grande" font-size="13" font-weight="500" x="29.73877" y="13"
+                       style="fill:red">{{dashboardObj.ext1().cqyy2Ph | number:2 }}
+                </tspan>
+                <tspan font-family="Heiti SC" font-size="13" font-weight="300" x="90.092285" y="13" textLength="16.796">
+                    <!--(1)-->
+                </tspan>
+                <tspan font-family="Lucida Grande" font-size="13" font-weight="500" x="106.888285" y="13"
+                       textLength="8.455078"><!--}}-->
+                </tspan>
+            </text>
+            <text transform="translate(772 76)" fill="black">
+                <tspan font-family="Lucida Grande" font-size="13" font-weight="500" x="0" y="13" textLength="17.0625">
+                    Cu
+                </tspan>
+                <tspan font-family="Heiti SC" font-size="13" font-weight="300" x="17.0625" y="13" textLength="39">浓度：
+                </tspan>
+                <tspan font-family="Lucida Grande" font-size="13" font-weight="500" x="56.0625" y="13"
+                       style="fill:red">{{dashboardObj.ext2().cyyc2Cund | number:2 }} g/L
+                </tspan>
+                <tspan font-family="Heiti SC" font-size="13" font-weight="300" x="132.95166" y="13" textLength="16.796">
+                    <!--(2)-->
+                </tspan>
+                <tspan font-family="Lucida Grande" font-size="13" font-weight="500" x="149.74766" y="13"
+                       textLength="8.455078"><!--}}-->
+                </tspan>
+            </text>
+            <text transform="translate(772 94)" fill="black">
+                <tspan font-family="Lucida Grande" font-size="13" font-weight="500" x="0" y="13" textLength="22.432617">
+                    TFe
+                </tspan>
+                <tspan font-family="Heiti SC" font-size="13" font-weight="300" x="22.432617" y="13" textLength="39">
+                    浓度：
+                </tspan>
+                <tspan font-family="Lucida Grande" font-size="13" font-weight="500" x="61.432617" y="13"
+                       style="fill:red">{{dashboardObj.ext2().cqyy2Tfend | number:2 }} g/L
+                </tspan>
+                <tspan font-family="Heiti SC" font-size="13" font-weight="300" x="143.02539" y="13" textLength="16.796">
+                    <!--(2)-->
+                </tspan>
+                <tspan font-family="Lucida Grande" font-size="13" font-weight="500" x="159.82139" y="13"
+                       textLength="8.455078"><!--}}-->
+                </tspan>
+            </text>
+            <text transform="translate(772 110.5)" fill="black">
+                <tspan font-family="Lucida Grande" font-size="13" font-weight="500" x="0" y="13" textLength="16.73877">
+                    PH
+                </tspan>
+                <tspan font-family="Heiti SC" font-size="13" font-weight="300" x="16.73877" y="13" textLength="13">：
+                </tspan>
+                <tspan font-family="Lucida Grande" font-size="13" font-weight="500" x="29.73877" y="13"
+                       style="fill:red">{{dashboardObj.ext2().cqyy2Ph | number:2 }}
+                </tspan>
+                <tspan font-family="Heiti SC" font-size="13" font-weight="300" x="90.092285" y="13" textLength="16.796">
+                    <!--(2)-->
+                </tspan>
+                <tspan font-family="Lucida Grande" font-size="13" font-weight="500" x="106.888285" y="13"
+                       textLength="8.455078"><!--}}-->
+                </tspan>
+            </text>
+            <text transform="translate(670 524)" fill="black">
+                <tspan font-family="Heiti SC" font-size="13" font-weight="bold" x="0" y="11" textLength="39">电贫液</tspan>
+            </text>
+            <text transform="translate(671 545.5)" fill="black">
+                <tspan font-family="Heiti SC" font-size="13" font-weight="300" x="0" y="13" textLength="37.154">Cu2+:
+                </tspan>
+                <tspan font-family="Lucida Grande" font-size="13" font-weight="500" x="37.154" y="13"
+                       style="fill:red">{{dashboardObj.electrowin.djhyCund | number:2}} g/L
+                </tspan>
+            </text>
+            <text transform="translate(671 566)" fill="black">
+                <tspan font-family="Heiti SC" font-size="13" font-weight="300" x="0" y="11" style="fill:red">
+                    TFe：{{dashboardObj.electrowin.djhyTfend | number:2}} g/L
+                </tspan>
+            </text>
+            <text transform="translate(128 221.5)" fill="black">
+                <tspan font-family="Futura" font-size="13" font-weight="bold" font-stretch="condensed" x="0" y="13"
+                       textLength="7.794922">B
+                </tspan>
+                <tspan font-family="Heiti SC" font-size="13" font-weight="bold" x="7.794922" y="13" textLength="13">级
+                </tspan>
+            </text>
+            <text transform="translate(105 249)" fill="black">
+                <tspan font-family="Heiti SC" font-size="13" font-weight="300" x="0" y="13" textLength="61.126">萃取率：
+                </tspan>
+                <tspan font-family="Lucida Grande" font-size="13" font-weight="500" x="61.126" y="13"
+                       style="fill: red">{{dashboardObj.ext1().cqbdCql | number:2}} %
+                </tspan>
+                <tspan font-family="Heiti SC" font-size="13" font-weight="300" x="113.26565" y="13"
+                       textLength="25.922001">
+                </tspan>
+            </text>
+            <text transform="translate(105 269)" fill="black">
+                <tspan font-family="Heiti SC" font-size="13" font-weight="300" x="0" y="13" textLength="48.724">O/A：
+                </tspan>
+                <tspan font-family="Lucida Grande" font-size="13" font-weight="500" x="48.724" y="13"
+                       style="fill: red">{{ dashboardObj.ext1().cqxb | number:2}}
+                </tspan>
+                <tspan font-family="Heiti SC" font-size="13" font-weight="300" x="79.719605" y="13"
+                       textLength="25.922001"><!--(1)}}-->
+                </tspan>
+            </text>
+            <text transform="translate(303.5 221.5)" fill="black">
+                <tspan font-family="Futura" font-size="13" font-weight="bold" font-stretch="condensed" x="0" y="13"
+                       textLength="7.902832">D
+                </tspan>
+                <tspan font-family="Heiti SC" font-size="13" font-weight="bold" x="7.902832" y="13" textLength="13">级
+                </tspan>
+            </text>
+            <text transform="translate(280.5 249)" fill="black">
+                <tspan font-family="Heiti SC" font-size="13" font-weight="300" x="0" y="13" textLength="52">萃取率：</tspan>
+                <tspan font-family="Lucida Grande" font-size="13" font-weight="500" x="52" y="13"
+                       style="fill:red">{{dashboardObj.ext2().cqbdCql | number:2}} %
+                </tspan>
+                <tspan font-family="Heiti SC" font-size="13" font-weight="300" x="104.13965" y="13" textLength="16.796">
+                    <!--(2)-->
+                </tspan>
+            </text>
+            <text transform="translate(280.5 269)" fill="black">
+                <tspan font-family="Heiti SC" font-size="13" font-weight="300" x="0" y="13" textLength="39.598">O/A：
+                </tspan>
+                <tspan font-family="Lucida Grande" font-size="13" font-weight="500" x="39.598" y="13"
+                       style="fill:red">{{dashboardObj.ext2().cqxb | number:2}}
+                </tspan>
+                <tspan font-family="Heiti SC" font-size="13" font-weight="300" x="70.593605" y="13" textLength="16.796">
+                    <!--(2)-->
+                </tspan>
+            </text>
+            <text transform="translate(494 227.75)" fill="black">
+                <tspan font-family="Futura" font-size="13" font-weight="bold" font-stretch="condensed" x="0" y="13"
+                       textLength="15.646973">A1
+                </tspan>
+                <tspan font-family="Heiti SC" font-size="13" font-weight="bold" x="15.646973" y="13" textLength="13">级
+                </tspan>
+            </text>
+            <text transform="translate(471 255.25)" fill="black">
+                <tspan font-family="Heiti SC" font-size="13" font-weight="300" x="0" y="13" textLength="52">萃取率：</tspan>
+                <tspan font-family="Lucida Grande" font-size="13" font-weight="500" x="52" y="13"
+                       style="fill:red">{{dashboardObj.ext1().cqacCql | number:2}} %
+                </tspan>
+                <tspan font-family="Heiti SC" font-size="13" font-weight="300" x="70.598633" y="13" textLength="16.796">
+                    <!--(1)-->
+                </tspan>
+            </text>
+            <text transform="translate(471 275.25)" fill="black">
+                <tspan font-family="Heiti SC" font-size="13" font-weight="300" x="0" y="13" textLength="39.598">O/A：
+                </tspan>
+                <tspan font-family="Lucida Grande" font-size="13" font-weight="500" x="39.598" y="13"
+                       style="fill:red">{{dashboardObj.ext1().cqxb | number:2 }}
+                </tspan>
+                <tspan font-family="Heiti SC" font-size="13" font-weight="300" x="70.593605" y="13" textLength="16.796">
+                    <!--(1)-->
+                </tspan>
+            </text>
+            <text transform="translate(603 227.75)" fill="black">
+                <tspan font-family="Futura" font-size="13" font-weight="bold" font-stretch="condensed" x="0" y="13"
+                       textLength="14.364746">C1
+                </tspan>
+                <tspan font-family="Heiti SC" font-size="13" font-weight="bold" x="14.364746" y="13" textLength="13">级
+                </tspan>
+            </text>
+            <text transform="translate(580 255.25)" fill="black">
+                <tspan font-family="Heiti SC" font-size="13" font-weight="300" x="0" y="13" textLength="52">萃取率：</tspan>
+                <tspan font-family="Lucida Grande" font-size="13" font-weight="500" x="52" y="13" style="fill:red">
+                    {{dashboardObj.ext2().cqacCql | number:2}} %
+                </tspan>
+                <tspan font-family="Heiti SC" font-size="13" font-weight="300" x="72.93457" y="13" textLength="16.796">
+                    <!--(2)-->
+                </tspan>
+            </text>
+            <text transform="translate(580 275.25)" fill="black">
+                <tspan font-family="Heiti SC" font-size="13" font-weight="300" x="0" y="13" textLength="39.598">O/A：
+                </tspan>
+                <tspan font-family="Lucida Grande" font-size="13" font-weight="500" x="39.598" y="13"
+                       style="fill:red">{{dashboardObj.ext2().cqxb | number:2 }}
+                </tspan>
+                <tspan font-family="Heiti SC" font-size="13" font-weight="300" x="70.593605" y="13" textLength="16.796">
+                    <!--(2)-->
+                </tspan>
+            </text>
+            <text transform="translate(775 225.5)" fill="black">
+                <tspan font-family="Futura" font-size="13" font-weight="bold" font-stretch="condensed" x="0" y="13"
+                       textLength="15.646973">A2
+                </tspan>
+                <tspan font-family="Heiti SC" font-size="13" font-weight="bold" x="15.646973" y="13" textLength="13">级
+                </tspan>
+            </text>
+            <text transform="translate(752 253)" fill="black">
+                <tspan font-family="Heiti SC" font-size="13" font-weight="300" x="0" y="13" textLength="52">萃取率：</tspan>
+                <tspan font-family="Lucida Grande" font-size="13" font-weight="500" x="52" y="13"
+                       style="fill:red">{{dashboardObj.ext1().cqacCql | number:2}} %
+                </tspan>
+                <tspan font-family="Heiti SC" font-size="13" font-weight="300" x="70.598633" y="13" textLength="16.796">
+                    <!--(1)-->
+                </tspan>
+            </text>
+            <text transform="translate(752 273)" fill="black">
+                <tspan font-family="Heiti SC" font-size="13" font-weight="300" x="0" y="13" textLength="39.598">O/A：
+                </tspan>
+                <tspan font-family="Lucida Grande" font-size="13" font-weight="500" x="39.598" y="13"
+                       style="fill:red">{{dashboardObj.ext1().cqxb | number:2 }}
+                </tspan>
+                <tspan font-family="Heiti SC" font-size="13" font-weight="300" x="70.593605" y="13" textLength="16.796">
+                    <!--(1)-->
+                </tspan>
+            </text>
+            <text transform="translate(876 225.75)" fill="black">
+                <tspan font-family="Futura" font-size="13" font-weight="bold" font-stretch="condensed" x="0" y="13"
+                       textLength="14.364746">C2
+                </tspan>
+                <tspan font-family="Heiti SC" font-size="13" font-weight="bold" x="14.364746" y="13" textLength="13">级
+                </tspan>
+            </text>
+            <text transform="translate(853 253.25)" fill="black">
+                <tspan font-family="Heiti SC" font-size="13" font-weight="300" x="0" y="13" textLength="52">萃取率：</tspan>
+                <tspan font-family="Lucida Grande" font-size="13" font-weight="500" x="52" y="13"
+                       style="fill:red">{{dashboardObj.ext2().cqacCql | number:2}} %
+                </tspan>
+                <tspan font-family="Heiti SC" font-size="13" font-weight="300" x="70.598633" y="13" textLength="16.796">
+                    <!--(2)-->
+                </tspan>
+            </text>
+            <text transform="translate(853 273.25)" fill="black">
+                <tspan font-family="Heiti SC" font-size="13" font-weight="300" x="0" y="13" textLength="39.598">O/A：
+                </tspan>
+                <tspan font-family="Lucida Grande" font-size="13" font-weight="500" x="39.598" y="13"
+                       style="fill:red">{{dashboardObj.ext2().cqxb | number:2 }}
+                </tspan>
+                <tspan font-family="Heiti SC" font-size="13" font-weight="300" x="70.593605" y="13" textLength="16.796">
+                   <!-- (2) -->
+                </tspan>
+            </text>
+            <text transform="translate(792.5 466.9994)" fill="black">
+                <tspan font-family="Lucida Grande" font-size="13" font-weight="500" x="0" y="13" textLength="17.0625">
+                    Cu
+                </tspan>
+                <tspan font-family="Heiti SC" font-size="13" font-weight="300" x="17.0625" y="13" style="fill:red">
+                    浓度:{{dashboardObj.ext2().zsyjxCund | number:2}} g/L
+                </tspan>
+            </text>
+            <text transform="translate(54.5 400.7506)" fill="black">
+                <tspan font-family="Lucida Grande" font-size="13" font-weight="500" x="0" y="13" textLength="17.0625">
+                    Cu
+                </tspan>
+                <tspan font-family="Heiti SC" font-size="13" font-weight="300" x="17.0625" y="13" style="fill:red">
+                    浓度:{{dashboardObj.ext1().fzyjxCund | number:2}} g/L
+                </tspan>
+            </text>
+            <text transform="translate(54.5 465.5006)" fill="black">
+                <tspan font-family="Lucida Grande" font-size="13" font-weight="500" x="0" y="13" textLength="17.0625">
+                    Cu
+                </tspan>
+                <tspan font-family="Heiti SC" font-size="13" font-weight="300" x="17.0625" y="13" style="fill:red">
+                    浓度:{{dashboardObj.ext2().fzyjxCund | number:2}} g/L
+                </tspan>
+            </text>
+            <text transform="translate(792.5 400)" fill="black">
+                <tspan font-family="Lucida Grande" font-size="13" font-weight="500" x="0" y="13" textLength="17.0625">
+                    Cu
+                </tspan>
+                <tspan font-family="Heiti SC" font-size="13" font-weight="300" x="17.0625" y="13" style="fill:red">
+                    浓度:{{dashboardObj.ext1().zsyjxCund | number:2}} g/L
+                </tspan>
+            </text>
+            <text transform="translate(350 370.125)" fill="black">
+                <tspan font-family="Heiti SC" font-size="13" font-weight="bold" x="0" y="11" textLength="59.202">反萃级1期
+                </tspan>
+            </text>
+            <text transform="translate(336 397.625)" fill="black">
+                <tspan font-family="Heiti SC" font-size="13" font-weight="300" x="0" y="13" textLength="55.601002">
+                    反萃效率:
+                </tspan>
+                <tspan font-family="Lucida Grande" font-size="13" font-weight="500" x="55.601" y="13"
+                       style="fill:red">{{ dashboardObj.ext1().ycfcRate | number:2 }} %
+                </tspan>
+                <tspan font-family="Heiti SC" font-size="13" font-weight="300" x="107.994555" y="13"
+                       textLength="16.796"><!--(1)-->
+                </tspan>
+            </text>
+            <text transform="translate(336 417.625)" fill="black">
+                <tspan font-family="Heiti SC" font-size="13" font-weight="300" x="0" y="13" textLength="39.598">O/A：
+                </tspan>
+                <tspan font-family="Lucida Grande" font-size="13" font-weight="500" x="39.598" y="13"
+                       style="fill:red">{{dashboardObj.ext1().fcxb | number:2}}
+                </tspan>
+                <tspan font-family="Heiti SC" font-size="13" font-weight="300" x="67.19126" y="13" textLength="16.796">
+                    <!--(1)-->
+                </tspan>
+            </text>
+            <text transform="translate(523 372.625)" fill="black">
+                <tspan font-family="Heiti SC" font-size="13" font-weight="bold" x="0" y="11" textLength="59.202">反萃级2期
+                </tspan>
+            </text>
+            <text transform="translate(509 400.125)" fill="black">
+                <tspan font-family="Heiti SC" font-size="13" font-weight="300" x="0" y="13" textLength="55.601002">
+                    反萃效率:
+                </tspan>
+                <tspan font-family="Lucida Grande" font-size="13" font-weight="500" x="55.601" y="13"
+                       style="fill:red">{{dashboardObj.ext2().ycfcRate | number:2 }} %
+                </tspan>
+                <tspan font-family="Heiti SC" font-size="13" font-weight="300" x="107.994555" y="13"
+                       textLength="16.796"><!--(2)-->
+                </tspan>
+            </text>
+            <text transform="translate(509 420.125)" fill="black">
+                <tspan font-family="Heiti SC" font-size="13" font-weight="300" x="0" y="13" textLength="39.598">O/A：
+                </tspan>
+                <tspan font-family="Lucida Grande" font-size="13" font-weight="500" x="39.598" y="13"
+                       style="fill:red">{{dashboardObj.ext2().fcxb | number:2 }}
+                </tspan>
+                <tspan font-family="Heiti SC" font-size="13" font-weight="300" x="67.19126" y="13" textLength="16.796">
+                    <!--(2)-->
+                </tspan>
+            </text>
+            <text transform="translate(671.5 585.5)" fill="black">
+                <tspan font-family="Heiti SC" font-size="13" font-weight="300" x="0" y="13" textLength="39">酸度：</tspan>
+                <tspan font-family="Lucida Grande" font-size="13" font-weight="500" x="39" y="13"
+                       style="fill:red">{{dashboardObj.electrowin.djhySd | number:2}} g/L
+                </tspan>
+            </text>
+            <text transform="translate(112 541.75122)" fill="black">
+                <tspan font-family="Heiti SC" font-size="13" font-weight="bold" x="0" y="11" textLength="59.202">洗涤级1期
+                </tspan>
+            </text>
+            <text transform="translate(134 551.50122)" fill="black">
+                <tspan font-family="Heiti SC" font-size="13" font-weight="300" x="0" y="13" textLength="37.154">Cu2+:
+                </tspan>
+                <tspan font-family="Lucida Grande" font-size="13" font-weight="500" x="37.154" y="13"
+                       style="fill:red">{{dashboardObj.ext1().xdyCund | number:2 }} g/L
+                </tspan>
+                <tspan font-family="Heiti SC" font-size="13" font-weight="300" x="93.41328" y="13" textLength="16.796">
+                    <!--(1)-->
+                </tspan>
+            </text>
+            <text transform="translate(134 571.50122)" fill="black">
+                <tspan font-family="Heiti SC" font-size="13" font-weight="300" x="0" y="13" textLength="33.293">TFe：
+                </tspan>
+                <tspan font-family="Lucida Grande" font-size="13" font-weight="500" x="33.293" y="13"
+                       style="fill:red">{{dashboardObj.ext1().xdyTfend | number:2 }} g/L
+                </tspan>
+                <tspan font-family="Heiti SC" font-size="13" font-weight="300" x="92.732453" y="13" textLength="16.796">
+                    <!--(1)-->
+                </tspan>
+            </text>
+            <text transform="translate(134 591.50122)" fill="black">
+                <tspan font-family="Heiti SC" font-size="13" font-weight="300" x="0" y="13" textLength="39.598">O/A：
+                </tspan>
+                <tspan font-family="Lucida Grande" font-size="13" font-weight="500" x="39.598" y="13"
+                       textLength="25.390625">N/A
+                </tspan>
+            </text>
+            <text transform="translate(135 610.25122)" fill="black">
+                <tspan font-family="Heiti SC" font-size="13" font-weight="300" x="0" y="13" textLength="29.575">PH：
+                </tspan>
+                <tspan font-family="Lucida Grande" font-size="13" font-weight="500" x="29.575" y="13"
+                       style="fill:red">{{dashboardObj.ext1().xdyPh | number:2}}
+                </tspan>
+                <tspan font-family="Heiti SC" font-size="13" font-weight="300" x="67.775195" y="13" textLength="16.796">
+                    <!--(1)-->
+                </tspan>
+            </text>
+            <text transform="translate(134 626.50122)" fill="black">
+                <tspan font-family="Heiti SC" font-size="13" font-weight="300" x="0" y="13" textLength="39">酸度：</tspan>
+                <tspan font-family="Lucida Grande" font-size="13" font-weight="500" x="39" y="13" style="fill:red">
+                    {{dashboardObj.ext1().xdySd | number:2}} g/L
+                </tspan>
+                <tspan font-family="Heiti SC" font-size="13" font-weight="300" x="77.13037" y="13" textLength="16.796">
+                    <!--(1)-->
+                </tspan>
+            </text>
+            <text transform="translate(288 535.25122)" fill="black">
+                <tspan font-family="Heiti SC" font-size="13" font-weight="bold" x="0" y="11" textLength="59.202">洗涤级2期
+                </tspan>
+            </text>
+            <text transform="translate(311.5 548.87622)" fill="black">
+                <tspan font-family="Heiti SC" font-size="13" font-weight="300" x="0" y="13" textLength="37.154">Cu2+:
+                </tspan>
+                <tspan font-family="Lucida Grande" font-size="13" font-weight="500" x="37.154" y="13"
+                       style="fill:red">{{dashboardObj.ext2().xdyCund | number:2}} g/L
+                </tspan>
+                <tspan font-family="Heiti SC" font-size="13" font-weight="300" x="93.41328" y="13" textLength="16.796">
+                    <!--(2)-->
+                </tspan>
+            </text>
+            <text transform="translate(311.5 568.87622)" fill="black">
+                <tspan font-family="Heiti SC" font-size="13" font-weight="300" x="0" y="13" textLength="33.293">TFe：
+                </tspan>
+                <tspan font-family="Lucida Grande" font-size="13" font-weight="500" x="33.293" y="13"
+                       style="fill:red">{{dashboardObj.ext2().xdyTfend | number:2}} g/L
+                </tspan>
+                <tspan font-family="Heiti SC" font-size="13" font-weight="300" x="92.732453" y="13" textLength="16.796">
+                    <!--(2)-->
+                </tspan>
+            </text>
+            <text transform="translate(311.5 588.87622)" fill="black">
+                <tspan font-family="Heiti SC" font-size="13" font-weight="300" x="0" y="13" textLength="39.598">O/A：
+                </tspan>
+                <tspan font-family="Lucida Grande" font-size="13" font-weight="500" x="39.598" y="13"
+                       textLength="25.390625">N/A
+                </tspan>
+            </text>
+            <text transform="translate(312.5 607.62622)" fill="black">
+                <tspan font-family="Heiti SC" font-size="13" font-weight="300" x="0" y="13" textLength="29.575">PH：
+                </tspan>
+                <tspan font-family="Lucida Grande" font-size="13" font-weight="500" x="29.575" y="13"
+                       style="fill:red">{{dashboardObj.ext2().xdyPh | number:2}}
+                </tspan>
+                <tspan font-family="Heiti SC" font-size="13" font-weight="300" x="67.775195" y="13" textLength="16.796">
+                    <!--(2)-->
+                </tspan>
+            </text>
+            <text transform="translate(311.5 623.87622)" fill="black">
+                <tspan font-family="Heiti SC" font-size="13" font-weight="300" x="0" y="13" textLength="39">酸度：</tspan>
+                <tspan font-family="Lucida Grande" font-size="13" font-weight="500" x="39" y="13" style="fill:red">
+                    {{dashboardObj.ext2().xdySd | number:2}} g/L
+                </tspan>
+                <tspan font-family="Heiti SC" font-size="13" font-weight="300" x="77.13037" y="13" textLength="16.796">
+                    <!--(2)-->
+                </tspan>
+            </text>
+            <text transform="translate(490 524)" fill="black">
+                <tspan font-family="Heiti SC" font-size="13" font-weight="bold" x="0" y="11" textLength="39">电富液</tspan>
+            </text>
+            <text transform="translate(491 545.5)" fill="black">
+                <tspan font-family="Heiti SC" font-size="13" font-weight="300" x="0" y="13" textLength="37.154">Cu2+:
+                </tspan>
+                <tspan font-family="Lucida Grande" font-size="13" font-weight="500" x="37.154" y="13"
+                       style="fill:red">{{dashboardObj.electrowin.djqyCund | number:2}} g/L
+                </tspan>
+            </text>
+            <text transform="translate(491 566)" fill="black">
+                <tspan font-family="Heiti SC" font-size="13" font-weight="300" x="0" y="11" style="fill:red">
+                    TFe：{{dashboardObj.electrowin.djqyTfend | number:2}} g/L
+                </tspan>
+            </text>
+            <text transform="translate(491.5 585.5)" fill="black">
+                <tspan font-family="Heiti SC" font-size="13" font-weight="300" x="0" y="13" textLength="39">酸度：</tspan>
+                <tspan font-family="Lucida Grande" font-size="13" font-weight="500" x="39" y="13"
+                       style="fill:red">{{dashboardObj.electrowin.djqySd | number:2}} g/L
+                </tspan>
+            </text>
+            <path d="M 133.41495 506.41388 L 133.41495 526.31388 L 142.41495 526.31388 L 142.41495 514.18796 L 152.26185 514.18796 L 152.26185 518.18796"
+                  marker-end="url(#FilledArrow_Marker_2)" stroke="#8e8e8e" stroke-linecap="round"
+                  stroke-linejoin="round" stroke-width="3"/>
+            <path d="M 141.07176 337.7076 L 141.07176 357.6076 L 133.07176 357.6076 L 133.07176 353.143 L 125.51236 353.143 L 125.51236 357.14301"
+                  marker-end="url(#FilledArrow_Marker_2)" stroke="#8e8e8e" stroke-linecap="round"
+                  stroke-linejoin="round" stroke-width="3"/>
+            <path d="M 858.9157 375.02752 L 858.9157 355.12752 L 864.9157 355.12752 L 864.9157 359.62248 L 871.13894 359.62248 L 871.13894 355.62248"
+                  marker-end="url(#FilledArrow_Marker_2)" stroke="#8e8e8e" stroke-linecap="round"
+                  stroke-linejoin="round" stroke-width="3"/>
+        </g>
+    </g>
+</svg>

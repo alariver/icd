@@ -1,0 +1,271 @@
+<?xml version="1.0"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xl="http://www.w3.org/1999/xlink" version="1.1" viewBox="121 3 582 476"
+     width="582pt" height="476pt">
+    <metadata xmlns:dc="http://purl.org/dc/elements/1.1/">
+        <dc:date>2014-02-13 11:52Z</dc:date>
+        <!-- Produced by OmniGraffle Professional 5.4.4 -->
+    </metadata>
+    <defs>
+        <filter id="Shadow" filterUnits="userSpaceOnUse">
+            <feGaussianBlur in="SourceAlpha" result="blur" stdDeviation="3.488"/>
+            <feOffset in="blur" result="offset" dx="0" dy="4"/>
+            <feFlood flood-color="black" flood-opacity=".75" result="flood"/>
+            <feComposite in="flood" in2="offset" operator="in"/>
+        </filter>
+        <font-face font-family="Heiti SC" font-size="13" units-per-em="1000" underline-position="0"
+                   underline-thickness="54.496502" slope="0" x-height="531" cap-height="718.00006" ascent="860.00067"
+                   descent="-139.99939" font-weight="bold">
+            <font-face-src>
+                <font-face-name name="STHeitiSC-Medium"/>
+            </font-face-src>
+        </font-face>
+        <font-face font-family="Lucida Grande" font-size="13" panose-1="2 11 6 0 4 5 2 2 2 4" units-per-em="1000"
+                   underline-position="-97.65626" underline-thickness="48.82813" slope="0" x-height="530.27344"
+                   cap-height="722.6563" ascent="966.79694" descent="-210.93752" font-weight="500">
+            <font-face-src>
+                <font-face-name name="LucidaGrande"/>
+            </font-face-src>
+        </font-face>
+        <font-face font-family="Heiti SC" font-size="13" panose-1="2 0 0 0 0 0 0 0 0 0" units-per-em="1000"
+                   underline-position="0" underline-thickness="54.496502" slope="0" x-height="591"
+                   cap-height="778.00006" ascent="860.00067" descent="-139.99939" font-weight="300">
+            <font-face-src>
+                <font-face-name name="STHeitiSC-Light"/>
+            </font-face-src>
+        </font-face>
+        <font-face font-family="Heiti SC" font-size="12" panose-1="2 0 0 0 0 0 0 0 0 0" units-per-em="1000"
+                   underline-position="0" underline-thickness="59.037876" slope="0" x-height="591" cap-height="778"
+                   ascent="860.0006" descent="-139.99939" font-weight="300">
+            <font-face-src>
+                <font-face-name name="STHeitiSC-Light"/>
+            </font-face-src>
+        </font-face>
+        <marker orient="auto" overflow="visible" markerUnits="strokeWidth" id="FilledArrow_Marker" viewBox="-1 -3 7 6"
+                markerWidth="7" markerHeight="6" color="black">
+            <g>
+                <path d="M 4.8000002 0 L 0 -1.8000001 L 0 1.8000001 Z" fill="currentColor" stroke="currentColor"
+                      stroke-width="1"/>
+            </g>
+        </marker>
+        <font-face font-family="Helvetica" font-size="12" units-per-em="1000" underline-position="-75.683594"
+                   underline-thickness="49.316406" slope="0" x-height="522.94922" cap-height="717.28516"
+                   ascent="770.01953" descent="-229.98047" font-weight="500">
+            <font-face-src>
+                <font-face-name name="Helvetica"/>
+            </font-face-src>
+        </font-face>
+        <font-face font-family="Futura" font-size="13" panose-1="2 11 8 6 2 2 4 3 2 4" units-per-em="1000"
+                   underline-position="-117.18751" underline-thickness="117.18751" slope="0" x-height="533.6914"
+                   cap-height="760.74225" ascent="1003.418" descent="-270.01953" font-weight="bold"
+                   font-stretch="condensed">
+            <font-face-src>
+                <font-face-name name="Futura-CondensedExtraBold"/>
+            </font-face-src>
+        </font-face>
+    </defs>
+    <g stroke="none" stroke-opacity="1" stroke-dasharray="none" fill="none" fill-opacity="1">
+        <title>Canvas 1</title>
+        <g>
+            <title>Layer 1</title>
+            <g>
+                <use xl:href="#id5_Graphic" filter="url(#Shadow)"/>
+                <use xl:href="#id164_Graphic" filter="url(#Shadow)"/>
+                <use xl:href="#id165_Graphic" filter="url(#Shadow)"/>
+                <use xl:href="#id167_Graphic" filter="url(#Shadow)"/>
+                <use xl:href="#id172_Graphic" filter="url(#Shadow)"/>
+                <use xl:href="#id175_Graphic" filter="url(#Shadow)"/>
+                <use xl:href="#id178_Graphic" filter="url(#Shadow)"/>
+                <use xl:href="#id179_Graphic" filter="url(#Shadow)"/>
+                <use xl:href="#id180_Graphic" filter="url(#Shadow)"/>
+            </g>
+            <g id="id5_Graphic">
+                <rect x="302" y="19" width="150" height="109" fill="#e3e3e3"/>
+                <rect x="302" y="19" width="150" height="109" stroke="black" stroke-linecap="round"
+                      stroke-linejoin="round" stroke-width="1"/>
+            </g>
+            <text transform="translate(351 21.5)" fill="black">
+                <tspan font-family="Heiti SC" font-size="13" font-weight="bold" x="0" y="11" textLength="52">处理水质
+                </tspan>
+            </text>
+            <text transform="translate(321 39)" fill="black">
+                <tspan font-family="Lucida Grande" font-size="13" font-weight="500" x="0" y="13" style="fill:red">
+                    Cu: {{ dashboardObj.neutrolization.clszCund | number:2 }} g/L
+                </tspan>
+            </text>
+            <text transform="translate(321 59)" fill="black">
+                <tspan font-family="Lucida Grande" font-size="13" font-weight="500" x="0" y="13" style="fill:red">
+                    TFe: {{dashboardObj.neutrolization.clszTfend | number:2}} g/L
+                </tspan>
+            </text>
+            <text transform="translate(321 79)" fill="black">
+                <tspan font-family="Lucida Grande" font-size="13" font-weight="500" x="0" y="13" style="fill:red">
+                    PH: {{dashboardObj.neutrolization.clszPh | number:2}}
+                </tspan>
+            </text>
+            <text transform="translate(321 99)" fill="black">
+                <tspan font-family="Heiti SC" font-size="13" font-weight="300" x="0" y="13" textLength="26">酸度</tspan>
+                <tspan font-family="Lucida Grande" font-size="13" font-weight="500" x="26" y="13"
+                       style="fill:red">: {{dashboardObj.neutrolization.clszSd | number:2}} g/L
+                </tspan>
+            </text>
+            <text transform="translate(287 146.5)" fill="black">
+                <tspan font-family="Heiti SC" font-size="13" font-weight="bold" x="0" y="11" textLength="39">萃余液</tspan>
+            </text>
+            <text transform="translate(406 146.5)" fill="black">
+                <tspan font-family="Heiti SC" font-size="13" font-weight="bold" x="0" y="11" textLength="65">防洪池二期
+                </tspan>
+            </text>
+            <g id="id164_Graphic">
+                <rect x="141" y="130" width="137" height="46" fill="#e3e3e3"/>
+                <rect x="141" y="130" width="137" height="46" stroke="black" stroke-linecap="round"
+                      stroke-linejoin="round" stroke-width="1"/>
+            </g>
+            <text transform="translate(156.5 146)" fill="black">
+                <tspan font-family="Heiti SC" font-size="13" font-weight="300" x="0" y="13" textLength="39">处理量</tspan>
+                <tspan font-family="Lucida Grande" font-size="13" font-weight="500" x="39" y="13" style="fill:red">
+                    : {{dashboardObj.neutrolization.cllCyyQty | number:2}} T
+                </tspan>
+            </text>
+            <g id="id165_Graphic">
+                <rect x="478" y="131" width="137" height="46" fill="#e3e3e3"/>
+                <rect x="478" y="131" width="137" height="46" stroke="black" stroke-linecap="round"
+                      stroke-linejoin="round" stroke-width="1"/>
+            </g>
+            <text transform="translate(493.5 147)" fill="black">
+                <tspan font-family="Heiti SC" font-size="13" font-weight="300" x="0" y="13" textLength="39">处理量</tspan>
+                <tspan font-family="Lucida Grande" font-size="13" font-weight="500" x="39" y="13"
+                       style="fill:red">: {{dashboardObj.neutrolization.cllFhc2Qty | number:2}} T
+                </tspan>
+            </text>
+            <g id="id167_Graphic">
+                <rect x="330" y="197" width="110" height="46" fill="#e3e3e3"/>
+                <rect x="330" y="197" width="110" height="46" stroke="black" stroke-linecap="round"
+                      stroke-linejoin="round" stroke-width="1"/>
+                <text transform="translate(335 214)" fill="black">
+                    <tspan font-family="Heiti SC" font-size="12" font-weight="300" fill="black" x="20" y="10"
+                           textLength="60">中和搅拌筒
+                    </tspan>
+                </text>
+            </g>
+            <path d="M 317.04478 162 L 317.04478 177.9 L 317.04478 178.4 L 357.67193 178.4 L 357.67193 180.7754 L 357.67193 183.7754"
+                  marker-end="url(#FilledArrow_Marker)" stroke="black" stroke-linecap="round" stroke-linejoin="round"
+                  stroke-width="2"/>
+            <path d="M 431.31343 162 L 431.31343 177.9 L 431.31343 178.4 L 403.67766 178.4 L 403.67766 180.70928 L 403.67766 183.70928"
+                  marker-end="url(#FilledArrow_Marker)" stroke="black" stroke-linecap="round" stroke-linejoin="round"
+                  stroke-width="2"/>
+            <g id="id172_Graphic">
+                <rect x="340.8433" y="278" width="88.313433" height="40" fill="#e3e3e3"/>
+                <rect x="340.8433" y="278" width="88.313433" height="40" stroke="black" stroke-linecap="round"
+                      stroke-linejoin="round" stroke-width="1"/>
+                <text transform="translate(345.8433 292)" fill="black">
+                    <tspan font-family="Heiti SC" font-size="12" font-weight="300" fill="black" x="21.156716" y="10"
+                           textLength="36">浓密机
+                    </tspan>
+                </text>
+            </g>
+            <text transform="translate(150 213.5)" fill="black">
+                <tspan font-family="Heiti SC" font-size="13" font-weight="bold" x="0" y="11" textLength="78">石灰乳或液碱
+                </tspan>
+            </text>
+            <path d="M 230 219.9991 L 245.9 219.9991 L 313.6 219.9969 L 316.6 219.9969"
+                  marker-end="url(#FilledArrow_Marker)" stroke="black" stroke-linecap="round" stroke-linejoin="round"
+                  stroke-width="2"/>
+            <g id="id175_Graphic">
+                <rect x="148" y="233" width="125" height="66" fill="#e3e3e3"/>
+                <rect x="148" y="233" width="125" height="66" stroke="black" stroke-linecap="round"
+                      stroke-linejoin="round" stroke-width="1"/>
+            </g>
+            <text transform="translate(164 244.5)" fill="black">
+                <tspan font-family="Heiti SC" font-size="13" font-weight="300" x="0" y="11" style="fill:red">用量:
+                    {{(dashboardObj.neutrolization.shyjxh1 + dashboardObj.neutrolization.shyjxh2 + dashboardObj.neutrolization.shyjxh3)|number:2}} T
+                </tspan>
+            </text>
+            <text transform="translate(164 270.5)" fill="black">
+                <tspan font-family="Heiti SC" font-size="13" font-weight="300" x="0" y="11" style="fill:red">单耗:
+                    {{dashboardObj.neutrolization.shyjSjdh | number:2}} kg/M3
+                </tspan>
+            </text>
+            <g id="id178_Graphic">
+                <rect x="199" y="378" width="125" height="34.609281" fill="#e3e3e3"/>
+                <rect x="199" y="378" width="125" height="34.609281" stroke="black" stroke-linecap="round"
+                      stroke-linejoin="round" stroke-width="1"/>
+                <text transform="translate(204 388.30464)" fill="black">
+                    <tspan font-family="Helvetica" font-size="12" font-weight="500" fill="black" x="32.826172" y="11"
+                           textLength="13.347656">3#
+                    </tspan>
+                    <tspan font-family="Heiti SC" font-size="12" font-weight="300" fill="black" x="46.173828" y="11"
+                           textLength="36">沉淀池
+                    </tspan>
+                </text>
+            </g>
+            <g id="id179_Graphic">
+                <rect x="428" y="378" width="125" height="34.609281" fill="#e3e3e3"/>
+                <rect x="428" y="378" width="125" height="34.609281" stroke="black" stroke-linecap="round"
+                      stroke-linejoin="round" stroke-width="1"/>
+                <text transform="translate(433 389.30464)" fill="black">
+                    <tspan font-family="Heiti SC" font-size="12" font-weight="300" x="15.5" y="10" textLength="84">
+                        外排自动监测点
+                    </tspan>
+                </text>
+            </g>
+            <g id="id180_Graphic">
+                <rect x="533" y="297" width="150" height="34.675403" fill="#e3e3e3"/>
+                <rect x="533" y="297" width="150" height="34.675403" stroke="black" stroke-linecap="round"
+                      stroke-linejoin="round" stroke-width="1"/>
+                <text transform="translate(538 308.3377)" fill="black">
+                    <tspan font-family="Heiti SC" font-size="12" font-weight="300" fill="black" x="46" y="10"
+                           textLength="48">选冶溢流
+                    </tspan>
+                </text>
+            </g>
+            <path d="M 582.42764 331.9591 L 582.42764 347.8591 L 582.42764 354.3591 L 516.02438 354.3591 L 516.02438 361.8163 L 516.02438 364.8163"
+                  marker-end="url(#FilledArrow_Marker)" stroke="black" stroke-linecap="round" stroke-linejoin="round"
+                  stroke-width="2"/>
+            <path d="M 359.22307 318.30944 L 359.22307 334.20944 L 359.22307 347.70944 L 283.85596 347.70944 L 283.85596 361.79056 L 283.85596 364.79056"
+                  marker-end="url(#FilledArrow_Marker)" stroke="black" stroke-linecap="round" stroke-linejoin="round"
+                  stroke-width="2"/>
+            <path d="M 407.05202 318.33899 L 407.05202 334.239 L 407.05202 347.739 L 471.37036 347.739 L 471.37036 361.761 L 471.37036 364.761"
+                  marker-end="url(#FilledArrow_Marker)" stroke="black" stroke-linecap="round" stroke-linejoin="round"
+                  stroke-width="2"/>
+            <path d="M 324.5 395.30466 L 340.4 395.30466 L 411.6 395.30466 L 414.6 395.30466"
+                  marker-end="url(#FilledArrow_Marker)" stroke="black" stroke-linecap="round" stroke-linejoin="round"
+                  stroke-width="2"/>
+            <text transform="translate(353 374.5)" fill="black">
+                <tspan font-family="Heiti SC" font-size="13" font-weight="bold" x="0" y="11" textLength="39">上清液</tspan>
+            </text>
+            <text transform="translate(430 332.5)" fill="black">
+                <tspan font-family="Heiti SC" font-size="13" font-weight="bold" x="0" y="11" textLength="39">上清液</tspan>
+            </text>
+            <text transform="translate(300 332.5)" fill="black">
+                <tspan font-family="Heiti SC" font-size="13" font-weight="bold" x="0" y="11" textLength="26">底流</tspan>
+            </text>
+            <text transform="translate(566 346.5)" fill="black">
+                <tspan font-family="Heiti SC" font-size="13" font-weight="bold" x="0" y="13" textLength="39">外排量</tspan>
+                <tspan font-family="Futura" font-size="13" font-weight="bold" font-stretch="condensed" x="39" y="13"
+                       style="fill:red">: {{dashboardObj.neutrolization.wpxyylQty | number:2}} M3
+                </tspan>
+            </text>
+            <text transform="translate(383.5 350.5)" fill="black">
+                <tspan font-family="Heiti SC" font-size="13" font-weight="bold" x="0" y="13" textLength="39">外排量</tspan>
+                <tspan font-family="Futura" font-size="13" font-weight="bold" font-stretch="condensed" x="39" y="13"
+                       style="fill:red">: {{dashboardObj.neutrolization.wphbylQty | number:2}} M3
+                </tspan>
+            </text>
+            <text transform="translate(326.5 402.5)" fill="black">
+                <tspan font-family="Heiti SC" font-size="13" font-weight="bold" x="0" y="13" textLength="39">外排量</tspan>
+                <tspan font-family="Futura" font-size="13" font-weight="bold" font-stretch="condensed" x="39" y="13"
+                       style="fill:red">: {{dashboardObj.neutrolization.wp3zbsqyQty | number:2}} M3
+                </tspan>
+            </text>
+            <text transform="translate(477.5 454.1754)" fill="black">
+                <tspan font-family="Heiti SC" font-size="13" font-weight="bold" x="0" y="11" textLength="26">汀江</tspan>
+            </text>
+            <path d="M 490.5 413.10928 L 490.5 429.00928 L 490.5 435.7754 L 490.5 438.7754"
+                  marker-end="url(#FilledArrow_Marker)" stroke="black" stroke-linecap="round" stroke-linejoin="round"
+                  stroke-width="2"/>
+            <path d="M 385 243.5 L 385 259.4 L 385 261.6 L 385 264.6" marker-end="url(#FilledArrow_Marker)"
+                  stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        </g>
+    </g>
+</svg>

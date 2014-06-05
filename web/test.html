@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html ng-app='test'>
+<head>
+    <title></title>
+
+    <link href="./css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="./css/bootstrap-theme.min.css"/>
+
+    <link rel="stylesheet" href="./styles.css"/>
+
+    <!-- Custom styles for this template -->
+    <link href="jumbotron.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="./css/jquery.fileupload-ui.css"/>
+    <link rel="stylesheet" href="./css/jquery.fileupload.css"/>
+
+
+    <script src="./framework/jquery-2.0.3.js"></script>
+
+    <script src="./framework/blueimp/jquery.ui.widget.js"></script>
+    <script src="./framework/blueimp/jquery.iframe-transport.js"></script>
+    <script src="./framework/blueimp/jquery.fileupload.js"></script>
+    <!--<script src="./bootstrap.min.js"></script>-->
+
+    <!-- angularjs lib -->
+    <script src="./framework/angular-1.2.0-rc.2/angular.js"></script>
+
+    <!-- angular-ui router -->
+    <script src="./framework/ui-router-master/release/angular-ui-router.min.js"></script>
+
+    <!-- angular-ui bootstrap -->
+    <script src="./framework/bootstrap-gh-pages/ui-bootstrap-tpls-0.6.0.js"></script>
+
+    <!-- 自定义 Class -->
+    <script src="./model.js"></script>
+
+</head>
+<body>
+<div ng-controller="DemoCtrl">
+    <span class="btn btn-success fileinput-button" >
+                    <i class="glyphicon glyphicon-plus"></i>
+                    <span>Add files...</span>
+                    <!--<input type="file" fileupload name="file" data-url="HeapExcelUpload?ftype=heap"-->
+                           <!--done="uploadFinished(e,data)">-->
+        <input id="fileupload" type="file" name="file">
+                </span>
+    <div id="progress" class="row progress">
+        <div class="progress-bar progress-bar-success"></div>
+    </div>
+    <button class="btn btn-warning" ng-click="test()">TEST</button>
+    <!--File Upload:-->
+    <!--<input type="file" id="testUpload" fileupload name="file" data-url="HeapExcelUpload?ftype=heap" done="uploadFinished(e,data)"/>-->
+</div>
+</body>
+<script type="text/javascript">
+    var test = angular.module('test',["ui.router",'ui.bootstrap']);
+    var url = "HeapExcelUpload?ftype=heap";
+    $('#fileupload').fileupload({
+        url: url,
+//        dataType: 'json',
+
+        progressall: function (e, data) {
+            var progress = parseInt(data.loaded / data.total * 100, 10);
+            $('#progress .progress-bar').css(
+                    'width',
+                    progress + '%'
+            );
+        }
+    }).prop('disabled', !$.support.fileInput)
+            .parent().addClass($.support.fileInput ? undefined : 'disabled').
+    bind('fileuploadalways',function(e,data) {
+                if (data.textStatus != 'success') {
+                    console.log('upload failure because of '+data.textStatus);
+                }
+            });
+
+//    test.directive('fileupload',function() {
+//        return {
+//            restrict: 'A',
+//            scope: {
+//                done: '&',
+//                progress: '&'
+//            },
+//            link: function(scope,element,attrs) {
+//                var optionsObj = {
+//                    dataType: 'json'
+//                };
+//                if (scope.done) {
+//                    console.log(' set options.done');
+//                    optionsObj.done = function(e, data) {
+//                        console.log('xyz');
+//                        scope.$apply(function(){
+//                            console.log('-------  uploadFinished -------');
+//                            scope.done({e: e,data: data});
+//                        })
+//                    };
+//                }
+//                if (scope.progress) {
+//                    optionsObj.progress = function(e, data) {
+//                        scope.$apply(function() {
+//                            scope.progress({e: e, data:data});
+//                        })
+//                    }
+//                }
+//
+//                element.fileupload(optionsObj);
+//            }
+//        };
+//    });
+    var DemoCtrl = function ($scope, $timeout,$http) {
+
+        $scope.uploadFinished = function(e, data) {
+            console.log('We just finished uploading this baby...');
+        };
+
+        $scope.test = function() {
+//            var str = '2013-04-20';
+//            console.dir(new Date(Date.parse(str)));
+            $http.get('api/greeting');
+        }
+    };
+</script>
+</html>
