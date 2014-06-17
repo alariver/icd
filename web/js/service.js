@@ -459,7 +459,24 @@ svc.factory('miscUtil',['$http',function($http){
             }
         }
 }]);
-
+//疾病编码索引查询 && 疾病编码核对查询
+svc.factory('disUtil',['$http',function($http){
+    var baseUrl ='/webAppICD/api';
+    return {
+        search0Dis:function(name){
+            var url = baseUrl+'/diseaseThree/search0Dis';
+            return $http.get(url,{params:{'name':name,'type':"vol3"}});
+        },
+        searchDis:function(inputCode){
+            var url = baseUrl+'/diseaseOne/searchDis';
+            return $http.get(url,{params:{'inputCode':inputCode}});
+        },
+        editDiseaseOne:function(icdDisease){
+            var url = baseUrl+'/diseaseOne/edit';
+            return $http.post(url,icdDisease);
+        }
+    };
+}]);
 /*
 根据诊断，进行自动编码
  */
@@ -638,7 +655,8 @@ svc.config(function($httpProvider) {
 
     $httpProvider.defaults.transformRequest.push(function(requestData){
 
-        convertDateToString(requestData);
+       //2014-06-17 cjl
+       //  convertDateToString(requestData);
         return requestData;
     });
 
