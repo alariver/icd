@@ -47,13 +47,17 @@
     <bean id="icdDisDao" class="net.skyatlas.icd.dao.daoImpl.IcdDiseaseDaoImpl">
         <property name="dataSource" ref="dataSource"></property>
     </bean>
-    
+     
+    <bean id="icdDisRelationDao" class="net.skyatlas.icd.dao.daoImpl.IcdDiseaseRelationDaoImpl">
+        <property name="dataSource" ref="dataSource"></property>
+    </bean>    
     <bean id="userDao" class="net.skyatlas.icd.dao.daoImpl.UserDaoImpl">
         <property name="dataSource" ref="dataSource"></property>
     </bean>
     
     <bean id="grid" class="net.skyatlas.icd.util.MemoryGrid" init-method="init" scope="singleton">
         <property name="dao" ref="icdDisDao"/>
+        <property name="icdDisRelationDao" ref="icdDisRelationDao"/>
     </bean>
     
 </beans>
