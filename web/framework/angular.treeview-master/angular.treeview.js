@@ -51,7 +51,7 @@
 							'<i class="collapsed" data-ng-show="node.' + nodeChildren + '.length && node.collapsed" data-ng-click="' + treeId + '.selectNodeHead(node)"></i>' +
 							'<i class="expanded" data-ng-show="node.' + nodeChildren + '.length && !node.collapsed" data-ng-click="' + treeId + '.selectNodeHead(node)"></i>' +
 							'<i class="normal" data-ng-hide="node.' + nodeChildren + '.length"></i> ' +
-							'<span data-ng-class="node.selected" data-ng-click="' + treeId + '.selectNodeLabel(node)">{{node.' + nodeLabel + '}}</span>' +
+							'<span data-ng-class="node.selected"   data-ng-click="' + treeId + '.selectNodeLabel(node);'+treeId+'.selectAlert(node)">{{node.' + nodeLabel + '}}</span>' +
 							'<div data-ng-hide="node.collapsed" data-tree-id="' + treeId + '" data-tree-model="node.' + nodeChildren + '" data-node-id=' + nodeId + ' data-node-label=' + nodeLabel + ' data-node-children=' + nodeChildren + '></div>' +
 						'</li>' +
 					'</ul>';
@@ -87,13 +87,17 @@
 							//set currentNode
 							scope[treeId].currentNode = selectedNode;
 
-                            /*
-                                通过EVENT传递选定的节点， 文档中说明的方式（watch）因为scope继承、嵌套混乱，无法使用
+                                                /*
+                                                    通过EVENT传递选定的节点， 文档中说明的方式（watch）因为scope继承、嵌套混乱，无法使用
 
-                             */
-                            scope.$emit('duichangselect',treeId,selectedNode);
+                                                 */
+                                                scope.$emit('duichangselect',treeId,selectedNode);
 
 						};
+                                                scope[treeId].selectAlert = function( selectedNode ){
+                                                  //  alert(selectedNode.nameCh);
+                                                    scope.queryDiseaseThree.icdDiseaseIndex = selectedNode;
+                                                };
 					}
 
 					//Rendering template.
