@@ -1,0 +1,179 @@
+<div class="body-content">
+
+
+    <!-- Example row of columns -->
+    <div class="row">
+        <ol class="breadcrumb">
+            <li><a href="#">疾病</a></li>
+            <li class="active">疾病编码索引（卷3）</li>
+        </ol>
+    </div>
+    <div class="row">
+        <div ng-form="queryDiseaseThreeForm" novalidate class="form-horizontal">
+            <div class="form-group">
+                <label for="level0" class="col-lg-4">主导词:</label>
+                <div class="col-lg-8">
+                    <input type="text" class="form-control" id="level0" name="level0"
+                           ng-model="queryDiseaseThree.level0"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="level1" class="col-lg-4 right">第一级:</label>
+                <div class="col-lg-8">
+                    <input   type="text" class="form-control" id="level1" name="level1"
+                           ng-model="queryDiseaseThree.level1"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="level2" class="col-lg-4">第二级:</label>
+                <div class="col-lg-8">
+                    <input type="text" class="form-control" id="level2" name="level2"
+                           ng-model="queryDiseaseThree.level2"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="level3" class="col-lg-4 right">第三级:</label>
+                <div class="col-lg-8">
+                    <input  type="text" class="form-control" id="level3" name="level3"
+                           ng-model="queryDiseaseThree.level3"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="level4" class="col-lg-4 right">第四级:</label>
+                <div class="col-lg-8">
+                    <input  type="text" class="form-control" id="level4" name="level4"
+                           ng-model="queryDiseaseThree.level4"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="level5" class="col-lg-4 right">第五级:</label>
+                <div class="col-lg-8">
+                    <input  type="text" class="form-control" id="level5" name="level5"
+                           ng-model="queryDiseaseThree.level5"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="level6" class="col-lg-4 right">第六级:</label>
+                <div class="col-lg-8">
+                    <input  type="text" class="form-control" id="level6" name="level6"
+                           ng-model="queryDiseaseThree.level6"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-lg-12 btn-group">
+                    <button type="button" class="btn btn-large btn-primary" ng-click="queryDisease(queryDiseaseThree)">&nbsp;&nbsp;    查询&nbsp;&nbsp;    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
+
+            <hr>
+            <div class="col-lg-12" style="border: 1px; max-height: 600px; width: 100%; overflow: scroll">
+                <table class="table table-hover table-bordered">
+                    <tr>
+                        <td>操作:</td>
+                        <td><a class="btn btn-primary" href="#" role="button">进入编辑</a>
+                        <a class="btn btn-primary" href="#" role="button">编辑别名</a>
+                        <a class="btn btn-primary" href="#" role="button">编辑见与另见情况</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>名称:</td>
+                        <td>{{queryDiseaseThree.icdDiseaseIndex.nameCh}}</td>
+                    </tr>
+                    <tr>
+                        <td>ID:</td>
+                        <td>{{queryDiseaseThree.icdDiseaseIndex.id}}</td>    
+                    </tr>
+                     
+                    <tr>
+                        <td>注释:</td>
+                        <td>{{queryDiseaseThree.icdDiseaseIndex.noteCh}}</td>
+                    </tr>
+                    <tr>
+                        <td>查找路径:</td>
+                        <td>{{queryDiseaseThree.icdDiseaseIndex.pathStr}}</td>
+                    </tr>
+                    <tr>
+                        <td>ICD编码:</td>
+                        <td>{{queryDiseaseThree.icdDiseaseIndex.icdCode}}</td>
+                    </tr>
+                    <tr>
+                        <td>星号编码:</td>
+                        <td>{{queryDiseaseThree.icdDiseaseIndex.starCode}}</td>
+                    </tr>
+                    <tr>
+                        <td>M编码:</td>
+                        <td>{{queryDiseaseThree.icdDiseaseIndex.mcode}}</td>
+                    </tr>
+                    <tr>
+                        <td>见:</td>
+                        <td>{{queryDiseaseThree.icdDiseaseIndex.referID}}</td>
+                    </tr>
+                    <tr>
+                        <td>另见:</td>
+                        <td>{{queryDiseaseThree.icdDiseaseIndex.referAlsoID}}</td>
+                    </tr>
+                    <tr>
+                        <td>见情况:</td>
+                        <td>{{queryDiseaseThree.icdDiseaseIndex.seeCondition}}</td>
+                    </tr>
+                    <tr>
+                        <td>另见情况:</td>
+                        <td>{{queryDiseaseThree.icdDiseaseIndex.seeAlsoCondition}}</td>
+                    </tr>
+                   <!-- <tr ng-repeat="diagItem in diagItemsFromHis" ng-class="{success: $index == selectDiagIndex}"
+                        ng-click="selectDiagItem(diagItem,$index)">
+                        <td>{{ diagItem.anam }}</td>
+                        <td>{{ diagItem.icdCode }}</td>
+                        <td>{{ diagItem.diagName }}</td>
+                        <td>{{ diagItem.diagName }}</td>
+                        <td>{{ diagItem.diagName }}</td>
+                        <td>{{ diagItem.diagName }}</td>
+                        <td>{{ diagItem.diagName }}</td>
+                    </tr>-->
+                </table>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <!-- 搜索路径 -->
+
+            <div class="panel-heading label-danger">疾病编码索引相关内容：</div>
+
+            <div ng-repeat="path in autoCodePaths" class="container-fluid">
+               <!-- <div
+                        data-angular-treeview="true"
+                        data-tree-id="hechzh{{ $index }}"
+                        data-tree-model="path.nodeList"
+                        data-node-id="id"
+                        data-node-label="shortDesc"
+                        data-node-children="children"
+                        >-->
+               <div 
+                   data-angular-treeview ="true"
+                   data-tree-id="hechzh{{$index}}"
+                   data-tree-model="path.nodeList"
+                   data-node-id="id"
+                   data-node-label="shortDesc"
+                   data-node-children="children"
+                   
+                   ><!--
+                   <ul><li ng-repeat="node in path.nodeList">
+                        <i class="collapsed" data-ng-show="node.children.length && node.collapsed" data-ng-click="'node.id'.selectNodeHead(node)"></i>
+                        <i class="expanded" data-ng-show="node.children.length && !node.collapsed" data-ng-click="'node.id'.selectNodeHead(node)"></i>
+                        <i class="normal" data-ng-hide="node.children.length"></i> 
+                        <span data-ng-class="node.selected"  data-ng-click="'node.id'.selectNodeLabel(node)">{{node.nameCh}}</span>
+                        <div data-ng-hide="node.collapsed" data-tree-id="'node.id'" data-tree-model="node.children" data-node-id='node.id'   data-node-children='node.children'></div>
+                       </li>
+                   </ul>-->
+                </div>
+                
+               
+                <hr>
+            </div>
+
+        </div>
+    </div>
+</div>

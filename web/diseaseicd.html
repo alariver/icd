@@ -1,0 +1,22 @@
+<div class="container">
+    <div class="row">
+        <hr>
+    </div>
+    <div class="row">
+        <div class="col-lg-2">     <!-- Left Region -->
+            <div>
+                <table class="table table-hover">
+                    <tr ng-class="{success: diseaseicd.active}" ng-repeat="diseaseicd in diseaseicdList" ng-click="diseaseicdSelect(diseaseicd)">
+                        <td>{{ diseaseicd.title }}</td>
+                    </tr>
+                </table>
+            </div>
+
+        </div>
+        <div class="col-lg-10">
+            <div class="container" ui-view>
+
+            </div>
+        </div>
+    </div>
+</div>

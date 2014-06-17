@@ -184,7 +184,7 @@
                 <li><a href="#contact" ng-show="headShowSwitch.login"  ui-sref="process">功能2</a></li>
                 <li><a href="#contact" ng-show="headShowSwitch.login"  ui-sref="balance">功能3</a></li>
                 <li><a href="#contact" ng-show="headShowSwitch.login"  ui-sref="history">功能4</a></li>
-                <li><a href="#contact" ng-show="headShowSwitch.login"  ui-sref="report">功能5</a></li>
+                <li><a href="#contact" ng-show="headShowSwitch.login"  ui-sref="diseaseicd">疾病编码</a></li>
                 <li><a href="#contact" ng-show="headShowSwitch.login"  ui-sref="tools">常用工具</a></li>
                 <li class="dropdown" ng-show="headShowSwitch.login" >
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">常用链接 <b class="caret"></b></a>
@@ -366,6 +366,7 @@ icdModule.config(function($stateProvider, $urlRouterProvider){
         url: "/home",
         templateUrl: "home.html"
     })
+    //常用工具
             .state('tools',{
                 url: "/tools",
                 templateUrl: "tools.html",
@@ -383,7 +384,30 @@ icdModule.config(function($stateProvider, $urlRouterProvider){
                 parent: 'tools',
                 controller: 'ToolAutoCodeCtrl'
             })
-
+            //疾病编码
+            .state('diseaseicd',{
+                url: "/diseaseicd",
+                templateUrl:"diseaseicd.html",
+                controller:'DiseaseicdController'
+            })
+            //卷3
+            .state('diseaseicd.diseaseThree',{
+                url:"/diseaseThree",
+                templateUrl:"disease-three.html",
+                controller:'DiseaseicdThreeCtrl'
+            })
+            //卷1
+            .state('diseaseicd.diseaseOne',{
+                url:"/diseaseOne",
+                templateUrl:"disease-one.html",
+                controller:'DiseaseicdOneCtrl'
+            })
+            //卷1 编辑
+            .state('diseaseicd.diseaseOne_edit',{
+                url:"/diseaseOne/edit",
+                templateUrl:"diseaseOne_edit.html",
+                controller:'DiseaseicdOneCtrl'
+            })
             .state('edit',{
                 url: "/edit",
                 templateUrl: "edit.html",
