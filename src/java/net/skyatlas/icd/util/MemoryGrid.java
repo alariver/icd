@@ -6,6 +6,7 @@
 package net.skyatlas.icd.util;
 
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.StringReader;
 import java.sql.Connection;
@@ -19,12 +20,15 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.Stack;
+import java.util.UUID;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import love.cq.util.IOUtil;
 import net.skyatlas.icd.dao.IcdDiseaseDao;
+import net.skyatlas.icd.dao.IcdDiseaseRelationDao;
 import net.skyatlas.icd.domain.IcdDisease;
 import net.skyatlas.icd.domain.IcdDiseaseIndex;
+import net.skyatlas.icd.domain.IcdDiseaseRelation;
 import net.skyatlas.icd.util.parseTree.ParseTreeOperatorEnum;
 import net.skyatlas.icd.util.parseTree.ParseTreeOperatorNode;
 import net.skyatlas.icd.util.parseTree.ParseTreeResultNode;
@@ -43,6 +47,8 @@ import org.apache.lucene.index.IndexWriterConfig;
 import org.apache.lucene.index.Term;
 import org.apache.lucene.queryparser.classic.ParseException;
 import org.apache.lucene.queryparser.classic.QueryParser;
+import org.apache.lucene.search.BooleanClause;
+import org.apache.lucene.search.BooleanQuery;
 import org.apache.lucene.search.IndexSearcher;
 import org.apache.lucene.search.Query;
 import org.apache.lucene.search.Sort;
@@ -65,21 +71,32 @@ public class MemoryGrid {
 
     private boolean dealAlias = false;                // 是否处理别名
     private IcdDiseaseDao dao;
-
+    private IcdDiseaseRelationDao icdDisRelationDao;
+    
     private List<IcdDiseaseIndex> allIndexItems;                  // Vol3 的所有条目
     private List<IcdDiseaseIndex> allRootIndexItems;              // 主导词 条目
     private List<IcdDisease> allDiseases;                    // Vol1 所有条目
+    private List<IcdDiseaseRelation> allDisRelations;        //Vol1 关系的 所有条目
 
     // index
     /*
      卷3 的 ID 索引
      */
     private HashMap<Integer, IcdDiseaseIndex> vol3IDIndexedItems = new HashMap();
+    
     /*
      卷1 的 ID 索引
      */
     private HashMap<Integer, IcdDisease> vol1IDIndexedItems = new HashMap();
-
+    
+    /**
+     * 卷1 Relation的 ID索引 
+     */
+    private HashMap<Integer,IcdDiseaseRelation> vol1IDRelationIndexedItems = new HashMap();
+    /**
+     * 卷1 Relation的 mainID索引
+     */
+    private HashMap<Integer,List<IcdDiseaseRelation>> vol1mainIDRelationIndexedItems = new HashMap();
     /*
      卷3 的 名称 索引
      */
@@ -108,8 +125,9 @@ public class MemoryGrid {
      */
     private List<SearchPath> allSearchPaths = new ArrayList();
 
-    private HashMap<IcdDiseaseIndex, List<SearchPath>> rootIndexedSearchPaths = new HashMap();       // 主导词索引的搜索路径
-
+    //private HashMap<IcdDiseaseIndex, List<SearchPath>> rootIndexedSearchPaths = new HashMap();       // 主导词索引的搜索路径
+    private HashMap<IcdDiseaseIndex,SearchPath> rootIndexedSearchPaths = new HashMap();
+            
     private HashMap<String, List<SearchPath>> icdIndexedSearchPaths = new HashMap();              // ICD Code索引的搜索路径
     
     private HashMap<String, SearchPath> guidIndexedSearchPaths = new HashMap();                     // 搜索路径 基于 GUID 的索引
@@ -121,7 +139,48 @@ public class MemoryGrid {
     public void setGuidIndexedSearchPaths(HashMap<String, SearchPath> guidIndexedSearchPaths) {
         this.guidIndexedSearchPaths = guidIndexedSearchPaths;
     }
-    
+
+    public HashMap<IcdDiseaseIndex, SearchPath> getRootIndexedSearchPaths() {
+        return rootIndexedSearchPaths;
+    }
+
+    public void setRootIndexedSearchPaths(HashMap<IcdDiseaseIndex, SearchPath> rootIndexedSearchPaths) {
+        this.rootIndexedSearchPaths = rootIndexedSearchPaths;
+    }
+ 
+
+    public List<IcdDiseaseRelation> getAllDisRelations() {
+        return allDisRelations;
+    }
+
+    public void setAllDisRelations(List<IcdDiseaseRelation> allDisRelations) {
+        this.allDisRelations = allDisRelations;
+    }
+
+    public IcdDiseaseRelationDao getIcdDisRelationDao() {
+        return icdDisRelationDao;
+    }
+
+    public void setIcdDisRelationDao(IcdDiseaseRelationDao icdDisRelationDao) {
+        this.icdDisRelationDao = icdDisRelationDao;
+    }
+
+    public HashMap<Integer, IcdDiseaseRelation> getVol1IDRelationIndexedItems() {
+        return vol1IDRelationIndexedItems;
+    }
+
+    public void setVol1IDRelationIndexedItems(HashMap<Integer, IcdDiseaseRelation> vol1IDRelationIndexedItems) {
+        this.vol1IDRelationIndexedItems = vol1IDRelationIndexedItems;
+    }
+
+    public HashMap<Integer, List<IcdDiseaseRelation>> getVol1mainIDRelationIndexedItems() {
+        return vol1mainIDRelationIndexedItems;
+    }
+
+    public void setVol1mainIDRelationIndexedItems(HashMap<Integer, List<IcdDiseaseRelation>> vol1mainIDRelationIndexedItems) {
+        this.vol1mainIDRelationIndexedItems = vol1mainIDRelationIndexedItems;
+    }
+ 
     
 
     public List<SearchPath> getAllSearchPaths() {
@@ -132,14 +191,14 @@ public class MemoryGrid {
         this.allSearchPaths = allSearchPaths;
     }
 
-    public HashMap<IcdDiseaseIndex, List<SearchPath>> getRootIndexedSearchPaths() {
+ /*   public HashMap<IcdDiseaseIndex, List<SearchPath>> getRootIndexedSearchPaths() {
         return rootIndexedSearchPaths;
     }
 
     public void setRootIndexedSearchPaths(HashMap<IcdDiseaseIndex, List<SearchPath>> rootIndexedSearchPaths) {
         this.rootIndexedSearchPaths = rootIndexedSearchPaths;
     }
-
+*/
     public HashMap<String, List<SearchPath>> getIcdIndexedSearchPaths() {
         return icdIndexedSearchPaths;
     }
@@ -261,19 +320,69 @@ public class MemoryGrid {
     public void init() throws IOException, CorruptIndexException, InvalidTokenOffsetsException, ParseException, SQLException {
         System.err.println("--------------\t\t Memory Grid Initializing -------------");
         this.allDiseases = this.dao.getAllDisease();    // 查询所有Vol1 条目
+        
         this.allIndexItems = this.dao.getAllDiseaseIndexes();   // 查询所有Vol3 条目
-
+        this.allDisRelations= this.icdDisRelationDao.getAllDiseaseRelation();//查询所有Vol1关系 条目
         // 主导词
         if (this.allRootIndexItems == null) {
             this.allRootIndexItems = new ArrayList();
         }
         System.err.println("All Index Items size:" + allIndexItems.size());
         System.err.println("All Disease Items size:" + allDiseases.size());
-        
+        //Vol1 Relation
+        for(int i=0;i<this.allDisRelations.size();i++){
+            IcdDiseaseRelation r = this.allDisRelations.get(i);
+            this.getVol1IDRelationIndexedItems().put(r.getId(), r);
+            List<IcdDiseaseRelation> list = this.getVol1mainIDRelationIndexedItems().get(r.getMainID());
+            if(list ==null||list.size()==0){
+                list = new ArrayList();
+                list.add(r);
+                this.getVol1mainIDRelationIndexedItems().put(r.getMainID(), list);
+            }else{
+                list.add(r);
+            }
+        }
         // Vol 1
         for (int i = 0; i < this.allDiseases.size(); i++) {
             IcdDisease d = this.allDiseases.get(i);
             
+            //set Relations
+            List<IcdDiseaseRelation> icdDisRelations =new ArrayList();
+            icdDisRelations = this.getVol1mainIDRelationIndexedItems().get(d.getId());
+            HashMap<String,List<IcdDiseaseRelation>>      refRelations = new HashMap();
+            List<IcdDiseaseRelation> noIncludeList = new ArrayList();//d.getRefRelations().get("不包括");
+            List<IcdDiseaseRelation> otherCodeList = new ArrayList();//d.getRefRelations().get("另编码");
+            List<IcdDiseaseRelation> swordList = new ArrayList();//d.getRefRelations().get("星剑");
+            List<IcdDiseaseRelation> includeList = new ArrayList();//d.getRefRelations().get("包括");
+            if(icdDisRelations==null||icdDisRelations.size()==0){
+            
+            }else{
+                for(int j=0;j<icdDisRelations.size();j++){
+                    IcdDiseaseRelation idr = icdDisRelations.get(j);
+                    if(idr.getRelationType().equals("不包括")){
+                        noIncludeList.add(idr);
+                    }else if(idr.getRelationType().equals("另编码")){
+                        otherCodeList.add(idr);
+                    }else if(idr.getRelationType().equals("星剑")){
+                        swordList.add(idr);
+                    }else if(idr.getRelationType().equals("包括")){
+                        includeList.add(idr);
+                    }
+                }
+                if(noIncludeList.size()>0){
+                    refRelations.put("不包括", noIncludeList);
+                }
+                if(otherCodeList.size()>0){
+                    refRelations.put("另编码", otherCodeList);
+                }
+                if(swordList.size()>0){
+                    refRelations.put("星剑", swordList);
+                }
+                if(includeList.size()>0){
+                    refRelations.put("包括", includeList);
+                }
+            }
+            d.setRefRelations(refRelations);
 
             // ID Unique Index
             this.getVol1IDIndexedItems().put(d.getId(), d);
@@ -332,6 +441,7 @@ public class MemoryGrid {
                 parent.getChildren().add(d);
             }
         }
+        
 
         // Vol 3
         for (int i = 0; i < this.allIndexItems.size(); i++) {
@@ -364,6 +474,7 @@ public class MemoryGrid {
             }
 
             if (e.getDepth() == 0) {        // Vol3 Item 主导词
+             
                 this.allRootIndexItems.add(e);
 //                Pattern p = Pattern.compile("[\\[]");
 //                Matcher m = p.matcher(e.getNameCh());
@@ -477,13 +588,32 @@ public class MemoryGrid {
                 this.getIcdIndexedSearchPaths().put(path.getTerminal().getIcdCode().toUpperCase(), al1);
 
                 // 根据主导词(ICDDiseaseIndex)对象进行索引
-                List<SearchPath> al2 = this.getRootIndexedSearchPaths().get(path.getStartPoint());
+               // List<SearchPath> al2 = this.getRootIndexedSearchPaths().get(path.getStartPoint());
+                SearchPath al2 = this.getRootIndexedSearchPaths().get(path.getStartPoint());
                 if (al2 == null) {
-                    al2 = new ArrayList<SearchPath>();
+                    al2 = new SearchPath();
                 }
-                al2.add(path);
+                al2 = path;
                 this.getRootIndexedSearchPaths().put(path.getStartPoint(), al2);
 
+            }
+        }
+        /*2014-06-11 15:28:22
+         *  Vol3中建立parent-children 关系
+         */
+        for(int i =0;i<this.allIndexItems.size();i++){
+            IcdDiseaseIndex d = this.allIndexItems.get(i);
+            if(d.getParentID()!=null&&d.getParentID()!=0){
+                IcdDiseaseIndex parent = this.getVol3IDIndexedItems().get(d.getParentID());
+                d.setParentDiseaseIndex(parent);
+                if(parent == null){
+                    System.err.println(" parent is null :"+d.getId()+"\t"+d.getParentID());
+                    continue;
+                }
+                if(parent.getChildren() ==null){
+                    parent.setChildren(new ArrayList());
+                }
+                parent.getChildren().add(d);
             }
         }
         // 建立搜索路径 End!
@@ -530,10 +660,10 @@ public class MemoryGrid {
         
         // 实例化 MemoryGrid 的两个 Lucene 相关变量
         directory = new RAMDirectory();
-
         Version matchVersion = Version.LUCENE_48;
-
         analyzer = new AnsjAnalysis(hs, false);
+       
+        
         /*
         TokenStream ts = analyzer.tokenStream("", "巴贝虫病");
 //        CharTermAttribute term = ts.addAttribute(CharTermAttribute.class);
@@ -552,7 +682,7 @@ public class MemoryGrid {
         // 生成索引
         for (SearchPath path : this.getAllSearchPaths()) {
 //            System.err.println(" 为搜索路径建立索引 :"+path.getIndexString());
-            addContent(writer,path.getIndexString(),path.getPathHashCode(),path.getNodes());
+            addContent(writer,path.getIndexString(),path.getPathHashCode(),path.getNodes(),"vol3");
 
         }
 
@@ -688,7 +818,59 @@ public class MemoryGrid {
         System.err.println(" 为 "+diagName + " 编码，花费"+responseTime+"ms.");
         return result;
     }
-    
+    public List<SearchPath> searchSvc(String name,String type) throws IOException{
+        List<SearchPath> result = new ArrayList();
+        if (this.directory == null || this.analyzer == null) {
+            throw new RuntimeException("Lucene 初始化异常，自动编码功能不可用");
+        }
+        long beginTime = System.currentTimeMillis();
+        // 临时处理，删除 特殊符号
+        name = name.replaceAll("（", "(").replaceAll("）", ")").replaceAll("\\(.*?\\)", "").replace("*", "").replace("?", "");
+ 
+        isearcher = getSearcherInstance();
+        
+        QueryParser tq = new QueryParser(Version.LUCENE_48, "text", ansjHeightAnalyzer);
+     
+        String queryStr="(text:'"+name+"') (type:'"+type+"')" ;
+       
+        // 根据 搜索路径 深度， 做降序排列
+        try {
+//           
+            Query query = tq.parse(queryStr);
+            
+            System.err.println(query );
+        
+           TopDocs hits = isearcher.search(query, 6);
+            System.err.println(name + ":共找到" + hits.totalHits + "条记录!");
+             
+            HashMap<String,SearchPath> listSp = new HashMap();  ;
+            for(int i=0;i<hits.scoreDocs.length ;i++){
+                int docID = hits.scoreDocs[i].doc;
+                Document document = isearcher.doc(docID);
+                String text = document.get("text");
+                String guid = document.get("guid");
+                String nodes = document.get("nodes");
+                String stype = document.get("type");
+                 SearchPath sp = this.getGuidIndexedSearchPaths().get(guid);
+                System.err.println("!!!! text:"+text+"||guid:"+guid+"||nodes:"+nodes+"||type:"+stype+"||icdCode:"+sp.getStartPoint().getIcdCode());
+               
+                if(listSp.get(sp.getStartPoint().getIcdCode())!=null){
+                    
+                }else{
+                    listSp.put(sp.getStartPoint().getIcdCode(), sp);
+                    System.err.println("   --> text:"+text+"||guid:"+guid+"||nodes:"+nodes+"||type:"+stype+"||icdCode:"+sp.getStartPoint().getIcdCode());
+                    result.add(sp);
+                }
+                
+            }
+        }
+        catch(ParseException pe) {
+            pe.printStackTrace();
+        }
+        long responseTime = System.currentTimeMillis() - beginTime;
+        System.err.println(" 为 "+name + " 编码，花费"+responseTime+"ms.");
+        return result;
+    }
 
     // 设置 章、节、类目、亚目
     private void setDimension(SearchPath path, IcdDisease d) {
@@ -1219,13 +1401,20 @@ public class MemoryGrid {
         return null;
     }
 
-    private void addContent(IndexWriter iwriter, String text, String guid, int nodes) throws CorruptIndexException, IOException {
+    private void addContent(IndexWriter iwriter, String text, String guid, int nodes,String type) throws CorruptIndexException, IOException {
         Document doc = new Document();
         doc.add(new Field("text", text, Field.Store.YES, Field.Index.ANALYZED));
         doc.add(new Field("guid", guid, Field.Store.YES, Field.Index.NOT_ANALYZED));
         doc.add(new Field("nodes",""+nodes, Field.Store.YES, Field.Index.NOT_ANALYZED));
+        doc.add(new Field("type",type,Field.Store.YES,Field.Index.NOT_ANALYZED));
+        /**
+         text  ,guid,type  
+         */
         iwriter.addDocument(doc);
     }
+     
+    
+    
 
     public void searchDiagName(String diagName) throws IOException {
         IndexReader reader = DirectoryReader.open(this.directory);

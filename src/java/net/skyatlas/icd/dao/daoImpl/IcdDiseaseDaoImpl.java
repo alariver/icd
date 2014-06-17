@@ -35,7 +35,7 @@ public class IcdDiseaseDaoImpl implements IcdDiseaseDao {
 
     @Override
     public List<IcdDisease> getAllDisease() {
-        return this.jdbcTemplate.query("select * from tblicd_dis", new IcdDisRowMapper());
+return this.jdbcTemplate.query("select * from tblicd_dis", new IcdDisRowMapper());
     }
 
     @Override
@@ -129,12 +129,34 @@ public class IcdDiseaseDaoImpl implements IcdDiseaseDao {
     public List<String> getAliasesByIndexid(Integer indexid) {
         return this.jdbcTemplate.queryForList("select name from tblaliases where index_id =?", new Object[]{indexid}, String.class);
     }
-    
-    
-    
+    @Override
+    public void editDisease(IcdDisease dis){
+           this.jdbcTemplate.update("update tblicd_relation_dis set code_name_ch =? "
+                   + ",code_name_en=?,abbreviation_ch=?"
+                   + ",abbreviation_en=?,py=?"
+                   + ",parent_id=?,page=?"
+                   + ",note_ch=?,note_en=?"
+                   + ",full_name=?,code_type=?"
+                   + ",icd_code=?,star_code=?"
+                   + ",sword_code=?"
+                   + "where id=?", new Object[]{dis.getCodeNameCh()
+                   ,dis.getCodeNameEn(),dis.getAbbreviationCh()
+                   ,dis.getAbbreviationEn(),dis.getPy()
+                   ,dis.getParentID(),dis.getPage()
+                   ,dis.getNoteCh(),dis.getNoteEn()
+                   ,dis.getFullName(),dis.getCodeType()
+                   ,dis.getIcdCode(),dis.getStarCode()
+                   ,dis.getSwordCode()
+                   ,dis.getId()});
+            
+    }
 }
 
+
 class IcdDisRowMapper implements RowMapper {
+
+    public IcdDisRowMapper() {
+    }
 
     @Override
     public IcdDisease mapRow(ResultSet rs, int i) throws SQLException {

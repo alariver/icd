@@ -99,4 +99,9 @@ public interface IcdDiseaseDao {
         根据ID值， 获取Vol3 Item 的 aliases
     */
     List<String>    getAliasesByIndexid(Integer indexid);
+    /**
+     * update
+     * @param dis 
+     */
+    public void editDisease(IcdDisease dis);
 }

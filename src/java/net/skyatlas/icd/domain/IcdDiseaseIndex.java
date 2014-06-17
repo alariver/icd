@@ -51,7 +51,11 @@ public class IcdDiseaseIndex {
     private                 ParseTreeResultNode   parseTreeRoot;        // 当本条目为主导词 存放 主导词的Parse Tree
     
     private             String              shortDesc;
-
+    
+    //在memory grid初始化时，统一设置，不直接从数据库中获取
+    private IcdDiseaseIndex parentDiseaseIndex;
+    private List<IcdDiseaseIndex> children;
+    
     public String getShortDesc() {
         return nameCh + "\t{P"+page+"页, ICD Code:"+icdCode+", *Code:"+starCode+", Depth:"+depth+"}";
     }
@@ -329,6 +333,22 @@ public class IcdDiseaseIndex {
 
     public void setHasAlias(boolean hasAlias) {
         this.hasAlias = hasAlias;
+    }
+
+    public IcdDiseaseIndex getParentDiseaseIndex() {
+        return parentDiseaseIndex;
+    }
+
+    public void setParentDiseaseIndex(IcdDiseaseIndex parentDiseaseIndex) {
+        this.parentDiseaseIndex = parentDiseaseIndex;
+    }
+
+    public List<IcdDiseaseIndex> getChildren() {
+        return children;
+    }
+
+    public void setChildren(List<IcdDiseaseIndex> children) {
+        this.children = children;
     }
     
     
