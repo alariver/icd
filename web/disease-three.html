@@ -141,16 +141,8 @@
             <!-- 搜索路径 -->
 
             <div class="panel-heading label-danger">疾病编码索引相关内容：</div>
-
+<!--
             <div ng-repeat="path in autoCodePaths" class="container-fluid">
-               <!-- <div
-                        data-angular-treeview="true"
-                        data-tree-id="hechzh{{ $index }}"
-                        data-tree-model="path.nodeList"
-                        data-node-id="id"
-                        data-node-label="shortDesc"
-                        data-node-children="children"
-                        >-->
                <div 
                    data-angular-treeview ="true"
                    data-tree-id="hechzh{{$index}}"
@@ -159,18 +151,21 @@
                    data-node-label="shortDesc"
                    data-node-children="children"
                    
-                   ><!--
-                   <ul><li ng-repeat="node in path.nodeList">
-                        <i class="collapsed" data-ng-show="node.children.length && node.collapsed" data-ng-click="'node.id'.selectNodeHead(node)"></i>
-                        <i class="expanded" data-ng-show="node.children.length && !node.collapsed" data-ng-click="'node.id'.selectNodeHead(node)"></i>
-                        <i class="normal" data-ng-hide="node.children.length"></i> 
-                        <span data-ng-class="node.selected"  data-ng-click="'node.id'.selectNodeLabel(node)">{{node.nameCh}}</span>
-                        <div data-ng-hide="node.collapsed" data-tree-id="'node.id'" data-tree-model="node.children" data-node-id='node.id'   data-node-children='node.children'></div>
-                       </li>
-                   </ul>-->
+                   > 
                 </div>
-                
-               
+                <hr>
+            </div>-->
+            <div ng-repeat="path in autoCodePaths" class="container-fluid">
+               <div 
+                   data-angular-treeview ="true"
+                   data-tree-id="hechzh{{$index}}"
+                   data-tree-model="path.children"
+                   data-node-id="id"
+                   data-node-label="shortDesc"
+                   data-node-children="children"
+                   
+                   > 
+                </div>
                 <hr>
             </div>
 
