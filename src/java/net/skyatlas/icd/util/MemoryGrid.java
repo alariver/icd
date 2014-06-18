@@ -72,7 +72,7 @@ public class MemoryGrid {
     private boolean dealAlias = false;                // 是否处理别名
     private IcdDiseaseDao dao;
     private IcdDiseaseRelationDao icdDisRelationDao;
-    
+     
     private List<IcdDiseaseIndex> allIndexItems;                  // Vol3 的所有条目
     private List<IcdDiseaseIndex> allRootIndexItems;              // 主导词 条目
     private List<IcdDisease> allDiseases;                    // Vol1 所有条目
