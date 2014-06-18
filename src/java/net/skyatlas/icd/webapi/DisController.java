@@ -31,6 +31,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class DisController {
     @Autowired()
     private MemoryGrid grid;
+    private IcdDisease dis;
     @RequestMapping(value = "/diseaseThree/search0Dis", method = RequestMethod.GET)
     @ResponseBody
     public  String  search0Dis(@RequestParam("name") String name,@RequestParam("type") String type) {
