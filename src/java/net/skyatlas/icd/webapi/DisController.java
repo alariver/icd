@@ -8,17 +8,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import javax.enterprise.context.RequestScoped;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.ws.rs.Consumes;
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
-import javax.ws.rs.core.Context;
-import javax.ws.rs.core.MediaType;
 import net.skyatlas.icd.comm.GeneralJsonModel;
 import net.skyatlas.icd.comm.ReturnInfo;
 import net.skyatlas.icd.domain.IcdDisease;
@@ -27,9 +16,6 @@ import net.skyatlas.icd.util.MemoryGrid;
 import net.skyatlas.icd.util.SearchPath;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -104,7 +90,7 @@ public class DisController {
     
     @RequestMapping(value="/diseaseOne/edit",method=RequestMethod.POST)
     @ResponseBody
-    public String editDiseaseOne(@RequestBody IcdDisease dis){
+    public String editDiseaseOne(IcdDisease dis){
          /*,@RequestParam("icdCode")String icdCode,
     @RequestParam("swordCode")String swordCode,@RequestParam("starCode")String starCode,@RequestParam("page")Integer page,
     @RequestParam("codeType")String codeType,@RequestParam("noteCh")String noteCh*/

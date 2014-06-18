@@ -68,7 +68,7 @@ import org.apache.lucene.util.Version;
  * @author changzhenghe
  */
 public class MemoryGrid {
-
+ 
     private boolean dealAlias = false;                // 是否处理别名
     private IcdDiseaseDao dao;
     private IcdDiseaseRelationDao icdDisRelationDao;

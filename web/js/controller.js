@@ -7591,7 +7591,7 @@ icdModule.controller('DiseaseicdThreeCtrl',['$scope','disUtil','icdService' ,fun
     
     
 }]);
-icdModule.controller('DiseaseicdOneCtrl',['$scope','$state','disUtil','icdService' ,function($scope,$state,disUtil,icdService){
+icdModule.controller('DiseaseicdOneCtrl',['$scope','disUtil','icdService' ,function($scope,disUtil,icdService){
     $scope.queryDisease = function(queryDiseaseOne){
         disUtil.searchDis(queryDiseaseOne.inputCode).success(function(data){
             $scope.queryDiseaseOne.icdDisease = data['data'];
