@@ -474,6 +474,7 @@ svc.factory('disUtil',['$http',function($http){
         editDiseaseOne:function(icdDisease){
             var url = baseUrl+'/diseaseOne/edit';
             return $http.post(url,icdDisease);
+        //,'icdCode':icdDisease.icdCode,'swordCode':icdDisease.swordCode,'starCode':icdDisease.starCode,'page':icdDisease.page,'codeType':icdDisease.codeType,'noteCh':icdDisease.noteCh
         }
     };
 }]);
