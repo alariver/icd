@@ -41,11 +41,18 @@ public class DisController {
         //IcdDiseaseIndex  icdDiseaseIndex=null;
         List<SearchPath> paths = new ArrayList();
         List<IcdDiseaseIndex> list = new ArrayList();
-       
+        IcdDiseaseIndex icdDiseaseIndex = new IcdDiseaseIndex();
+        List<IcdDiseaseIndex> idiList = new ArrayList();
         try{
        
           list = grid.getVol3NameIndexedItems().get(name);
-          
+          for(int i = 0 ; i < list.size() ; i++){
+              IcdDiseaseIndex e = list.get(i);
+              if(e.getDepth()==0){
+                  idiList.add(e);
+              }
+          }
+          /* 
           //遍历取出主导词
           for(int i=0;i<list.size();i++){
               IcdDiseaseIndex o = list.get(i);
@@ -56,13 +63,13 @@ public class DisController {
                  }
               }
           }
-          
+          */
         }catch(Exception e){
             gjm.setRetCode(ReturnInfo.UNKNOWNERROR);
             gjm.setRetInfo(e.toString());
             e.printStackTrace();
         }
-        gjm.setData(paths);
+        gjm.setData(idiList);
         gjm.setRetInfo("疾病编码索引...");
         return gjm.toJSONStr();
     }

@@ -125,8 +125,8 @@ public class MemoryGrid {
      */
     private List<SearchPath> allSearchPaths = new ArrayList();
 
-    //private HashMap<IcdDiseaseIndex, List<SearchPath>> rootIndexedSearchPaths = new HashMap();       // 主导词索引的搜索路径
-    private HashMap<IcdDiseaseIndex,SearchPath> rootIndexedSearchPaths = new HashMap();
+    private HashMap<IcdDiseaseIndex, List<SearchPath>> rootIndexedSearchPaths = new HashMap();       // 主导词索引的搜索路径
+    //private HashMap<IcdDiseaseIndex,SearchPath> rootIndexedSearchPaths = new HashMap();
             
     private HashMap<String, List<SearchPath>> icdIndexedSearchPaths = new HashMap();              // ICD Code索引的搜索路径
     
@@ -140,13 +140,7 @@ public class MemoryGrid {
         this.guidIndexedSearchPaths = guidIndexedSearchPaths;
     }
 
-    public HashMap<IcdDiseaseIndex, SearchPath> getRootIndexedSearchPaths() {
-        return rootIndexedSearchPaths;
-    }
-
-    public void setRootIndexedSearchPaths(HashMap<IcdDiseaseIndex, SearchPath> rootIndexedSearchPaths) {
-        this.rootIndexedSearchPaths = rootIndexedSearchPaths;
-    }
+     
  
 
     public List<IcdDiseaseRelation> getAllDisRelations() {
@@ -167,6 +161,14 @@ public class MemoryGrid {
 
     public HashMap<Integer, IcdDiseaseRelation> getVol1IDRelationIndexedItems() {
         return vol1IDRelationIndexedItems;
+    }
+
+    public HashMap<IcdDiseaseIndex, List<SearchPath>> getRootIndexedSearchPaths() {
+        return rootIndexedSearchPaths;
+    }
+
+    public void setRootIndexedSearchPaths(HashMap<IcdDiseaseIndex, List<SearchPath>> rootIndexedSearchPaths) {
+        this.rootIndexedSearchPaths = rootIndexedSearchPaths;
     }
 
     public void setVol1IDRelationIndexedItems(HashMap<Integer, IcdDiseaseRelation> vol1IDRelationIndexedItems) {
@@ -523,7 +525,23 @@ public class MemoryGrid {
             // 主导词处理结束
 
         }
-
+        //建立Vol3 parent-children关系
+        for(int i=0;i<this.allIndexItems.size();i++){
+            IcdDiseaseIndex idi = this.allIndexItems.get(i);
+            if(idi.getParentID()!=null&&idi.getParentID()!=0){
+                IcdDiseaseIndex parent = this.getVol3IDIndexedItems().get(idi.getParentID());
+                idi.setParentDiseaseIndex(parent);
+                if (parent == null)
+                {
+                    System.err.println(" parent is null :"+idi.getId()+"\t"+idi.getParentID());
+                    continue;
+                }
+                if (parent.getChildren() == null) {
+                    parent.setChildren(new ArrayList());
+                }
+                parent.getChildren().add(idi);
+            }
+        }
         // 建立搜索路径 Vol3
         for (IcdDiseaseIndex idi : this.allIndexItems) {
             // ICD 不为空的，建立搜索路径
@@ -588,12 +606,14 @@ public class MemoryGrid {
                 this.getIcdIndexedSearchPaths().put(path.getTerminal().getIcdCode().toUpperCase(), al1);
 
                 // 根据主导词(ICDDiseaseIndex)对象进行索引
-               // List<SearchPath> al2 = this.getRootIndexedSearchPaths().get(path.getStartPoint());
-                SearchPath al2 = this.getRootIndexedSearchPaths().get(path.getStartPoint());
-                if (al2 == null) {
-                    al2 = new SearchPath();
+                List<SearchPath> al2 = this.getRootIndexedSearchPaths().get(path.getStartPoint());
+              //  SearchPath al2 = this.getRootIndexedSearchPaths().get(path.getStartPoint());
+                if (al2 == null||al2.size()==0) {
+                    //al2 = new SearchPath();
+                    al2 = new ArrayList();
                 }
-                al2 = path;
+                al2.add(path);
+                
                 this.getRootIndexedSearchPaths().put(path.getStartPoint(), al2);
 
             }
