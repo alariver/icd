@@ -1450,5 +1450,5 @@ public class MemoryGrid {
         }
         return ret;
     }
-    // Modify for git.
+    // Modify for git. 
 }
