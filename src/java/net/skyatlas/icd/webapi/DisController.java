@@ -102,28 +102,32 @@ public class DisController {
         return gjm.toJSONStr();
     }
     
-    @RequestMapping(value="/diseaseOne/edit",method=RequestMethod.POST,consumes="application/json")
-    public String editDiseaseOne(@ModelAttribute  IcdDisease dis){
-         
+    @RequestMapping(value="/diseaseOne/edit",method=RequestMethod.POST)
+    @ResponseBody
+    public String editDiseaseOne(@RequestBody IcdDisease dis){
+         /*,@RequestParam("icdCode")String icdCode,
+    @RequestParam("swordCode")String swordCode,@RequestParam("starCode")String starCode,@RequestParam("page")Integer page,
+    @RequestParam("codeType")String codeType,@RequestParam("noteCh")String noteCh*/
         GeneralJsonModel gjm = new GeneralJsonModel();
         gjm.setRetCode(0);
+       // IcdDisease d =  grid.getVol1IDIndexedItems().get(id);
         try{
-           grid.getDao().editDisease(dis);
-           IcdDisease d =  grid.getVol1IDIndexedItems().get(dis.getId());
-           d.setCodeNameCh(dis.getCodeNameCh());
-           d.setIcdCode(dis.getIcdCode());
-           d.setStarCode(dis.getStarCode());
-           d.setSwordCode(dis.getSwordCode());
-           d.setPage(dis.getPage());
-           d.setCodeType(dis.getCodeType());
-           d.setNoteCh(dis.getNoteCh());
            
+           
+        //   d.setCodeNameCh(codeNameCh);
+          /* d.setIcdCode(icdCode);
+           d.setStarCode(starCode);
+           d.setSwordCode(swordCode);
+           d.setPage(page);
+           d.setCodeType(codeType);
+           d.setNoteCh(noteCh);*/
+       //    grid.getDao().editDisease(d);
         }catch(Exception e){
             gjm.setRetCode(ReturnInfo.UNKNOWNERROR);
             gjm.setRetInfo(e.toString());
             e.printStackTrace();
         }
-        gjm.setData(dis);
+     //   gjm.setData(d);
         gjm.setRetInfo("疾病编码保存成功");
         return gjm.toJSONStr();
     }
