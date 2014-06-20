@@ -473,8 +473,9 @@ svc.factory('disUtil',['$http',function($http){
         },
         editDiseaseOne:function(icdDisease){
             var url = baseUrl+'/diseaseOne/edit';
-            alert(icdDisease.codeNameCh);
-            return $http.post(url,icdDisease);
+          //  alert(icdDisease.codeNameCh); 
+           // return $http.post(url,icdDisease);
+          return $http.post(url,icdDisease);
         //,'icdCode':icdDisease.icdCode,'swordCode':icdDisease.swordCode,'starCode':icdDisease.starCode,'page':icdDisease.page,'codeType':icdDisease.codeType,'noteCh':icdDisease.noteCh
         }
     };
@@ -638,7 +639,9 @@ svc.factory('spinnerShowInterceptor',function($q,$window) {
 svc.config(function($httpProvider) {
     $httpProvider.responseInterceptors.push('errorHttpInterceptor');
     $httpProvider.responseInterceptors.push('spinnerShowInterceptor');
-
+    
+    $httpProvider.defaults.headers.put['Content-Type'] = 'application/x-www-form-urlencoded;charset=UTF-8';
+    $httpProvider.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=UTF-8';
     var spinnerFunction = function (data, headersGetter) {
         // todo start the spinner here
         //alert('start spinner');
@@ -658,9 +661,49 @@ svc.config(function($httpProvider) {
     $httpProvider.defaults.transformRequest.push(function(requestData){
 
        //2014-06-17 cjl
-       //  convertDateToString(requestData);
+      //   convertDateToString(requestData);
         return requestData;
     });
+// Override $http service's default transformRequest
+    $httpProvider.defaults.transformRequest = [function(data) {
+        /**
+         * The workhorse; converts an object to x-www-form-urlencoded serialization.
+         * @param {Object} obj
+         * @return {String}
+         */
+        var param = function(obj) {
+            var query = '';
+            var name, value, fullSubName, subName, subValue, innerObj, i;
+            for (name in obj) {
+                value = obj[name];
+                if (value instanceof Array) {
+                    for (i = 0; i < value.length; ++i) {
+                        subValue = value[i];
+                        fullSubName = name + '[' + i + ']';
+                        innerObj = {};
+                        innerObj[fullSubName] = subValue;
+                        query += param(innerObj) + '&';
+                    }
+                } else if (value instanceof Object) {
+                    for (subName in value) {
+                        subValue = value[subName];
+                        fullSubName = name + '[' + subName + ']';
+                        innerObj = {};
+                        innerObj[fullSubName] = subValue;
+                        query += param(innerObj) + '&';
+                    }
+                } else if (value !== undefined && value !== null) {
+                    query += encodeURIComponent(name) + '='
+                            + encodeURIComponent(value) + '&';
+                }
+            }
+            return query.length ? query.substr(0, query.length - 1) : query;
+        };
+ 
+        return angular.isObject(data) && String(data) !== '[object File]'
+                ? param(data)
+                : data;
+    }];
 
 
 });

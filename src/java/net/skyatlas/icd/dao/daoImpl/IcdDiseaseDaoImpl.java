@@ -131,15 +131,15 @@ return this.jdbcTemplate.query("select * from tblicd_dis", new IcdDisRowMapper()
     }
     @Override
     public void editDisease(IcdDisease dis){
-           this.jdbcTemplate.update("update tblicd_relation_dis set code_name_ch =? "
-                   + ",code_name_en=?,abbreviation_ch=?"
-                   + ",abbreviation_en=?,py=?"
-                   + ",parent_id=?,page=?"
-                   + ",note_ch=?,note_en=?"
-                   + ",full_name=?,code_type=?"
-                   + ",icd_code=?,star_code=?"
-                   + ",sword_code=?"
-                   + "where id=?", new Object[]{dis.getCodeNameCh()
+           this.jdbcTemplate.update("update tblicd_dis set code_name_ch =? "
+                   + ",code_name_en=?,abbreviation_ch=? "
+                   + ",abbreviation_en=?,py=? "
+                   + ",parent_id=?,page=? "
+                   + ",note_ch=?,note_en=? "
+                   + ",full_name=?,code_type=? "
+                   + ",icd_code=?,star_code=? "
+                   + ",sword_code=? "
+                   + " where id=?", new Object[]{dis.getCodeNameCh()
                    ,dis.getCodeNameEn(),dis.getAbbreviationCh()
                    ,dis.getAbbreviationEn(),dis.getPy()
                    ,dis.getParentID(),dis.getPage()

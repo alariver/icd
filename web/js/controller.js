@@ -7460,7 +7460,7 @@ icdModule.controller('ToolsController',['$scope','$state',function($scope, $stat
         $state.go('tools.'+tool.target);
     }
 }]) ;
-icdModule.controller('DiseaseicdController',['$scope','$state',function($scope,$state){
+icdModule.controller('DiseaseicdController',['$scope','$state','$modal',function($scope,$state,$modal){
     $scope.queryDiseaseOne = {};
     if (! $scope.headShowSwitch.login) {
         $.growl('请先正确登陆系统，再进行操作。');
@@ -7483,9 +7483,10 @@ icdModule.controller('DiseaseicdController',['$scope','$state',function($scope,$
 
         $state.go('diseaseicd.'+diseaseicd.target);
     };
-    $scope.diseaseicdEditSelect = function(url){
+   /* $scope.diseaseicdEditSelect = function(url){
         $state.go(url);
-    }
+    };*/
+     
 }]);
 icdModule.controller('ToolAutoCodeCtrl',['$scope','miscUtil','icdService',function($scope,miscUtil,icdService) {
 
@@ -7571,7 +7572,18 @@ icdModule.controller('DiseaseicdThreeCtrl',['$scope','disUtil','icdService' ,fun
 //            console.dir(data);
 
                 $scope.autoCodePaths = data['data'];
-               _.each($scope.autoCodePaths, function(path){
+               // var icdDiseaseIndex = data['data'];
+               
+                /*
+            _.each($scope.autoCodePaths, function(disIndex){
+                  for(var idx=disIndex.children.length-1;idx>=0;idx--){
+                      if(disIndex.children[idx-1]){
+                          disIndex.children[idx-1]['icdDiseaseIndex']=disIndex.children[idx-1];
+                           disIndex.children[idx-1]['children'] = disIndex.children[idx-1]['children']||[];
+                          disIndex.children.pop();
+                      }
+                  } */
+                  /*
                     for (var idx=path.nodes-1 ; idx>=0; idx--) {
                         if (path.nodeList[idx-1]) {
                             path.nodeList[idx-1]['children'] = path.nodeList[idx-1]['children'] || [];
@@ -7580,7 +7592,7 @@ icdModule.controller('DiseaseicdThreeCtrl',['$scope','disUtil','icdService' ,fun
                         }
 
                     }
-                });
+                });*/
 //            console.dir($scope.autoCodePaths);
            /* }).error(function() {
                     $.growl('自动为诊断进行ICD-10编码失败。');
@@ -7591,20 +7603,78 @@ icdModule.controller('DiseaseicdThreeCtrl',['$scope','disUtil','icdService' ,fun
     
     
 }]);
-icdModule.controller('DiseaseicdOneCtrl',['$scope','disUtil','icdService' ,function($scope,disUtil,icdService){
+icdModule.controller('DiseaseicdOneCtrl',['$scope','disUtil','$modal','icdService' ,function($scope,disUtil,$modal,icdService){
     $scope.queryDisease = function(queryDiseaseOne){
         disUtil.searchDis(queryDiseaseOne.inputCode).success(function(data){
             $scope.queryDiseaseOne.icdDisease = data['data'];
-             //alert(data['data'].refRelations['不包括'][0].relationContentCh);
-             //取得树
+            $scope.queryDiseaseOne.icdDisease.next=[];
+             for(var i=0;i<$scope.queryDiseaseOne.icdDisease.children.length;i++){
+                 
+                 var d = $scope.queryDiseaseOne.icdDisease.children[i];
+                 if(d.icdCode==''||d.icdCode==null){
+                        $scope.queryDiseaseOne.icdDisease.next.push(d);
+                        for(var j=0;j<d.children.length;j++){
+                            $scope.queryDiseaseOne.icdDisease.next.push(d.children[j]);
+                        }
+                 }
+                 
+             }
+            
+             
              
         });
     };
-    $scope.editDiseaseOne = function(icdDisease){
-        disUtil.editDiseaseOne(icdDisease).success(function(data){
-            
-        });
+    $scope.editNextClick = function(){
+        
     }
+    $scope.editClick = function(){
+        var modalInstance = $modal.open({
+            templateUrl: 'diseaseOne_edit.html',
+            controller: function($scope,$modalInstance,currentDisease){
+                $scope.ok=function(){
+                    $modalInstance.close();
+                };
+                $scope.cancel = function(){
+                    $modalInstance.dismiss('cancel');
+                };
+                $scope.currentDisease=currentDisease;
+                //进入编辑--》保存
+                $scope.editDiseaseOne = function(icdDisease){
+                    var child_save =   icdDisease.children;
+                    var  parent_save = icdDisease.parentDisease;
+                    icdDisease.children= null;
+                    icdDisease.parentDisease=null
+                    disUtil.editDiseaseOne(icdDisease).success(function(data){
+                        //alert(data['data'].codeNameCh);
+                        icdDisease.children = child_save;
+                        icdDisease.parentDisease=parent_save;
+                        $modalInstance.close();
+                    });
+                };
+            },
+            resolve: {
+                currentDisease: function() {
+                    return  $scope.queryDiseaseOne.icdDisease;
+                }
+            }
+        });
+       
+        /*modalInstance.result.then(function(duichang){
+            console.log('modal ok:'+duichang);
+//            console.dir(duichang);
+            // 添加堆场
+            HeapSvc.addHeap(duichang).success(function(response) {
+                console.log('正常:');
+//               
+                $scope.managedTargets.push(duichang);
+            }).error(function(){
+                    console.log('操作异常');
+                });
+        }, function(){
+            console.log(' modal cancel.');
+        });*/
+    };
+     
     
 }]);
  

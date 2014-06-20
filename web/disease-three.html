@@ -154,20 +154,21 @@
                    > 
                 </div>
                 <hr>
-            </div>-->
-            <div ng-repeat="path in autoCodePaths" class="container-fluid">
+            </div>
+             <div ng-repeat="d in autoCodePaths" class="container-fluid">-->
                <div 
                    data-angular-treeview ="true"
-                   data-tree-id="hechzh{{$index}}"
-                   data-tree-model="path.children"
+                   data-tree-id="abc{{$index}}"
+                   data-tree-model="autoCodePaths"
                    data-node-id="id"
-                   data-node-label="shortDesc"
+                   data-node-label="nameCh"
+                   data-node-code ="icdCode"
                    data-node-children="children"
                    
                    > 
                 </div>
-                <hr>
-            </div>
+              
+             
 
         </div>
     </div>

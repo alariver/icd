@@ -619,8 +619,8 @@ public class MemoryGrid {
             }
         }
         /*2014-06-11 15:28:22
-         *  Vol3中建立parent-children 关系
-         */
+         *  Vol1中建立parent-children 关系
+        
         for(int i =0;i<this.allIndexItems.size();i++){
             IcdDiseaseIndex d = this.allIndexItems.get(i);
             if(d.getParentID()!=null&&d.getParentID()!=0){
@@ -635,7 +635,7 @@ public class MemoryGrid {
                 }
                 parent.getChildren().add(d);
             }
-        }
+        } */
         // 建立搜索路径 End!
         
         /*

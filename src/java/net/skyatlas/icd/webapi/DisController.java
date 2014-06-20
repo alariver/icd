@@ -99,30 +99,46 @@ public class DisController {
     @RequestMapping(value="/diseaseOne/edit",method=RequestMethod.POST)
     @ResponseBody
     public String editDiseaseOne(IcdDisease dis){
-         /*,@RequestParam("icdCode")String icdCode,
-    @RequestParam("swordCode")String swordCode,@RequestParam("starCode")String starCode,@RequestParam("page")Integer page,
-    @RequestParam("codeType")String codeType,@RequestParam("noteCh")String noteCh*/
         GeneralJsonModel gjm = new GeneralJsonModel();
         gjm.setRetCode(0);
-       // IcdDisease d =  grid.getVol1IDIndexedItems().get(id);
         try{
-           
-           
-        //   d.setCodeNameCh(codeNameCh);
-          /* d.setIcdCode(icdCode);
-           d.setStarCode(starCode);
-           d.setSwordCode(swordCode);
-           d.setPage(page);
-           d.setCodeType(codeType);
-           d.setNoteCh(noteCh);*/
-       //    grid.getDao().editDisease(d);
+            grid.getDao().editDisease(dis);
+            IcdDisease d = grid.getVol1IDIndexedItems().get(dis.getId());
+            if(dis.getCodeNameCh()==""){
+                d.setCodeNameCh(null);
+            }else{
+            d.setCodeNameCh(dis.getCodeNameCh());
+            }
+            if(dis.getIcdCode()==""){   
+                d.setIcdCode(null);
+            }else{
+                d.setIcdCode(dis.getIcdCode());
+            }
+            if(dis.getSwordCode()==""){   
+                d.setSwordCode(null);
+            }else{
+                d.setSwordCode(dis.getSwordCode());
+            }
+            if(dis.getStarCode()==""){   
+                d.setStarCode(null);
+            }else{
+                d.setStarCode(dis.getStarCode());
+            }
+            d.setPage(dis.getPage());
+            d.setCodeType(dis.getCodeType());
+            if(dis.getNoteCh()==""){
+                d.setNoteCh(null);
+            }else{
+                d.setNoteCh(dis.getNoteCh());
+            }
+            gjm.setData(dis);
+            gjm.setRetInfo("疾病编码保存成功");
         }catch(Exception e){
             gjm.setRetCode(ReturnInfo.UNKNOWNERROR);
             gjm.setRetInfo(e.toString());
             e.printStackTrace();
         }
-     //   gjm.setData(d);
-        gjm.setRetInfo("疾病编码保存成功");
+        
         return gjm.toJSONStr();
     }
     public boolean isMCode(String code) {
