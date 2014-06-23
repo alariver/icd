@@ -12,6 +12,7 @@ import net.skyatlas.icd.comm.GeneralJsonModel;
 import net.skyatlas.icd.comm.ReturnInfo;
 import net.skyatlas.icd.domain.IcdDisease;
 import net.skyatlas.icd.domain.IcdDiseaseIndex;
+import net.skyatlas.icd.domain.IcdDiseaseRelation;
 import net.skyatlas.icd.util.MemoryGrid;
 import net.skyatlas.icd.util.SearchPath;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,16 +36,17 @@ public class DisController {
     @RequestMapping(value = "/diseaseThree/search0Dis", method = RequestMethod.GET)
     @ResponseBody
     public  String  search0Dis(@RequestParam("name") String name,@RequestParam("type") String type) {
-        // List result = indexService.getIndexListDis(text, "precision", "ch", null, Integer.parseInt(content));
+        
         GeneralJsonModel gjm = new GeneralJsonModel();
         gjm.setRetCode(0);
-        //IcdDiseaseIndex  icdDiseaseIndex=null;
-        List<SearchPath> paths = new ArrayList();
+      
+        
         List<IcdDiseaseIndex> list = new ArrayList();
-        IcdDiseaseIndex icdDiseaseIndex = new IcdDiseaseIndex();
         List<IcdDiseaseIndex> idiList = new ArrayList();
         try{
-       
+            //第一步 ，判断name是拼音还是文字
+            
+            
           list = grid.getVol3NameIndexedItems().get(name);
           for(int i = 0 ; i < list.size() ; i++){
               IcdDiseaseIndex e = list.get(i);
@@ -52,18 +54,7 @@ public class DisController {
                   idiList.add(e);
               }
           }
-          /* 
-          //遍历取出主导词
-          for(int i=0;i<list.size();i++){
-              IcdDiseaseIndex o = list.get(i);
-              if(o.getDepth()==0){
-                 SearchPath ls = grid.getRootIndexedSearchPaths().get(o);
-                 if(ls!=null){
-                    paths.add(ls);
-                 }
-              }
-          }
-          */
+         
         }catch(Exception e){
             gjm.setRetCode(ReturnInfo.UNKNOWNERROR);
             gjm.setRetInfo(e.toString());
@@ -72,6 +63,28 @@ public class DisController {
         gjm.setData(idiList);
         gjm.setRetInfo("疾病编码索引...");
         return gjm.toJSONStr();
+    }
+    @RequestMapping(value = "/diseaseThree/search1Dis", method = RequestMethod.GET)
+    @ResponseBody
+    public  String  search1Dis(@RequestParam("name") String name) {
+        GeneralJsonModel gjm = new GeneralJsonModel();
+        gjm.setRetCode(0);
+        try{
+            //第一步，判断是否为拼音
+            grid.getVol3NameIndexedItems().get(name);
+         /*   Pattern pat = Pattern.compile("/\\D/");  
+            Matcher mat = pat.matcher(name);  
+            
+            mat.find();*/
+        }catch(Exception e){
+            gjm.setRetCode(ReturnInfo.UNKNOWNERROR);
+            gjm.setRetInfo(e.toString());
+            e.printStackTrace();
+        }
+        gjm.setData(dis);
+        gjm.setRetInfo("疾病编码查询成功...");
+        return gjm.toJSONStr();
+       
     }
     @RequestMapping(value = "/diseaseOne/searchDis", method = RequestMethod.GET)
     @ResponseBody
@@ -92,7 +105,7 @@ public class DisController {
             e.printStackTrace();
         }
         gjm.setData(dis);
-        gjm.setRetInfo("疾病编码核对...");
+        gjm.setRetInfo("疾病编码查询成功...");
         return gjm.toJSONStr();
     }
     
@@ -103,8 +116,10 @@ public class DisController {
         gjm.setRetCode(0);
         try{
             grid.getDao().editDisease(dis);
+            //放入grid
             IcdDisease d = grid.getVol1IDIndexedItems().get(dis.getId());
             if(dis.getCodeNameCh()==""){
+                
                 d.setCodeNameCh(null);
             }else{
             d.setCodeNameCh(dis.getCodeNameCh());
@@ -132,13 +147,80 @@ public class DisController {
                 d.setNoteCh(dis.getNoteCh());
             }
             gjm.setData(dis);
-            gjm.setRetInfo("疾病编码保存成功");
+            gjm.setRetInfo("保存成功");
         }catch(Exception e){
             gjm.setRetCode(ReturnInfo.UNKNOWNERROR);
             gjm.setRetInfo(e.toString());
             e.printStackTrace();
         }
         
+        return gjm.toJSONStr();
+    }
+    @RequestMapping(value="/diseaseRelation/edit",method=RequestMethod.POST)
+    @ResponseBody
+    public String editDiseaseRelation(IcdDiseaseRelation dr){
+        GeneralJsonModel gjm = new GeneralJsonModel();
+        gjm.setRetCode(0);
+        try{
+            if(dr.getId()==null||dr.getId()==0){
+                return null;
+            }
+             
+            if(dr.getMainID()==0){
+                dr.setMainID(null);
+            } 
+            if(dr.getNoteCh()==""){
+                dr.setNoteCh(null);
+            } 
+            if(dr.getNoteEn()==""){
+                dr.setNoteEn(null);
+            }
+            if(dr.getPage()==0){
+                dr.setPage(null);
+            }
+            if(dr.getParentID()==0){
+                dr.setParentID(null);
+            }
+            if(dr.getReferenceCode()==""){
+                dr.setReferenceCode(null);
+            } 
+            if(dr.getReferenceCodeFull()==""){
+                dr.setReferenceCodeFull(null);
+            } 
+            if(dr.getReferenceID()==0){
+                dr.setReferenceID(null);
+            } 
+            if(dr.getRelationContentCh()==""){
+                dr.setRelationContentCh(null);
+            } 
+            if(dr.getRelationContentEn()==""){
+                dr.setRelationContentEn(null);
+            } 
+            if(dr.getRelationType()==""){
+                dr.setRelationType(null);
+            } 
+            
+            grid.getIcdDisRelationDao().editDiseaseRelation(dr);
+             //edit grid
+             IcdDiseaseRelation idi = grid.getVol1IDRelationIndexedItems().get(dr.getId());
+                idi.setMainID(dr.getMainID());
+                idi.setNoteCh(dr.getNoteCh());
+                idi.setNoteEn(dr.getNoteEn());
+                idi.setPage(dr.getPage());
+                idi.setParentID(dr.getParentID());
+                idi.setReferenceCode(dr.getReferenceCode());
+                idi.setReferenceCodeFull(dr.getReferenceCodeFull());
+                idi.setReferenceID(dr.getReferenceID());
+                idi.setRelationContentCh(dr.getRelationContentCh());
+                idi.setRelationContentEn(dr.getRelationContentEn());
+                idi.setRelationType(dr.getRelationType());
+            gjm.setData(dr);
+            gjm.setRetInfo("保存成功");
+        }catch(Exception e){
+            gjm.setRetCode(ReturnInfo.UNKNOWNERROR);
+            gjm.setRetInfo(e.toString());
+            e.printStackTrace();
+        }
         return gjm.toJSONStr();
     }
     public boolean isMCode(String code) {

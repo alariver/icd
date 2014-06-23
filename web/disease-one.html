@@ -16,7 +16,7 @@
                            ng-model="queryDiseaseOne.inputCode"/>
                 </div>
                 <div class="col-lg-4 btn-group">
-                   <button type="submit" class="btn btn-default btn-primary" ng-click="queryDisease(queryDiseaseOne)">&nbsp;&nbsp;查询&nbsp;&nbsp;</button>
+                   <button type="submit" class="btn btn-default btn-primary" ng-click="searchDise(queryDiseaseOne.inputCode)">&nbsp;&nbsp;查询&nbsp;&nbsp;</button>
                 </div>
             </div>
            
@@ -38,7 +38,7 @@
                     </tr>
                     <tr >
                         <td class="text-center">
-                            <a  class="text-center"   ng-click="editClick()"> 进入编辑</a>
+                            <a  class="text-center"   ng-click="editClick(queryDiseaseOne.icdDisease)"> 进入编辑</a>
                         </td>
                     </tr>
                 </table>
@@ -50,7 +50,7 @@
                         <td>{{dis.codeNameCh}}</td>
                         <td></td>
                         <td></td>
-                        <td class="col-lg-2"><a class="text-center" ng-click="editNextClick()">编辑</a></td>
+                        <td class="col-lg-2"><a class="text-center" ng-click="editNextClick(dis)">编辑</a></td>
                     </tr>
                    <!-- <tr ng-if="queryDiseaseOne.icdDisease.refRelations['包括'].length>0">
                         <td  class="col-lg-2">包括</td>
@@ -62,16 +62,16 @@
                     <tr ng-repeat="noInclude in queryDiseaseOne.icdDisease.refRelations['包括']">
                         <td  class="col-lg-2"></td>
                         <td>{{noInclude.relationContentCh}}</td>
-                        <td>{{noInclude.referenceCode}}</td>
-                        <td>{{noInclude.referenceCode}}</td>
-                        <td class="col-lg-2"><a  class="text-center">编辑</a></td>
+                        <td>{{noInclude.referenceCodeFull}}</td>
+                        <td><a class="text-center" ng-click="searchDise(noInclude.referenceCode)">{{noInclude.referenceCode}}</a></td>
+                        <td class="col-lg-2"><a  class="text-center" ng-click="editCludeClick(noInclude)">编辑</a></td>
                     </tr>
                     <tr ng-repeat="noInclude in queryDiseaseOne.icdDisease.refRelations['另编码']">
                         <td class="col-lg-2"></td>
                         <td>{{noInclude.relationContentCh}}</td>
                         <td>{{noInclude.referenceCode}}</td>
-                        <td>{{noInclude.referenceCode}}</td>
-                        <td class="col-lg-2"><a  class="text-center">编辑</a></td>
+                        <td><a class="text-center" ng-click="searchDise(noInclude.referenceCode)">{{noInclude.referenceCode}}</a></td>
+                        <td class="col-lg-2"><a  class="text-center" ng-click="editCludeClick(noInclude)">编辑</a></td>
                     </tr>
                     <tr ng-if="queryDiseaseOne.icdDisease.refRelations['不包括'].length>0">
                         <td class="col-lg-2">不包括</td>
@@ -83,9 +83,9 @@
                     <tr ng-repeat="noInclude in queryDiseaseOne.icdDisease.refRelations['不包括']">
                         <td class="col-lg-2"></td>
                         <td>{{noInclude.relationContentCh}}</td>
-                        <td>{{noInclude.referenceCode}}</td>
-                        <td>{{noInclude.referenceCode}}</td>
-                        <td class="col-lg-2"><a  class="text-center">编辑</a></td>
+                        <td>{{noInclude.referenceCodeFull}}</td>
+                        <td><a class="text-center" ng-click="searchDise(noInclude.referenceCode)">{{noInclude.referenceCode}}</a></td>
+                        <td class="col-lg-2"><a  class="text-center" ng-click="editCludeClick(noInclude)">编辑</a></td>
                     </tr>
                     <!--
                     <tr ng-repeat="noInclude in queryDiseaseOne.icdDisease.refRelations['星剑']">
@@ -122,146 +122,6 @@
 
         </div>
     </div>
-        <script type="text/ng-template" id="diseaseOne_nextEdit.html">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="model-header">
-                       <!-- <ol class="breadcrumb">
-                            <li><a href="#">疾病</a></li>
-                            <li class="active">编辑页面</li>
-
-                        </ol>-->
-                    </div>
-                    <div class=model-body>
-                        <div class="body-content">
-                        <!-- Example row of columns -->
-                        <div class="row">
-                           <form role="form">
-                                <div class="form-group">
-                                    <label for="codeNameCh" class="col-lg-2">名称:</label>
-                                    <div class="col-lg-10">
-                                        <input type="text" class="form-control" id="codeNameCh" name="codeNameCh"
-                                               ng-model="currentDisease.codeNameCh"/>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="swordCode" class="col-lg-2">剑号编码:</label>
-                                    <div class="col-lg-10">
-                                        <input type="text" class="form-control" id="swordCode" name="swordCode"
-                                               ng-model="currentDisease.swordCode"/>
-                                    </div>
-                                </div>
-                               <div class="form-group">
-                                    <label for="starCode" class="col-lg-2">星号编码:</label>
-                                    <div class="col-lg-10">
-                                        <input type="text" class="form-control" id="starCode" name="starCode"
-                                               ng-model="currentDisease.starCode"/>
-                                    </div>
-                                </div>
-                               
-                           </form>
-                            <hr/> 
-                        </div>
-                    </div>
-                    </div>
-
-                    <div class="model-footer">
-                        <button class="btn btn-success" ng-click="editNext(currentDisease)" >确认</button>
-                        <button class="btn btn-warning" ng-click="cancel()">取消</button>
-                    </div>
-                </div>
-            </div>
-        </script>
-        <script type="text/ng-template" id="diseaseOne_edit.html">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="model-header">
-                    <ol class="breadcrumb">
-                        <li><a href="#">疾病</a></li>
-                        <li class="active">编辑页面</li>
-
-                    </ol>
-                </div>
-                <div class=model-body>
-                    <div class="body-content">
-
-
-                    <!-- Example row of columns -->
-                    <div class="row">
-                       <form role="form">
-                            <div class="form-group">
-                                <label for="codeNameCh" class="col-lg-2">编码名称:</label>
-                                <div class="col-lg-10">
-                                    <input type="text" class="form-control" id="codeNameCh" name="codeNameCh"
-                                           ng-model="currentDisease.codeNameCh"/>
-                                </div>
-                            </div>
-                           <div class="form-group">
-                                <label for="icdCode" class="col-lg-2">编码:</label>
-                                <div class="col-lg-10">
-                                    <input type="text" class="form-control" id="icdCode" name="icdCode"
-                                           ng-model="currentDisease.icdCode"/>
-                                </div>
-                            </div>
-                           <div class="form-group">
-                                <label for="swordCode" class="col-lg-2">剑号编码:</label>
-                                <div class="col-lg-10">
-                                    <input type="text" class="form-control" id="swordCode" name="swordCode"
-                                           ng-model="currentDisease.swordCode"/>
-                                </div>
-                            </div>
-                           <div class="form-group">
-                                <label for="starCode" class="col-lg-2">星号编码:</label>
-                                <div class="col-lg-10">
-                                    <input type="text" class="form-control" id="starCode" name="starCode"
-                                           ng-model="currentDisease.starCode"/>
-                                </div>
-                            </div>
-                           <div class="form-group">
-                                <label for="page" class="col-lg-2">页码:</label>
-                                <div class="col-lg-10">
-                                    <input type="text" class="form-control" id="page" name="page"
-                                           ng-model="currentDisease.page"/>
-                                </div>
-                            </div>
-                           <div class="form-group">
-                                <label for="codeType" class="col-lg-2">编码类型:</label>
-                                <div class="col-lg-10">
-                                    <select class="form-control" ng-model="currentDisease.codeType">
-                                        <option value="章">章</option>
-                                        <option value="节">节</option>
-                                        <option value="类目">类目</option>
-                                        <option value="亚目">亚目</option>
-                                        <option value="包含">包含</option>
-                                        <option value="组">组</option>
-                                        <option value="组2">组2</option>
-                                        <option value="细目">细目</option>
-                                    </select>
-                                </div>
-                            </div>
-                           <div class="form-group">
-                                <label for="noteCh" class="col-lg-2">注释:</label>
-                                <div class="col-lg-10">
-                                    <textarea class="form-control" rows="5" ng-model="currentDisease.noteCh">{{currentDisease.noteCh}}</textarea>
-                                </div>
-                            </div>
-                       </form>
-
-                        <hr/> 
-
-                    </div>
-
-                </div>
-                </div>
-
-                <div class="model-footer">
-                    <button class="btn btn-success" ng-click="editDiseaseOne(currentDisease)" >确认</button>
-                    <button class="btn btn-warning" ng-click="cancel()">取消</button>
-                </div>
-            </div>
-        </div>
-
-
-    </script>
+        
      
 </div>

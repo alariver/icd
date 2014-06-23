@@ -477,7 +477,11 @@ svc.factory('disUtil',['$http',function($http){
            // return $http.post(url,icdDisease);
           return $http.post(url,icdDisease);
         //,'icdCode':icdDisease.icdCode,'swordCode':icdDisease.swordCode,'starCode':icdDisease.starCode,'page':icdDisease.page,'codeType':icdDisease.codeType,'noteCh':icdDisease.noteCh
-        }
+        },
+         editDiseaseRelation:function(icdDiseaseRelation){
+            var url=baseUrl+'/diseaseRelation/edit';
+            return $http.post(url,icdDiseaseRelation);
+         }
     };
 }]);
 /*

@@ -7460,34 +7460,7 @@ icdModule.controller('ToolsController',['$scope','$state',function($scope, $stat
         $state.go('tools.'+tool.target);
     }
 }]) ;
-icdModule.controller('DiseaseicdController',['$scope','$state','$modal',function($scope,$state,$modal){
-    $scope.queryDiseaseOne = {};
-    if (! $scope.headShowSwitch.login) {
-        $.growl('请先正确登陆系统，再进行操作。');
-        $state.go('home');
-        return;
-    }
-    $scope.diseaseicdList = [
-         {
-             'title' : '疾病编码索引(卷3)',
-             'active': false,
-             'target': 'diseaseThree'
-         }   ,
-         {
-             'title' : '疾病编码核对(卷1)',
-             'active': false,
-             'target': 'diseaseOne'
-         } 
-    ];
-    $scope.diseaseicdSelect = function(diseaseicd) {
 
-        $state.go('diseaseicd.'+diseaseicd.target);
-    };
-   /* $scope.diseaseicdEditSelect = function(url){
-        $state.go(url);
-    };*/
-     
-}]);
 icdModule.controller('ToolAutoCodeCtrl',['$scope','miscUtil','icdService',function($scope,miscUtil,icdService) {
 
     $scope.diagName = "";
@@ -7559,6 +7532,150 @@ icdModule.controller('ToolAutoCompareCtrl',['$scope','miscUtil','icdService',fun
             })   ;
     }
 }]);
+icdModule.controller('DiseaseicdController',['$scope','$state','$modal','disUtil',function($scope,$state,$modal,disUtil){
+    $scope.queryDiseaseOne = {};
+    if (! $scope.headShowSwitch.login) {
+        $.growl('请先正确登陆系统，再进行操作。');
+        $state.go('home');
+        return;
+    }
+    $scope.diseaseicdList = [
+         {
+             'title' : '疾病编码索引(卷3)',
+             'active': false,
+             'target': 'diseaseThree'
+         }   ,
+         {
+             'title' : '疾病编码核对(卷1)',
+             'active': false,
+             'target': 'diseaseOne'
+         } 
+    ];
+    $scope.diseaseicdSelect = function(diseaseicd) {
+
+        $state.go('diseaseicd.'+diseaseicd.target);
+    };
+    $scope.icdCodeUrl = function(inputCode){
+        $scope.queryDiseaseOne.inputCode = inputCode;
+        $state.go('diseaseicd.diseaseOne');
+    };
+   /* $scope.diseaseicdEditSelect = function(url){
+        $state.go(url);
+    };*/
+     //包括||不包括||另编码  编辑
+    $scope.editCludeClick = function(cludeDisRelation){
+        var modalInstance = $modal.open({
+            templateUrl: 'diseaseOne_noIncludeEdit.html',
+            controller: function($scope,$modalInstance,currentDiseaseRelation){
+                $scope.ok=function(){
+                    $modalInstance.close();
+                };
+                $scope.cancel = function(){
+                    $modalInstance.dismiss('cancel');
+                };
+                $scope.currentDiseaseRelation=currentDiseaseRelation;
+                //包括||不包括 编辑--》保存
+                $scope.save = function(icdDiseaseRelation){
+                    disUtil.editDiseaseRelation(icdDiseaseRelation).success(function(data){
+                        //alert(data['data'].codeNameCh);
+                        $modalInstance.close();
+                    });
+                };
+            },
+            resolve: {
+                currentDiseaseRelation: function() {
+                    return  cludeDisRelation;
+                }
+            } 
+        });
+        
+    };
+    //next
+    $scope.editNextClick = function(dis){
+        var modalInstance = $modal.open({
+            templateUrl: 'diseaseOne_nextEdit.html',
+            controller: function($scope,$modalInstance,nextDisease){
+                $scope.ok=function(){
+                    $modalInstance.close();
+                };
+                $scope.cancel = function(){
+                    $modalInstance.dismiss('cancel');
+                };
+                $scope.nextDisease=nextDisease;
+                //next 编辑--》保存
+                $scope.save = function(icdDisease){
+                    var child_save =   icdDisease.children;
+                    var  parent_save = icdDisease.parentDisease;
+                    icdDisease.children= null;
+                    icdDisease.parentDisease=null;
+                    disUtil.editDiseaseOne(icdDisease).success(function(data){
+                        //alert(data['data'].codeNameCh);
+                        icdDisease.children = child_save;
+                        icdDisease.parentDisease=parent_save;
+                        $modalInstance.close();
+                    });
+                };
+            },
+            resolve: {
+                nextDisease: function() {
+                    return  dis;
+                }
+            } 
+        });
+    };
+       //icdDisease eidt
+    $scope.editClick = function(dis){
+        var modalInstance = $modal.open({
+            templateUrl: 'diseaseOne_edit.html',
+            controller: function($scope,$modalInstance,currentDisease){
+                $scope.ok=function(){
+                    $modalInstance.close();
+                };
+                $scope.cancel = function(){
+                    $modalInstance.dismiss('cancel');
+                };
+                $scope.currentDisease=currentDisease;
+                //进入编辑--》保存
+                $scope.editDiseaseOne = function(icdDisease){
+                    var refRelations = icdDisease.refRelations;
+                    var child_save =   icdDisease.children;
+                    var  parent_save = icdDisease.parentDisease;
+                    icdDisease.children= null;
+                    icdDisease.parentDisease=null;
+                    icdDisease.refRelations = null;
+                    disUtil.editDiseaseOne(icdDisease).success(function(data){
+                        //alert(data['data'].codeNameCh);
+                        icdDisease.children = child_save;
+                        icdDisease.parentDisease=parent_save;
+                        icdDisease.refRelations = refRelations;
+                        $modalInstance.close();
+                    });
+                };
+            },
+            resolve: {
+                currentDisease: function() {
+                    return  dis;
+                }
+            }
+        });
+       
+        /*modalInstance.result.then(function(duichang){
+            console.log('modal ok:'+duichang);
+//            console.dir(duichang);
+            // 添加堆场
+            HeapSvc.addHeap(duichang).success(function(response) {
+                console.log('正常:');
+//               
+                $scope.managedTargets.push(duichang);
+            }).error(function(){
+                    console.log('操作异常');
+                });
+        }, function(){
+            console.log(' modal cancel.');
+        });*/
+    };
+     
+}]);
 icdModule.controller('DiseaseicdThreeCtrl',['$scope','disUtil','icdService' ,function($scope,disUtil,icdService){
     $scope.queryDiseaseThree = {};
     $scope.autoCodePaths={};
@@ -7604,8 +7721,9 @@ icdModule.controller('DiseaseicdThreeCtrl',['$scope','disUtil','icdService' ,fun
     
 }]);
 icdModule.controller('DiseaseicdOneCtrl',['$scope','disUtil','$modal','icdService' ,function($scope,disUtil,$modal,icdService){
-    $scope.queryDisease = function(queryDiseaseOne){
-        disUtil.searchDis(queryDiseaseOne.inputCode).success(function(data){
+    if($scope.queryDiseaseOne.inputCode!=""&&$scope.queryDiseaseOne.inputCode!=null){
+        
+        disUtil.searchDis($scope.queryDiseaseOne.inputCode).success(function(data){
             $scope.queryDiseaseOne.icdDisease = data['data'];
             $scope.queryDiseaseOne.icdDisease.next=[];
              for(var i=0;i<$scope.queryDiseaseOne.icdDisease.children.length;i++){
@@ -7617,64 +7735,27 @@ icdModule.controller('DiseaseicdOneCtrl',['$scope','disUtil','$modal','icdServic
                             $scope.queryDiseaseOne.icdDisease.next.push(d.children[j]);
                         }
                  }
-                 
              }
-            
-             
-             
         });
-    };
-    $scope.editNextClick = function(){
-        
     }
-    $scope.editClick = function(){
-        var modalInstance = $modal.open({
-            templateUrl: 'diseaseOne_edit.html',
-            controller: function($scope,$modalInstance,currentDisease){
-                $scope.ok=function(){
-                    $modalInstance.close();
-                };
-                $scope.cancel = function(){
-                    $modalInstance.dismiss('cancel');
-                };
-                $scope.currentDisease=currentDisease;
-                //进入编辑--》保存
-                $scope.editDiseaseOne = function(icdDisease){
-                    var child_save =   icdDisease.children;
-                    var  parent_save = icdDisease.parentDisease;
-                    icdDisease.children= null;
-                    icdDisease.parentDisease=null
-                    disUtil.editDiseaseOne(icdDisease).success(function(data){
-                        //alert(data['data'].codeNameCh);
-                        icdDisease.children = child_save;
-                        icdDisease.parentDisease=parent_save;
-                        $modalInstance.close();
-                    });
-                };
-            },
-            resolve: {
-                currentDisease: function() {
-                    return  $scope.queryDiseaseOne.icdDisease;
-                }
-            }
+    //本页ICDuRL
+    $scope.searchDise = function(inputCode){
+        $scope.queryDiseaseOne.inputCode = inputCode;
+        disUtil.searchDis(inputCode).success(function(data){
+            $scope.queryDiseaseOne.icdDisease = data['data'];
+            $scope.queryDiseaseOne.icdDisease.next=[];
+             for(var i=0;i<$scope.queryDiseaseOne.icdDisease.children.length;i++){
+                 
+                 var d = $scope.queryDiseaseOne.icdDisease.children[i];
+                 if(d.icdCode==''||d.icdCode==null){
+                        $scope.queryDiseaseOne.icdDisease.next.push(d);
+                        for(var j=0;j<d.children.length;j++){
+                            $scope.queryDiseaseOne.icdDisease.next.push(d.children[j]);
+                        }
+                 }
+             }
         });
-       
-        /*modalInstance.result.then(function(duichang){
-            console.log('modal ok:'+duichang);
-//            console.dir(duichang);
-            // 添加堆场
-            HeapSvc.addHeap(duichang).success(function(response) {
-                console.log('正常:');
-//               
-                $scope.managedTargets.push(duichang);
-            }).error(function(){
-                    console.log('操作异常');
-                });
-        }, function(){
-            console.log(' modal cancel.');
-        });*/
     };
-     
-    
+   
 }]);
  

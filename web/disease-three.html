@@ -8,8 +8,8 @@
             <li class="active">疾病编码索引（卷3）</li>
         </ol>
     </div>
-    <div class="row">
-        <div ng-form="queryDiseaseThreeForm" novalidate class="form-horizontal">
+    <div class="row col-lg-6">
+         <div ng-form="queryDiseaseThreeForm" novalidate class="form-horizontal col-lg-12">
             <div class="form-group">
                 <label for="level0" class="col-lg-4">主导词:</label>
                 <div class="col-lg-8">
@@ -65,16 +65,15 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-lg-6">
+        
+        <div class="col-lg-12">
 
             <hr>
-            <div class="col-lg-12" style="border: 1px; max-height: 600px; width: 100%; overflow: scroll">
+            <div  style="border: 1px; max-height: 600px; width: 100%; overflow: scroll">
                 <table class="table table-hover table-bordered">
                     <tr>
                         <td>操作:</td>
-                        <td><a class="btn btn-primary" href="#" role="button">进入编辑</a>
+                        <td><a class="btn btn-primary"   role="button" >进入编辑</a>
                         <a class="btn btn-primary" href="#" role="button">编辑别名</a>
                         <a class="btn btn-primary" href="#" role="button">编辑见与另见情况</a>
                         </td>
@@ -137,7 +136,9 @@
                 </table>
             </div>
         </div>
-        <div class="col-lg-6">
+    </div>
+    <div class="row col-lg-6">
+        <div class="col-lg-12">
             <!-- 搜索路径 -->
 
             <div class="panel-heading label-danger">疾病编码索引相关内容：</div>
@@ -172,4 +173,5 @@
 
         </div>
     </div>
+    
 </div>

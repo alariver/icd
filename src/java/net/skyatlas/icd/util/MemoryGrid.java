@@ -124,7 +124,12 @@ public class MemoryGrid {
      基于卷3 的 搜索路径
      */
     private List<SearchPath> allSearchPaths = new ArrayList();
-
+    /**
+     * 基于子类，索引主导词
+     *  <子类，主导词> 
+     * 待做
+     */
+    private HashMap<IcdDiseaseIndex,IcdDiseaseIndex> icdDiseaseIndexIndexedRootItems = new HashMap();
     private HashMap<IcdDiseaseIndex, List<SearchPath>> rootIndexedSearchPaths = new HashMap();       // 主导词索引的搜索路径
     //private HashMap<IcdDiseaseIndex,SearchPath> rootIndexedSearchPaths = new HashMap();
             

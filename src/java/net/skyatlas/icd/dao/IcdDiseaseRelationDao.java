@@ -21,5 +21,9 @@ public interface IcdDiseaseRelationDao {
      * @return 
      */
    List<IcdDiseaseRelation> getAllDiseaseRelation();
-   
+   /**
+    * 修改 relation
+    * @param disRelation 
+    */
+   public void editDiseaseRelation(IcdDiseaseRelation dr);
 }

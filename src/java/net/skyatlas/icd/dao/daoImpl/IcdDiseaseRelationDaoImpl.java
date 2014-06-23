@@ -35,6 +35,37 @@ public class IcdDiseaseRelationDaoImpl implements IcdDiseaseRelationDao {
         return this.jdbcTemplate.query("select * from tblicd_relation_dis", new IcdDisRelation1Mapper());
      
     }
+
+    @Override
+    public void editDiseaseRelation(IcdDiseaseRelation dr) {
+        this.jdbcTemplate.update("update tblicd_relation_dis "
+                + "set parent_id =? ,"
+                + "note_ch =? ,"
+                + "note_en =? ,"
+                + "main_id =? ,"
+                + "reference_code=?,"
+                + "reference_code_full = ? ,"
+                + "reference_id=?,"
+                + "relation_type=?,"
+                + "relation_content_ch = ?,"
+                + "relation_content_en = ?,"
+                + "page=? "
+                + "where id= ?", new Object[]{
+                    dr.getParentID(),
+                    dr.getNoteCh(),
+                    dr.getNoteEn(),
+                    dr.getMainID(),
+                    dr.getReferenceCode(),
+                    dr.getReferenceCodeFull(),
+                    dr.getReferenceID(),
+                    dr.getRelationType(),
+                    dr.getRelationContentCh(),
+                    dr.getRelationContentEn(),
+                    dr.getPage(),
+                    dr.getId()
+                });
+    }
+    
     
 }
 class IcdDisRelation1Mapper implements RowMapper {
