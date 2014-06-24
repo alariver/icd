@@ -467,6 +467,10 @@ svc.factory('disUtil',['$http',function($http){
             var url = baseUrl+'/diseaseThree/search0Dis';
             return $http.get(url,{params:{'name':name,'type':"vol3"}});
         },
+        search1Dis:function(inputCode){
+            var url = baseUrl+'/diseaseThree/search1Dis';
+            return $http.get(url,{params:{'inputCode':inputCode},'depth':1});
+        },
         searchDis:function(inputCode){
             var url = baseUrl+'/diseaseOne/searchDis';
             return $http.get(url,{params:{'inputCode':inputCode}});
@@ -481,7 +485,16 @@ svc.factory('disUtil',['$http',function($http){
          editDiseaseRelation:function(icdDiseaseRelation){
             var url=baseUrl+'/diseaseRelation/edit';
             return $http.post(url,icdDiseaseRelation);
-         }
+         },
+        editDiseaseThree:function(icdDiseaseIndex){
+            var url=baseUrl+'/diseaseThree/edit';
+            return $http.post(url,icdDiseaseIndex);
+        }, 
+        findAliases:function(indexID){
+            var url = baseUrl+'/diseaseThree/aliases';
+            return $http.get(url,{params:{'indexID':indexID}});
+        }
+          
     };
 }]);
 /*

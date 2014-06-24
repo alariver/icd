@@ -10,49 +10,49 @@
     </div>
     <div class="row col-lg-6">
          <div ng-form="queryDiseaseThreeForm" novalidate class="form-horizontal col-lg-12">
-            <div class="form-group">
+             <div class="form-group" id="level0Div">
                 <label for="level0" class="col-lg-4">主导词:</label>
                 <div class="col-lg-8">
                     <input type="text" class="form-control" id="level0" name="level0"
                            ng-model="queryDiseaseThree.level0"/>
                 </div>
             </div>
-            <div class="form-group">
+             <div class="form-group" id="level1Div">
                 <label for="level1" class="col-lg-4 right">第一级:</label>
                 <div class="col-lg-8">
                     <input   type="text" class="form-control" id="level1" name="level1"
                            ng-model="queryDiseaseThree.level1"/>
                 </div>
             </div>
-            <div class="form-group">
+             <div class="form-group" id="level2Div" style="display: none">
                 <label for="level2" class="col-lg-4">第二级:</label>
                 <div class="col-lg-8">
                     <input type="text" class="form-control" id="level2" name="level2"
                            ng-model="queryDiseaseThree.level2"/>
                 </div>
             </div>
-            <div class="form-group">
+             <div class="form-group" id="level3Div" style="display: none">
                 <label for="level3" class="col-lg-4 right">第三级:</label>
                 <div class="col-lg-8">
                     <input  type="text" class="form-control" id="level3" name="level3"
                            ng-model="queryDiseaseThree.level3"/>
                 </div>
             </div>
-            <div class="form-group">
+            <div class="form-group" id="level4Div" style="display: none">
                 <label for="level4" class="col-lg-4 right">第四级:</label>
                 <div class="col-lg-8">
                     <input  type="text" class="form-control" id="level4" name="level4"
                            ng-model="queryDiseaseThree.level4"/>
                 </div>
             </div>
-            <div class="form-group">
+             <div class="form-group" id="level5Div" style="display: none">
                 <label for="level5" class="col-lg-4 right">第五级:</label>
                 <div class="col-lg-8">
                     <input  type="text" class="form-control" id="level5" name="level5"
                            ng-model="queryDiseaseThree.level5"/>
                 </div>
             </div>
-            <div class="form-group">
+             <div class="form-group" id="level6Div" style="display: none">
                 <label for="level6" class="col-lg-4 right">第六级:</label>
                 <div class="col-lg-8">
                     <input  type="text" class="form-control" id="level6" name="level6"
@@ -72,55 +72,55 @@
             <div  style="border: 1px; max-height: 600px; width: 100%; overflow: scroll">
                 <table class="table table-hover table-bordered">
                     <tr>
-                        <td>操作:</td>
-                        <td><a class="btn btn-primary"   role="button" >进入编辑</a>
-                        <a class="btn btn-primary" href="#" role="button">编辑别名</a>
+                        <td class="col-lg-2">操作:</td>
+                        <td><a class="btn btn-primary" ng-click="editThreeClick(queryDiseaseThree.icdDiseaseIndex)"   role="button" >进入编辑</a>
+                        <a class="btn btn-primary"  ng-click="editThreeAliasClick(queryDiseaseThree.icdDiseaseIndex)" role="button">编辑别名</a>
                         <a class="btn btn-primary" href="#" role="button">编辑见与另见情况</a>
                         </td>
                     </tr>
                     <tr>
-                        <td>名称:</td>
+                        <td class="col-lg-2">名称:</td>
                         <td>{{queryDiseaseThree.icdDiseaseIndex.nameCh}}</td>
                     </tr>
                     <tr>
-                        <td>ID:</td>
+                        <td class="col-lg-2">ID:</td>
                         <td>{{queryDiseaseThree.icdDiseaseIndex.id}}</td>    
                     </tr>
                      
                     <tr>
-                        <td>注释:</td>
+                        <td class="col-lg-2">注释:</td>
                         <td>{{queryDiseaseThree.icdDiseaseIndex.noteCh}}</td>
                     </tr>
                     <tr>
-                        <td>查找路径:</td>
+                        <td class="col-lg-2">查找路径:</td>
                         <td>{{queryDiseaseThree.icdDiseaseIndex.pathStr}}</td>
                     </tr>
                     <tr>
-                        <td>ICD编码:</td>
+                        <td class="col-lg-2">ICD编码:</td>
                         <td>{{queryDiseaseThree.icdDiseaseIndex.icdCode}}</td>
                     </tr>
                     <tr>
-                        <td>星号编码:</td>
+                        <td class="col-lg-2">星号编码:</td>
                         <td>{{queryDiseaseThree.icdDiseaseIndex.starCode}}</td>
                     </tr>
                     <tr>
-                        <td>M编码:</td>
+                        <td class="col-lg-2">M编码:</td>
                         <td>{{queryDiseaseThree.icdDiseaseIndex.mcode}}</td>
                     </tr>
                     <tr>
-                        <td>见:</td>
+                        <td class="col-lg-2">见:</td>
                         <td>{{queryDiseaseThree.icdDiseaseIndex.referID}}</td>
                     </tr>
                     <tr>
-                        <td>另见:</td>
+                        <td class="col-lg-2">另见:</td>
                         <td>{{queryDiseaseThree.icdDiseaseIndex.referAlsoID}}</td>
                     </tr>
                     <tr>
-                        <td>见情况:</td>
+                        <td class="col-lg-2">见情况:</td>
                         <td>{{queryDiseaseThree.icdDiseaseIndex.seeCondition}}</td>
                     </tr>
                     <tr>
-                        <td>另见情况:</td>
+                        <td class="col-lg-2">另见情况:</td>
                         <td>{{queryDiseaseThree.icdDiseaseIndex.seeAlsoCondition}}</td>
                     </tr>
                    <!-- <tr ng-repeat="diagItem in diagItemsFromHis" ng-class="{success: $index == selectDiagIndex}"
@@ -164,6 +164,7 @@
                    data-node-id="id"
                    data-node-label="nameCh"
                    data-node-code ="icdCode"
+                   data-node-starCode ="starCode"
                    data-node-children="children"
                    
                    > 

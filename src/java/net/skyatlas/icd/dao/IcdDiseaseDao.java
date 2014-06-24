@@ -100,8 +100,36 @@ public interface IcdDiseaseDao {
     */
     List<String>    getAliasesByIndexid(Integer indexid);
     /**
+     * 新增别名
+     * @param indexid
+     * @param alias
+     * @return 
+     */
+    public int addAliasesByIndexid(Integer indexid,String alias);
+    /**
+     * 删除别名
+     * @param id 
+     */
+    public void deleteAliasesByID(Integer id);
+    /**
+     * 删除别名，根据name
+     * @param alias 
+     */
+    public void deleteAliasesByAlias(String alias);
+    /**
+     * 更新别名
+     * @param id 
+     */
+    public void updateAliasesByID(Integer id);
+    /**
      * update
      * @param dis 
      */
     public void editDisease(IcdDisease dis);
+    
+    /**
+     * update
+     * @param disIndex 
+     */
+    public void editDiseaseIndex(IcdDiseaseIndex disIndex);
 }

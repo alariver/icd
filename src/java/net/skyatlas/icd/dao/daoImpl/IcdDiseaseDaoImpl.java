@@ -21,6 +21,8 @@ import net.skyatlas.icd.domain.IcdDiseaseRelation;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 
+
+
 /**
  *
  * @author changzhenghe
@@ -127,7 +129,25 @@ return this.jdbcTemplate.query("select * from tblicd_dis", new IcdDisRowMapper()
 
     @Override
     public List<String> getAliasesByIndexid(Integer indexid) {
-        return this.jdbcTemplate.queryForList("select name from tblaliases where index_id =?", new Object[]{indexid}, String.class);
+        return this.jdbcTemplate.queryForList("select name from tblalias where index_id =?", new Object[]{indexid}, String.class);
+    }
+    @Override
+    public int addAliasesByIndexid(Integer indexid,String alias){
+        return this.jdbcTemplate.update("INSERT INTO tblalias(name,index_id) VALUES(?,?)", new Object[]{alias,indexid});
+    }
+     @Override
+    public void deleteAliasesByID(Integer id) {
+          this.jdbcTemplate.
+    }
+
+    @Override
+    public void deleteAliasesByAlias(String alias) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void updateAliasesByID(Integer id) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     @Override
     public void editDisease(IcdDisease dis){
@@ -150,9 +170,36 @@ return this.jdbcTemplate.query("select * from tblicd_dis", new IcdDisRowMapper()
                    ,dis.getId()});
             
     }
+
+    @Override
+    public void editDiseaseIndex(IcdDiseaseIndex disIndex) {
+            this.jdbcTemplate.update("UPDATE tblindex_dis SET name_ch=?,name_en=?,"
+                    + "page=?,star_code=?,"
+                    + "icd_code=?,see_condition=?,"
+                    + "see_also_condition=?,m_code=?,"
+                    + "note_ch=?,note_en=?,"
+                    + "parent_id=?,depth=?,"
+                    + "abbreviation_ch=?,abbreviation_en=?,"
+                    + "py=?,full_name=?,"
+                    + "class=?,star_code_id=?,"
+                    + "icd_code_id=?,tumer=?,"
+                    + "type=?,path=? "
+                    + " where id=?", new Object[]{disIndex.getNameCh(),disIndex.getNameEn(),
+                    disIndex.getPage(),disIndex.getStarCode(),
+                    disIndex.getIcdCode(),disIndex.isSeeCondition(),
+                    disIndex.isSeeAlsoCondition(),disIndex.getMcode(),
+                    disIndex.getNoteCh(),disIndex.getNoteEn(),
+                    disIndex.getParentID(),disIndex.getDepth(),
+                    disIndex.getAbbreviationCh(),disIndex.getAbbreviationEn(),
+                    disIndex.getPy(),disIndex.getFullName(),
+                    disIndex.getAlphaClass(),disIndex.getStarCodeID(),
+                    disIndex.getIcdCodeID(),disIndex.isTumer(),
+                    disIndex.getIndexType(),disIndex.getPathStr(),
+                    disIndex.getId()});
+    }
+
+   
 }
-
-
 class IcdDisRowMapper implements RowMapper {
 
     public IcdDisRowMapper() {

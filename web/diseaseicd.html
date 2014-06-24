@@ -208,4 +208,141 @@
 
 
     </script>
+    <script type="text/ng-template" id="diseaseThree_edit.html">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="model-header">
+                    <ol class="breadcrumb">
+                        <li><a href="#">疾病编码索引</a></li>
+                        <li class="active">编辑页面</li>
+
+                    </ol>
+                </div>
+                <div class=model-body>
+                    <div class="body-content">
+                    <!-- Example row of columns -->
+                       <form role="form" class="form-horizontal">
+                            <div class="form-group">
+                                <label for="nameCh" class="col-lg-2">名称:</label>
+                                <div class="col-lg-6">
+                                    <input type="text" class="form-control" id="nameCh" name="nameCh"
+                                           ng-model="currentDisease.nameCh"/>
+                                </div>
+                            </div>
+                           <div class="form-group">
+                                <label for="icdCode" class="col-lg-2">ICD编码:</label>
+                                <div class="col-lg-6">
+                                    <input type="text" class="form-control" id="icdCode" name="icdCode"
+                                           ng-model="currentDisease.icdCode"/>
+                                </div>
+                            </div>
+                           <div class="form-group">
+                                <label for="starCode" class="col-lg-2">星号编码:</label>
+                                <div class="col-lg-6">
+                                    <input type="text" class="form-control" id="starCode" name="starCode"
+                                           ng-model="currentDisease.starCode"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="mcode" class="col-lg-2">M编码:</label>
+                                <div class="col-lg-6">
+                                    <input type="text" class="form-control" id="mcode" name="mcode"
+                                           ng-model="currentDisease.mcode"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="py" class="col-lg-2">拼音:</label>
+                                <div class="col-lg-6">
+                                    <input type="text" class="form-control" id="py" name="py"
+                                           ng-model="currentDisease.py"/>
+                                </div>
+                            </div>
+                           <div class="form-group">
+                                <label for="page" class="col-lg-2">页码:</label>
+                                <div class="col-lg-6">
+                                    <input type="text" class="form-control" id="page" name="page"
+                                           ng-model="currentDisease.page"/>
+                                </div>
+                            </div>
+                           
+                           <div class="form-group">
+                                <label for="noteCh" class="col-lg-2">注释:</label>
+                                <div class="col-lg-9">
+                                    <textarea class="form-control" rows="5" ng-model="currentDisease.noteCh">{{currentDisease.noteCh}}</textarea>
+                                </div>
+                            </div>
+                       </form>
+                        <hr/> 
+                </div>
+                </div>
+
+                <div class="model-footer">
+                    <button class="btn btn-success" ng-click="save(currentDisease)" >确认</button>
+                    <button class="btn btn-warning" ng-click="cancel()">取消</button>
+                </div>
+            </div>
+        </div>
+    </script>
+    <script type="text/ng-template" id="diseaseThree_alias_edit.html">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="model-header">
+                    <ol class="breadcrumb">
+                        <li><a href="#">疾病编码索引</a></li>
+                        <li class="active">编辑别名</li>
+
+                    </ol>
+                </div>
+                <div class=model-body>
+                    <div class="body-content">
+                    <!-- Example row of columns -->
+                        <form role="form" class="form-horizontal">
+                            <div class="input-append">
+                                <input class="col-lg-6" ng-model="currentDiseaseIndex.id" id="appendedInputButton" type="text">
+                                <button class="btn" type="button">Go!</button>
+                            </div>
+                            <hr/> 
+                            <div class="form-group">
+                                <label for="py" class="col-lg-2">索引ID:</label>
+                                <div class="col-lg-10">
+                                      {{currentDiseaseIndex.id}}
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="py" class="col-lg-2">名称:</label>
+                                <div class="col-lg-10">
+                                        {{currentDiseaseIndex.nameCh}}
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="py" class="col-lg-2">路径:</label>
+                                <div class="col-lg-10">
+                                        {{currentDiseaseIndex.pathStr}}
+                                </div>
+                            </div>
+                            <table class="table table-bordered">
+                                <tr>
+                                    <td>别名</td>
+                                    <td>操作</td>
+                                </tr>
+                                <tr ng-repeat="alias in currentDiseaseIndex.aliases">
+                                    <td>
+                                        {{alias}}
+                                    </td>
+                                    <td>
+                                        <a >删除</a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </form>
+                     </div>
+                </div>
+
+                <div class="model-footer">
+                    <button class="btn btn-success" ng-click="save(currentDiseaseIndex)" >确认</button>
+                    <button class="btn btn-warning" ng-click="cancel()">取消</button>
+                </div>
+            </div>
+        </div>
+    </script>
 </div>

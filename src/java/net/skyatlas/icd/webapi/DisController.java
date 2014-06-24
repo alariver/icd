@@ -46,8 +46,16 @@ public class DisController {
         try{
             //第一步 ，判断name是拼音还是文字
             
-            
-          list = grid.getVol3NameIndexedItems().get(name);
+           Pattern pat = Pattern.compile("^[A-Za-z]+$");  
+           Matcher mat = pat.matcher(name);  
+
+           //如果是拼音
+          if(mat.find()){
+              list=  grid.getVol3PinYinIndexedItems().get(name);
+          }else{
+              list =  grid.getVol3NameIndexedItems().get(name);
+          } 
+         //list = grid.getVol3NameIndexedItems().get(name);
           for(int i = 0 ; i < list.size() ; i++){
               IcdDiseaseIndex e = list.get(i);
               if(e.getDepth()==0){
@@ -66,22 +74,37 @@ public class DisController {
     }
     @RequestMapping(value = "/diseaseThree/search1Dis", method = RequestMethod.GET)
     @ResponseBody
-    public  String  search1Dis(@RequestParam("name") String name) {
+    public  String  search1Dis(@RequestParam("name") String name,@RequestParam("depth")Integer depth) {
         GeneralJsonModel gjm = new GeneralJsonModel();
         gjm.setRetCode(0);
+        List<IcdDiseaseIndex> idiList = new ArrayList();
         try{
+            List<IcdDiseaseIndex> list= new ArrayList();
             //第一步，判断是否为拼音
-            grid.getVol3NameIndexedItems().get(name);
-         /*   Pattern pat = Pattern.compile("/\\D/");  
+            
+            Pattern pat = Pattern.compile("^[A-Za-z]+$");  
             Matcher mat = pat.matcher(name);  
             
-            mat.find();*/
+            //如果是拼音
+            if(mat.find()){
+                list=  grid.getVol3PinYinIndexedItems().get(name);
+            }else{
+                list =  grid.getVol3NameIndexedItems().get(name);
+            }
+            //根据depth取出相应 的值
+            for(int i = 0 ; i < list.size() ; i++){
+              IcdDiseaseIndex e = list.get(i);
+              if(e.getDepth()==depth){
+                  idiList.add(e);
+              }
+           }
+            
         }catch(Exception e){
             gjm.setRetCode(ReturnInfo.UNKNOWNERROR);
             gjm.setRetInfo(e.toString());
             e.printStackTrace();
         }
-        gjm.setData(dis);
+        gjm.setData(idiList);
         gjm.setRetInfo("疾病编码查询成功...");
         return gjm.toJSONStr();
        
@@ -216,6 +239,109 @@ public class DisController {
                 idi.setRelationType(dr.getRelationType());
             gjm.setData(dr);
             gjm.setRetInfo("保存成功");
+        }catch(Exception e){
+            gjm.setRetCode(ReturnInfo.UNKNOWNERROR);
+            gjm.setRetInfo(e.toString());
+            e.printStackTrace();
+        }
+        return gjm.toJSONStr();
+    }
+    @RequestMapping(value="/diseaseThree/edit",method=RequestMethod.POST)
+    @ResponseBody
+    public String editDiseaseThree(IcdDiseaseIndex disIndex){
+        GeneralJsonModel gjm = new GeneralJsonModel();
+        gjm.setRetCode(0);
+        try{
+            if(disIndex.getId()==null||disIndex.getId()==0){
+            return null;
+            }
+            if(disIndex.getAbbreviationCh()==""){
+                disIndex.setAbbreviationCh(null);
+            }else if(disIndex.getAbbreviationEn()==""){
+                disIndex.setAbbreviationEn(null);
+            }else if(disIndex.getAlphaClass()==""){
+                disIndex.setAlphaClass(null);
+            }else if(disIndex.getFullName()==""){
+                disIndex.setFullName(null);
+            }else if(disIndex.getIcdCode()==""){
+                disIndex.setIcdCode(null);
+            }else if(disIndex.getMcode()==""){
+                disIndex.setMcode(null);
+            }else if(disIndex.getNameCh()==""){
+                disIndex.setNameCh(null);
+            }else if(disIndex.getNameEn()==""){
+                disIndex.setNameEn(null);
+            }else if(disIndex.getNoteCh()==""){
+                disIndex.setNoteCh(null);
+            }else if(disIndex.getNoteEn()==""){
+                disIndex.setNoteEn(null);
+            }else if(disIndex.getParentID()==0){
+                disIndex.setParentID(null);
+            }else if(disIndex.getPathStr()==""){
+                disIndex.setPathStr(null);
+            } 
+            grid.getDao().editDiseaseIndex(disIndex);
+            IcdDiseaseIndex idi = grid.getVol3IDIndexedItems().get(disIndex.getId());
+            idi.setNameCh(disIndex.getNameCh());
+            idi.setIcdCode(disIndex.getIcdCode());
+            idi.setIcdCodeID(disIndex.getIcdCodeID());
+            idi.setStarCode(disIndex.getStarCode());
+            idi.setStarCodeID(disIndex.getStarCodeID());
+            idi.setMcode(disIndex.getMcode());
+            idi.setPy(disIndex.getPy());
+            idi.setPage(disIndex.getPage());
+            idi.setNoteCh(disIndex.getNoteCh());
+            
+            gjm.setData(disIndex);
+            gjm.setRetInfo("保存成功");
+        }catch(Exception e){
+            gjm.setRetCode(ReturnInfo.UNKNOWNERROR);
+            gjm.setRetInfo(e.toString());
+            e.printStackTrace();
+        }
+        return gjm.toJSONStr();
+    }
+    /**
+     * 查询别名
+     * @param indexID
+     * @return 
+     */
+    @RequestMapping(value = "/diseaseThree/aliases", method = RequestMethod.GET)
+    @ResponseBody
+    public String findAliases(@RequestParam("indexID") Integer indexID){
+        GeneralJsonModel gjm = new GeneralJsonModel();
+        gjm.setRetCode(0);
+        try{
+            List<String> aliases = grid.getDao().getAliasesByIndexid(indexID);
+            String[] toArray = new String[aliases.size()];
+            aliases.toArray(toArray);
+            IcdDiseaseIndex icdDiseaseIndex = grid.getVol3IDIndexedItems().get(indexID);
+            icdDiseaseIndex.setAliases(toArray);
+            
+            gjm.setData(icdDiseaseIndex);
+            gjm.setRetInfo("别名查询成功");
+        }catch(Exception e){
+            gjm.setRetCode(ReturnInfo.UNKNOWNERROR);
+            gjm.setRetInfo(e.toString());
+            e.printStackTrace();
+        }
+        return gjm.toJSONStr();
+    }
+    /**
+     * 删除别名
+     * @param indexID
+     * @param alias
+     * @return 
+     */
+    @RequestMapping(value = "/diseaseThree/aliases/delete", method = RequestMethod.GET)
+    @ResponseBody
+    public String deleteAliases(@RequestParam("indexID") Integer indexID,@RequestParam("alias")String alias){
+        GeneralJsonModel gjm = new GeneralJsonModel();
+        gjm.setRetCode(0);
+        try{
+            
+            gjm.setData(icdDiseaseIndex);
+            gjm.setRetInfo("别名查询成功");
         }catch(Exception e){
             gjm.setRetCode(ReturnInfo.UNKNOWNERROR);
             gjm.setRetInfo(e.toString());

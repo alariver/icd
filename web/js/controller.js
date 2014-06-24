@@ -7674,6 +7674,66 @@ icdModule.controller('DiseaseicdController',['$scope','$state','$modal','disUtil
             console.log(' modal cancel.');
         });*/
     };
+    //进入编辑--卷三
+    $scope.editThreeClick = function(dis){
+        var modalInstance = $modal.open({
+            templateUrl: 'diseaseThree_edit.html',
+            controller: function($scope,$modalInstance,currentDisease){
+                $scope.ok=function(){
+                    $modalInstance.close();
+                };
+                $scope.cancel = function(){
+                    $modalInstance.dismiss('cancel');
+                };
+                $scope.currentDisease=currentDisease;
+                //next 编辑--》保存
+                $scope.save = function(icdDiseaseIndex){
+                    var child_save =   icdDiseaseIndex.children;
+                    var  parent_save = icdDiseaseIndex.parentDiseaseIndex;
+                    icdDiseaseIndex.children= null;
+                    icdDiseaseIndex.parentDiseaseIndex=null;
+                    disUtil.editDiseaseThree(icdDiseaseIndex).success(function(data){
+                        //alert(data['data'].codeNameCh);
+                        icdDiseaseIndex.children = child_save;
+                        icdDiseaseIndex.parentDiseaseIndex=parent_save;
+                        $modalInstance.close();
+                    });
+                };
+            },
+            resolve: {
+                currentDisease: function() {
+                    return  dis;
+                }
+            } 
+        });
+    };
+    //卷三-编辑别名
+    $scope.editThreeAliasClick = function(dis){
+        var modalInstance = $modal.open({
+            templateUrl: 'diseaseThree_alias_edit.html',
+            controller: function($scope,$modalInstance,currentDiseaseIndex){
+                $scope.ok=function(){
+                    $modalInstance.close();
+                };
+                $scope.cancel = function(){
+                    $modalInstance.dismiss('cancel');
+                };
+               // $scope.currentDiseaseIndex=currentDiseaseIndex;
+                disUtil.findAliases(currentDiseaseIndex.id).success(function(data){
+                    $scope.currentDiseaseIndex = data['data'];
+                });
+                //next 编辑--》保存
+                $scope.save = function(icdDiseaseIndex){
+                  
+                };
+            },
+            resolve: {
+                currentDiseaseIndex: function() {
+                    return  dis;
+                }
+            } 
+        });
+    };
      
 }]);
 icdModule.controller('DiseaseicdThreeCtrl',['$scope','disUtil','icdService' ,function($scope,disUtil,icdService){
@@ -7682,42 +7742,91 @@ icdModule.controller('DiseaseicdThreeCtrl',['$scope','disUtil','icdService' ,fun
     $scope.queryDisease = function(queryDiseaseThree){
         $scope.autoCodePaths ={};
         disUtil.search0Dis(queryDiseaseThree.level0).success(function(data){
-            //赋值
-            //$scope.queryDiseaseThree.icdDiseaseIndex = data['data'];
-            //得到树
-           // icdService.autoCode(queryDiseaseThree.level0).success(function(data1) {
-//            console.dir(data);
-
                 $scope.autoCodePaths = data['data'];
-               // var icdDiseaseIndex = data['data'];
-               
-                /*
-            _.each($scope.autoCodePaths, function(disIndex){
-                  for(var idx=disIndex.children.length-1;idx>=0;idx--){
-                      if(disIndex.children[idx-1]){
-                          disIndex.children[idx-1]['icdDiseaseIndex']=disIndex.children[idx-1];
-                           disIndex.children[idx-1]['children'] = disIndex.children[idx-1]['children']||[];
-                          disIndex.children.pop();
-                      }
-                  } */
-                  /*
-                    for (var idx=path.nodes-1 ; idx>=0; idx--) {
-                        if (path.nodeList[idx-1]) {
-                            path.nodeList[idx-1]['children'] = path.nodeList[idx-1]['children'] || [];
-                           // path.nodeList[idx-1]['children'].push(path.nodeList[idx]);
-                            path.nodeList.pop();
-                        }
-
-                    }
-                });*/
-//            console.dir($scope.autoCodePaths);
-           /* }).error(function() {
-                    $.growl('自动为诊断进行ICD-10编码失败。');
-                })   ;
-            */
         });
     };
-    
+    $scope.setLevel = function(nodeVal){
+       
+      if(nodeVal.depth ==1){
+          $scope.queryDiseaseThree.level1=nodeVal.pathStr.substring(nodeVal.pathStr.indexOf('-')+1,nodeVal.pathStr.length);
+          $scope.queryDiseaseThree.level2="";
+          $scope.queryDiseaseThree.level3="";
+          $scope.queryDiseaseThree.level4="";
+          $scope.queryDiseaseThree.level5="";
+          $scope.queryDiseaseThree.level6="";
+          $('#level1Div').show();
+          $('#level2Div').show();
+          $('#level3Div').hide();
+          $('#level4Div').hide();
+          $('#level5Div').hide();
+          $('#level6Div').hide();
+      }else if(nodeVal.depth==2){
+          $scope.queryDiseaseThree.level1=nodeVal.pathStr.substring(nodeVal.pathStr.indexOf('-')+1,nodeVal.pathStr.indexOf('--'));
+          $scope.queryDiseaseThree.level2=nodeVal.pathStr.substring(nodeVal.pathStr.indexOf('--')+2,nodeVal.pathStr.length);
+          $scope.queryDiseaseThree.level3="";
+          $scope.queryDiseaseThree.level4="";
+          $scope.queryDiseaseThree.level5="";
+          $scope.queryDiseaseThree.level6="";
+          $('#level1Div').show();
+          $('#level2Div').show();
+          $('#level3Div').show();
+          $('#level4Div').hide();
+          $('#level5Div').hide();
+          $('#level6Div').hide();
+      }else if(nodeVal.depth==3){
+          $scope.queryDiseaseThree.level1=nodeVal.pathStr.substring(nodeVal.pathStr.indexOf('-')+1,nodeVal.pathStr.indexOf('--'));
+          $scope.queryDiseaseThree.level2=nodeVal.pathStr.substring(nodeVal.pathStr.indexOf('--')+2,nodeVal.pathStr.indexOf('---'));
+          $scope.queryDiseaseThree.level3=nodeVal.pathStr.substring(nodeVal.pathStr.indexOf('---')+3,nodeVal.pathStr.length);
+          $scope.queryDiseaseThree.level4="";
+          $scope.queryDiseaseThree.level5="";
+          $scope.queryDiseaseThree.level6="";
+          $('#level1Div').show();
+          $('#level2Div').show();
+          $('#level3Div').show();
+          $('#level4Div').show();
+          $('#level5Div').hide();
+          $('#level6Div').hide();
+      }else if(nodeVal.depth==4){
+          $scope.queryDiseaseThree.level1=nodeVal.pathStr.substring(nodeVal.pathStr.indexOf('-')+1,nodeVal.pathStr.indexOf('--'));
+          $scope.queryDiseaseThree.level2=nodeVal.pathStr.substring(nodeVal.pathStr.indexOf('--')+2,nodeVal.pathStr.indexOf('---'));
+          $scope.queryDiseaseThree.level3=nodeVal.pathStr.substring(nodeVal.pathStr.indexOf('---')+3,nodeVal.pathStr.indexOf('----'));
+          $scope.queryDiseaseThree.level4=nodeVal.pathStr.substring(nodeVal.pathStr.indexOf('----')+4,nodeVal.pathStr.length);
+          $scope.queryDiseaseThree.level5="";
+          $scope.queryDiseaseThree.level6="";
+          $('#level1Div').show();
+          $('#level2Div').show();
+          $('#level3Div').show();
+          $('#level4Div').show();
+          $('#level5Div').show();
+          $('#level6Div').hide();
+      }else if(nodeVal.depth==5){
+          $scope.queryDiseaseThree.level1=nodeVal.pathStr.substring(nodeVal.pathStr.indexOf('-')+1,nodeVal.pathStr.indexOf('--'));
+          $scope.queryDiseaseThree.level2=nodeVal.pathStr.substring(nodeVal.pathStr.indexOf('--')+2,nodeVal.pathStr.indexOf('---'));
+          $scope.queryDiseaseThree.level3=nodeVal.pathStr.substring(nodeVal.pathStr.indexOf('---')+3,nodeVal.pathStr.indexOf('----'));
+          $scope.queryDiseaseThree.level4=nodeVal.pathStr.substring(nodeVal.pathStr.indexOf('----')+4,nodeVal.pathStr.indexOf('-----'));
+          $scope.queryDiseaseThree.level5=nodeVal.pathStr.substring(nodeVal.pathStr.indexOf('-----')+5,nodeVal.pathStr.length);
+          $scope.queryDiseaseThree.level6="";
+          $('#level1Div').show();
+          $('#level2Div').show();
+          $('#level3Div').show();
+          $('#level4Div').show();
+          $('#level5Div').show();
+          $('#level6Div').show();
+      }else if(nodeVal.depth==6){
+          $scope.queryDiseaseThree.level1=nodeVal.pathStr.substring(nodeVal.pathStr.indexOf('-')+1,nodeVal.pathStr.indexOf('--'));
+          $scope.queryDiseaseThree.level2=nodeVal.pathStr.substring(nodeVal.pathStr.indexOf('--')+2,nodeVal.pathStr.indexOf('---'));
+          $scope.queryDiseaseThree.level3=nodeVal.pathStr.substring(nodeVal.pathStr.indexOf('---')+3,nodeVal.pathStr.indexOf('----'));
+          $scope.queryDiseaseThree.level4=nodeVal.pathStr.substring(nodeVal.pathStr.indexOf('----')+4,nodeVal.pathStr.indexOf('-----'));
+          $scope.queryDiseaseThree.level5=nodeVal.pathStr.substring(nodeVal.pathStr.indexOf('-----')+5,nodeVal.pathStr.indexOf('------'));
+          $scope.queryDiseaseThree.level6=nodeVal.pathStr.substring(nodeVal.pathStr.indexOf('------')+6,nodeVal.pathStr.length);
+          $('#level1Div').show();
+          $('#level2Div').show();
+          $('#level3Div').show();
+          $('#level4Div').show();
+          $('#level5Div').show();
+          $('#level6Div').show();
+      }
+    };
     
 }]);
 icdModule.controller('DiseaseicdOneCtrl',['$scope','disUtil','$modal','icdService' ,function($scope,disUtil,$modal,icdService){

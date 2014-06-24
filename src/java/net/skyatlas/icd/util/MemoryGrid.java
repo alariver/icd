@@ -477,7 +477,13 @@ public class MemoryGrid {
 
             // 判断是否需要处理别名
             if (this.dealAlias) {
-                e.setAliases((String[]) dao.getAliasesByIndexid(e.getId()).toArray());
+                    List<String> slist  = new ArrayList();
+                    slist = dao.getAliasesByIndexid(e.getId());
+                    if(slist.size()!=0){
+                        String[] aliases = new String[slist.size()];
+                        slist.toArray(aliases);
+                        e.setAliases(aliases);
+                    }
             }
 
             if (e.getDepth() == 0) {        // Vol3 Item 主导词
