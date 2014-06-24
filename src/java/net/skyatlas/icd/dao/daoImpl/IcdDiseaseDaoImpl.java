@@ -141,7 +141,7 @@ return this.jdbcTemplate.query("select * from tblicd_dis", new IcdDisRowMapper()
     }
     @Override
     public void deleteAliasesByIndexidAndName(Integer indexid, String name) {
-        this.jdbcTemplate.update("delete from tblalias where indexid=? and name = ?", new Object[]{indexid,name});
+        this.jdbcTemplate.update("delete from tblalias where index_id=? and name = ?", new Object[]{indexid,name});
     }
     @Override
     public void updateAliasesByID(Integer id,String alias) {

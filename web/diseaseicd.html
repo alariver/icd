@@ -297,10 +297,7 @@
                     <div class="body-content">
                     <!-- Example row of columns -->
                         <form role="form" class="form-horizontal">
-                            <div class="input-append">
-                                <input class="col-lg-6" ng-model="currentDiseaseIndex.id" id="appendedInputButton" type="text">
-                                <button class="btn" type="button">Go!</button>
-                            </div>
+                            
                             <hr/> 
                             <div class="form-group">
                                 <label for="py" class="col-lg-2">索引ID:</label>
@@ -330,7 +327,7 @@
                                         {{alias}}
                                     </td>
                                     <td>
-                                        <a >删除</a>
+                                        <a  ng-click="delete(currentDiseaseIndex.id,alias)">删除</a>
                                     </td>
                                 </tr>
                             </table>
@@ -339,7 +336,7 @@
                 </div>
 
                 <div class="model-footer">
-                    <button class="btn btn-success" ng-click="save(currentDiseaseIndex)" >确认</button>
+                    <button class="btn btn-success" ng-click="save(currentDiseaseIndex)" >新增</button>
                     <button class="btn btn-warning" ng-click="cancel()">取消</button>
                 </div>
             </div>

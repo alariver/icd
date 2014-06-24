@@ -346,7 +346,7 @@ public class DisController {
             IcdDiseaseIndex icdDiseaseIndex = grid.getVol3IDIndexedItems().get(indexID);
             icdDiseaseIndex.setAliases(toArray);
             gjm.setData(icdDiseaseIndex);
-            gjm.setRetInfo("别名查询成功");
+            gjm.setRetInfo("删除操作成功");
         }catch(Exception e){
             gjm.setRetCode(ReturnInfo.UNKNOWNERROR);
             gjm.setRetInfo(e.toString());
