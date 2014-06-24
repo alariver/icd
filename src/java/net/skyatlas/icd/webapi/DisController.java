@@ -339,7 +339,12 @@ public class DisController {
         GeneralJsonModel gjm = new GeneralJsonModel();
         gjm.setRetCode(0);
         try{
-            
+            grid.getDao().deleteAliasesByIndexidAndName(indexID, alias);
+            List<String> aliases = grid.getDao().getAliasesByIndexid(indexID);
+            String[] toArray = new String[aliases.size()];
+            aliases.toArray(toArray);
+            IcdDiseaseIndex icdDiseaseIndex = grid.getVol3IDIndexedItems().get(indexID);
+            icdDiseaseIndex.setAliases(toArray);
             gjm.setData(icdDiseaseIndex);
             gjm.setRetInfo("别名查询成功");
         }catch(Exception e){

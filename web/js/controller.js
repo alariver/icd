@@ -7726,6 +7726,11 @@ icdModule.controller('DiseaseicdController',['$scope','$state','$modal','disUtil
                 $scope.save = function(icdDiseaseIndex){
                   
                 };
+                $scope.delete = function(id,name){
+                    disUtil.deleteAliases(id,name).success(function(data){
+                        $scope.currentDiseaseIndex = data['data'];
+                    });
+                };
             },
             resolve: {
                 currentDiseaseIndex: function() {

@@ -99,6 +99,7 @@ public interface IcdDiseaseDao {
         根据ID值， 获取Vol3 Item 的 aliases
     */
     List<String>    getAliasesByIndexid(Integer indexid);
+     
     /**
      * 新增别名
      * @param indexid
@@ -112,15 +113,16 @@ public interface IcdDiseaseDao {
      */
     public void deleteAliasesByID(Integer id);
     /**
-     * 删除别名，根据name
-     * @param alias 
+     * 删除别名 根据 
+     * @param indexid
+     * @param name 
      */
-    public void deleteAliasesByAlias(String alias);
+    public void deleteAliasesByIndexidAndName(Integer indexid,String name);
     /**
      * 更新别名
      * @param id 
      */
-    public void updateAliasesByID(Integer id);
+    public void updateAliasesByID(Integer id,String alias);
     /**
      * update
      * @param dis 

@@ -137,17 +137,15 @@ return this.jdbcTemplate.query("select * from tblicd_dis", new IcdDisRowMapper()
     }
      @Override
     public void deleteAliasesByID(Integer id) {
-          this.jdbcTemplate.
+          this.jdbcTemplate.update("delete from tblalias where id = ?", new Object[]{id});
     }
-
     @Override
-    public void deleteAliasesByAlias(String alias) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void deleteAliasesByIndexidAndName(Integer indexid, String name) {
+        this.jdbcTemplate.update("delete from tblalias where indexid=? and name = ?", new Object[]{indexid,name});
     }
-
     @Override
-    public void updateAliasesByID(Integer id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void updateAliasesByID(Integer id,String alias) {
+         this.jdbcTemplate.update("update tblalias set name = ? where id = ?", new Object[]{alias,id});
     }
     @Override
     public void editDisease(IcdDisease dis){
@@ -197,6 +195,8 @@ return this.jdbcTemplate.query("select * from tblicd_dis", new IcdDisRowMapper()
                     disIndex.getIndexType(),disIndex.getPathStr(),
                     disIndex.getId()});
     }
+
+   
 
    
 }
