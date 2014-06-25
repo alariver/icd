@@ -27,6 +27,7 @@ import love.cq.util.IOUtil;
 import net.skyatlas.icd.dao.IcdDiseaseDao;
 import net.skyatlas.icd.dao.IcdDiseaseRelationDao;
 import net.skyatlas.icd.domain.IcdDisease;
+import net.skyatlas.icd.domain.IcdDiseaseIdxRelation;
 import net.skyatlas.icd.domain.IcdDiseaseIndex;
 import net.skyatlas.icd.domain.IcdDiseaseRelation;
 import net.skyatlas.icd.util.parseTree.ParseTreeOperatorEnum;
@@ -74,6 +75,7 @@ public class MemoryGrid {
     private IcdDiseaseRelationDao icdDisRelationDao;
      
     private List<IcdDiseaseIndex> allIndexItems;                  // Vol3 的所有条目
+    private List<IcdDiseaseIdxRelation> allIndexRelations;       //Vol3 关系的 所有条目
     private List<IcdDiseaseIndex> allRootIndexItems;              // 主导词 条目
     private List<IcdDisease> allDiseases;                    // Vol1 所有条目
     private List<IcdDiseaseRelation> allDisRelations;        //Vol1 关系的 所有条目
@@ -143,6 +145,14 @@ public class MemoryGrid {
 
     public void setGuidIndexedSearchPaths(HashMap<String, SearchPath> guidIndexedSearchPaths) {
         this.guidIndexedSearchPaths = guidIndexedSearchPaths;
+    }
+
+    public List<IcdDiseaseIdxRelation> getAllIndexRelations() {
+        return allIndexRelations;
+    }
+
+    public void setAllIndexRelations(List<IcdDiseaseIdxRelation> allIndexRelations) {
+        this.allIndexRelations = allIndexRelations;
     }
 
      
@@ -329,6 +339,7 @@ public class MemoryGrid {
         this.allDiseases = this.dao.getAllDisease();    // 查询所有Vol1 条目
         
         this.allIndexItems = this.dao.getAllDiseaseIndexes();   // 查询所有Vol3 条目
+        this.allIndexRelations = this.dao.getAllIcdDiseaseIdxRelations(); //查询所有Vol3关系 条目
         this.allDisRelations= this.icdDisRelationDao.getAllDiseaseRelation();//查询所有Vol1关系 条目
         // 主导词
         if (this.allRootIndexItems == null) {

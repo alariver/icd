@@ -7712,6 +7712,7 @@ icdModule.controller('DiseaseicdController',['$scope','$state','$modal','disUtil
         var modalInstance = $modal.open({
             templateUrl: 'diseaseThree_alias_edit.html',
             controller: function($scope,$modalInstance,currentDiseaseIndex){
+                
                 $scope.ok=function(){
                     $modalInstance.close();
                 };
@@ -7720,11 +7721,19 @@ icdModule.controller('DiseaseicdController',['$scope','$state','$modal','disUtil
                 };
                // $scope.currentDiseaseIndex=currentDiseaseIndex;
                 disUtil.findAliases(currentDiseaseIndex.id).success(function(data){
+                    $("#aliasGroup").hide();
                     $scope.currentDiseaseIndex = data['data'];
                 });
-                //next 编辑--》保存
-                $scope.save = function(icdDiseaseIndex){
-                  
+                //展现新增
+                $scope.showSave = function(){
+                  $("#aliasGroup").show();  
+                };
+                //编辑--》保存新增
+                $scope.save = function(indexID,name){
+                  disUtil.addAliases(indexID,name).success(function(data){
+                      $scope.currentDiseaseIndex = data['data'];
+                  });
+                  $("#aliasGroup").hide();
                 };
                 $scope.delete = function(id,name){
                     disUtil.deleteAliases(id,name).success(function(data){
@@ -7751,8 +7760,10 @@ icdModule.controller('DiseaseicdThreeCtrl',['$scope','disUtil','icdService' ,fun
         });
     };
     $scope.setLevel = function(nodeVal){
-       
-      if(nodeVal.depth ==1){
+      if(nodeVal.depth==0){
+          $scope.queryDiseaseThree.level0 = nodeVal.pathStr;
+      }else if(nodeVal.depth ==1){
+          $scope.queryDiseaseThree.level0=nodeVal.pathStr.substring(0,nodeVal.pathStr.indexOf('-'));
           $scope.queryDiseaseThree.level1=nodeVal.pathStr.substring(nodeVal.pathStr.indexOf('-')+1,nodeVal.pathStr.length);
           $scope.queryDiseaseThree.level2="";
           $scope.queryDiseaseThree.level3="";
@@ -7766,6 +7777,7 @@ icdModule.controller('DiseaseicdThreeCtrl',['$scope','disUtil','icdService' ,fun
           $('#level5Div').hide();
           $('#level6Div').hide();
       }else if(nodeVal.depth==2){
+          $scope.queryDiseaseThree.level0=nodeVal.pathStr.substring(0,nodeVal.pathStr.indexOf('-'));
           $scope.queryDiseaseThree.level1=nodeVal.pathStr.substring(nodeVal.pathStr.indexOf('-')+1,nodeVal.pathStr.indexOf('--'));
           $scope.queryDiseaseThree.level2=nodeVal.pathStr.substring(nodeVal.pathStr.indexOf('--')+2,nodeVal.pathStr.length);
           $scope.queryDiseaseThree.level3="";
@@ -7779,6 +7791,7 @@ icdModule.controller('DiseaseicdThreeCtrl',['$scope','disUtil','icdService' ,fun
           $('#level5Div').hide();
           $('#level6Div').hide();
       }else if(nodeVal.depth==3){
+          $scope.queryDiseaseThree.level0=nodeVal.pathStr.substring(0,nodeVal.pathStr.indexOf('-'));
           $scope.queryDiseaseThree.level1=nodeVal.pathStr.substring(nodeVal.pathStr.indexOf('-')+1,nodeVal.pathStr.indexOf('--'));
           $scope.queryDiseaseThree.level2=nodeVal.pathStr.substring(nodeVal.pathStr.indexOf('--')+2,nodeVal.pathStr.indexOf('---'));
           $scope.queryDiseaseThree.level3=nodeVal.pathStr.substring(nodeVal.pathStr.indexOf('---')+3,nodeVal.pathStr.length);
@@ -7792,6 +7805,7 @@ icdModule.controller('DiseaseicdThreeCtrl',['$scope','disUtil','icdService' ,fun
           $('#level5Div').hide();
           $('#level6Div').hide();
       }else if(nodeVal.depth==4){
+          $scope.queryDiseaseThree.level0=nodeVal.pathStr.substring(0,nodeVal.pathStr.indexOf('-'));
           $scope.queryDiseaseThree.level1=nodeVal.pathStr.substring(nodeVal.pathStr.indexOf('-')+1,nodeVal.pathStr.indexOf('--'));
           $scope.queryDiseaseThree.level2=nodeVal.pathStr.substring(nodeVal.pathStr.indexOf('--')+2,nodeVal.pathStr.indexOf('---'));
           $scope.queryDiseaseThree.level3=nodeVal.pathStr.substring(nodeVal.pathStr.indexOf('---')+3,nodeVal.pathStr.indexOf('----'));
@@ -7805,6 +7819,7 @@ icdModule.controller('DiseaseicdThreeCtrl',['$scope','disUtil','icdService' ,fun
           $('#level5Div').show();
           $('#level6Div').hide();
       }else if(nodeVal.depth==5){
+          $scope.queryDiseaseThree.level0=nodeVal.pathStr.substring(0,nodeVal.pathStr.indexOf('-'));
           $scope.queryDiseaseThree.level1=nodeVal.pathStr.substring(nodeVal.pathStr.indexOf('-')+1,nodeVal.pathStr.indexOf('--'));
           $scope.queryDiseaseThree.level2=nodeVal.pathStr.substring(nodeVal.pathStr.indexOf('--')+2,nodeVal.pathStr.indexOf('---'));
           $scope.queryDiseaseThree.level3=nodeVal.pathStr.substring(nodeVal.pathStr.indexOf('---')+3,nodeVal.pathStr.indexOf('----'));
@@ -7818,6 +7833,7 @@ icdModule.controller('DiseaseicdThreeCtrl',['$scope','disUtil','icdService' ,fun
           $('#level5Div').show();
           $('#level6Div').show();
       }else if(nodeVal.depth==6){
+          $scope.queryDiseaseThree.level0=nodeVal.pathStr.substring(0,nodeVal.pathStr.indexOf('-'));
           $scope.queryDiseaseThree.level1=nodeVal.pathStr.substring(nodeVal.pathStr.indexOf('-')+1,nodeVal.pathStr.indexOf('--'));
           $scope.queryDiseaseThree.level2=nodeVal.pathStr.substring(nodeVal.pathStr.indexOf('--')+2,nodeVal.pathStr.indexOf('---'));
           $scope.queryDiseaseThree.level3=nodeVal.pathStr.substring(nodeVal.pathStr.indexOf('---')+3,nodeVal.pathStr.indexOf('----'));

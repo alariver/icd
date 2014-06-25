@@ -131,6 +131,12 @@ return this.jdbcTemplate.query("select * from tblicd_dis", new IcdDisRowMapper()
     public List<String> getAliasesByIndexid(Integer indexid) {
         return this.jdbcTemplate.queryForList("select name from tblalias where index_id =?", new Object[]{indexid}, String.class);
     }
+    
+    @Override
+    public List<IcdDiseaseIdxRelation> getAllIcdDiseaseIdxRelations() {
+         return this.jdbcTemplate.query("select * from tblindex_relation_dis", new IcdIdxDiseaseRelationMapper());
+    }
+    
     @Override
     public int addAliasesByIndexid(Integer indexid,String alias){
         return this.jdbcTemplate.update("INSERT INTO tblalias(name,index_id) VALUES(?,?)", new Object[]{alias,indexid});
@@ -195,6 +201,8 @@ return this.jdbcTemplate.query("select * from tblicd_dis", new IcdDisRowMapper()
                     disIndex.getIndexType(),disIndex.getPathStr(),
                     disIndex.getId()});
     }
+
+   
 
    
 

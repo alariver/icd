@@ -354,6 +354,27 @@ public class DisController {
         }
         return gjm.toJSONStr();
     }
+    @RequestMapping(value = "/diseaseThree/aliases/add", method = RequestMethod.GET)
+    @ResponseBody
+    public String addAliases(@RequestParam("indexID") Integer indexID,@RequestParam("alias")String alias){
+        GeneralJsonModel gjm = new GeneralJsonModel();
+        gjm.setRetCode(0);
+        try{
+            grid.getDao().addAliasesByIndexid(indexID, alias);
+            List<String> aliases = grid.getDao().getAliasesByIndexid(indexID);
+            String[] toArray = new String[aliases.size()];
+            aliases.toArray(toArray);
+            IcdDiseaseIndex icdDiseaseIndex = grid.getVol3IDIndexedItems().get(indexID);
+            icdDiseaseIndex.setAliases(toArray);
+            gjm.setData(icdDiseaseIndex);
+            gjm.setRetInfo("新增别名操作成功");
+        }catch(Exception e){
+            gjm.setRetCode(ReturnInfo.UNKNOWNERROR);
+            gjm.setRetInfo(e.toString());
+            e.printStackTrace();
+        }
+        return gjm.toJSONStr();
+    }
     public boolean isMCode(String code) {
         Pattern mask = Pattern.compile("[mM]\\d{4}[/]\\d|[mM]\\d{3}.*");
         Matcher matcher = mask.matcher(code);

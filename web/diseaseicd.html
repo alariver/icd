@@ -297,7 +297,7 @@
                     <div class="body-content">
                     <!-- Example row of columns -->
                         <form role="form" class="form-horizontal">
-                            
+                             
                             <hr/> 
                             <div class="form-group">
                                 <label for="py" class="col-lg-2">索引ID:</label>
@@ -317,29 +317,41 @@
                                         {{currentDiseaseIndex.pathStr}}
                                 </div>
                             </div>
-                            <table class="table table-bordered">
-                                <tr>
-                                    <td>别名</td>
-                                    <td>操作</td>
-                                </tr>
-                                <tr ng-repeat="alias in currentDiseaseIndex.aliases">
-                                    <td>
-                                        {{alias}}
-                                    </td>
-                                    <td>
-                                        <a  ng-click="delete(currentDiseaseIndex.id,alias)">删除</a>
-                                    </td>
-                                </tr>
-                            </table>
+                             
+                                <table class="table table-bordered">
+                                    <tr>
+                                        <td>别名</td>
+                                        <td>操作</td>
+                                    </tr>
+                                    <tr ng-repeat="alias in currentDiseaseIndex.aliases">
+                                        <td>
+                                            {{alias}}
+                                        </td>
+                                        <td>
+                                            <a  ng-click="delete(currentDiseaseIndex.id,alias)">删除</a>
+                                        </td>
+                                    </tr>
+                                </table>
+                             
+                            <div class="form-group" id="aliasGroup">
+                                <div class="input-group col-lg-6">
+                                     <input type="text"  placeholder="请输入别名" class="form-control col-lg-6" id="alias" name="alias"
+                                           ng-model="currentDiseaseIndex.alias"/>
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-success" ng-click="save(currentDiseaseIndex.id,currentDiseaseIndex.alias)" type="button">保存新增</button>
+                                    </span>
+                                </div>
+                             </div>
                         </form>
                      </div>
                 </div>
 
                 <div class="model-footer">
-                    <button class="btn btn-success" ng-click="save(currentDiseaseIndex)" >新增</button>
-                    <button class="btn btn-warning" ng-click="cancel()">取消</button>
+                    <button class="btn btn-success" ng-click="showSave()" >新增别名</button>
+                    <button class="btn btn-warning" ng-click="cancel()">返回</button>
                 </div>
             </div>
         </div>
     </script>
+     
 </div>

@@ -100,6 +100,11 @@ public interface IcdDiseaseDao {
     */
     List<String>    getAliasesByIndexid(Integer indexid);
      
+    
+   List<IcdDiseaseIdxRelation> getAllIcdDiseaseIdxRelations();
+    
+    
+    
     /**
      * 新增别名
      * @param indexid

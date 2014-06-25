@@ -497,6 +497,10 @@ svc.factory('disUtil',['$http',function($http){
         deleteAliases:function(indexID,name){
             var url = baseUrl +'/diseaseThree/aliases/delete';
             return $http.get(url,{params:{'indexID':indexID,'alias':name}});
+        },
+        addAliases:function(indexID,name){
+            var url = baseUrl +'/diseaseThree/aliases/add';
+            return $http.get(url,{params:{'indexID':indexID,'alias':name}});
         }
           
     };
